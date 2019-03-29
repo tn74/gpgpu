@@ -7,7 +7,7 @@
 
 void THNeuron::compute_currents() {
     std::map<std::string, double> p = this->parameters;
-    this->currents["I_L"] = -p.at("g_L") * (voltage[dt_index - 1] - p.at("E_L"));
+    this->currents["I_L"] = -parameters.at("g_L") * (voltage[dt_index - 1] - p.at("E_L"));
     // Write in other currents
 }
 
