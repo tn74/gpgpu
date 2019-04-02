@@ -5,6 +5,7 @@
 #include "THNeuron.h"
 #include "Neuron.h"
 #include "gating.h"
+#include <string>
 
 
 void THNeuron::compute_currents() {

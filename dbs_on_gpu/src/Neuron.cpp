@@ -4,6 +4,7 @@
 
 #include "Neuron.h"
 #include <map>
+#include <string>
 
 Neuron::Neuron(double delta, double simulation_duration, double start_voltage, std::map<std::string, double> neuron_parameters) {
     voltage.reserve((unsigned long) (duration/dt));
