@@ -4,6 +4,8 @@
 
 #include "THNeuron.h"
 #include "Neuron.h"
+#include "gating.h"
+
 
 void THNeuron::compute_currents() {
     std::map<std::string, double> p = this->parameters;
@@ -15,5 +17,6 @@ void THNeuron::compute_gating_variables() {
     std::map<std::string, double> p = this->parameters;
     double v = voltage[dt_index-1];
     h_gate = h_gate + dt * (th_hinf(v) - h_gate)/th_tauh(v);
+
     // Write in other currents
 }
