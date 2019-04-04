@@ -15,6 +15,9 @@ private:
 protected:
     void compute_currents() override;
     void compute_gating_variables() override;
+
+public:
+    THNeuron(double dt, double duration, double start_voltage, std::map<std::string, double>& parameters);
 };
 
 

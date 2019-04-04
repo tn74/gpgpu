@@ -7,10 +7,13 @@
 #include "gating.h"
 #include <string>
 
+THNeuron::THNeuron(double dt, double duration, double start_voltage, std::map<std::string, double>& parameters):
+Neuron(dt, duration, start_voltage, parameters){
+
+};
 
 void THNeuron::compute_currents() {
-    std::map<std::string, double> p = this->parameters;
-    this->currents["I_L"] = -parameters.at("g_L") * (voltage[dt_index - 1] - p.at("E_L"));
+    currents["I_L"] = -parameters["g_L"] * (voltage[dt_index - 1] - parameters["E_L"]);
     // Write in other currents
 }
 

@@ -6,7 +6,7 @@
 #include <map>
 #include <string>
 
-Neuron::Neuron(double delta, double simulation_duration, double start_voltage, std::map<std::string, double> neuron_parameters) {
+Neuron::Neuron(double delta, double simulation_duration, double start_voltage, std::map<std::string, double> &neuron_parameters) {
     voltage.reserve((unsigned long) (duration/dt));
     voltage[0] = start_voltage;
     dt = delta;
@@ -27,5 +27,5 @@ void Neuron::advance_time_step() {
     {
         current_sum += iter->second;
     }
-    this->voltage[dt_index] = voltage[dt_index-1] + current_sum / this->parameters.at("C");
+    voltage[dt_index] = voltage[dt_index-1] + current_sum / parameters["C"];
 }
