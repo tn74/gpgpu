@@ -30,6 +30,9 @@ void Neuron::advance_time_step() {
     double current_sum = 0.0;
     for(auto iter = currents->begin(); iter != currents->end(); ++iter) {
         current_sum += iter->second;
+//        std::cout << "Iter Second: " << iter->second << std::endl;
     }
-    (*voltage)[dt_index] = (*voltage)[dt_index-1] + current_sum / (*parameters)["C"];
+    (*voltage)[dt_index] = dt * (*voltage)[dt_index-1] + current_sum / (*parameters)["C_m"];
+    dt_index = dt_index + 1;
+//    std::cout << "DT INDEX: " << dt_index << std::endl;
 }
