@@ -14,7 +14,7 @@ function [Istim, timespike]= createSMC(tmax,dt,freq,cv)
 t=0:dt:tmax;ism=3.5;
 Istim=zeros(1,length(t));
 deltasm=5;
-pulse=ism*ones(1,deltasm/dt);
+pulse=ism*ones(1,deltasm/dt).*0;
 i=1; j=1;
 A = 1/cv^2;
 B  = freq / A;
