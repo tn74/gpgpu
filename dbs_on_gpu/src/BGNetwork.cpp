@@ -24,7 +24,7 @@ void BGNetwork::build_parameter_map() {
 }
 
 void BGNetwork::initialize_cells() {
-    all_cells["th"][0] = THNeuron(dt, duration, 0.05, network_parameters["th"]);
+    all_cells["th"].push_back(new THNeuron(dt, duration, 0.05, network_parameters["th"]));
 
 }
 
