@@ -8,6 +8,8 @@
 
 BGNetwork::BGNetwork(){
     std::cout << "BGNetwork Constructor" << std::endl;
+    network_parameters = new std::map<std::string, std::map<std::string, double>* >();
+    all_cells = new std::map<std::string, std::vector<Neuron*>* >();
     dt = 0.0001;
     duration = 1.0;
     build_parameter_map();
@@ -18,36 +20,48 @@ BGNetwork::BGNetwork(){
 
 void BGNetwork::build_parameter_map() {
     std::cout << "Starting parameter map" << std::endl;
-    auto th_params_ptr = new std::map<std::string, double>();
-    std::map<std::string, double> th_params = *th_params_ptr;
-    th_params["C_m"] = 1.0;
-    th_params["g_L"] = 0.05;
-    th_params["E_L"] = -70;
-    th_params["g_Na"] = 3.0;
-    th_params["E_Na"] = 50.0;
-    th_params["g_k"] = 5.0;
-    th_params["E_k"] = -75.0;
-    th_params["g_T"] = 5.0;
-    th_params["E_T"] = 0.0;
-    network_parameters["th"] = th_params_ptr;
+    (*network_parameters)["th"] = new std::map<std::string, double>();
+    std::cout << (*network_parameters)["th"] << (*network_parameters)["th"] << std::endl;
+    std::map<std::string, double>* th_param_ptr = (*network_parameters)["th"];
+    std::map<std::string, double> &th_param = *th_param_ptr;
+//    (*th_param_ptr)["C_m"] = 1.0;
+//    (*th_param_ptr)["g_L"] = 0.05;
+//    (*th_param_ptr)["E_L"] = -70;
+//    (*th_param_ptr)["g_Na"] = 3.0;
+//    (*th_param_ptr)["E_Na"] = 50.0;
+//    (*th_param_ptr)["g_k"] = 5.0;
+//    (*th_param_ptr)["E_k"] = -75.0;
+//    (*th_param_ptr)["g_T"] = 5.0;
+//    (*th_param_ptr)["E_T"] = 0.0;
+    th_param["C_m"] = 1.0;
+    th_param["g_L"] = 0.05;
+    th_param["E_L"] = -70;
+    th_param["g_Na"] = 3.0;
+    th_param["E_Na"] = 50.0;
+    th_param["g_k"] = 5.0;
+    th_param["E_k"] = -75.0;
+    th_param["g_T"] = 5.0;
+    th_param["E_T"] = 0.0;
+    std::cout << "g_L = " << (*th_param_ptr)["g_L"]  << std::endl;
+    std::cout << "th_params: "  << &th_param << ", th_params_ptr: " << th_param_ptr << " " << &(*th_param_ptr) << std::endl;
     std::cout << "Built Parameter Map" << std::endl;
+    std::cout << "Size = " << (*network_parameters)["th"]->size() << std::endl;
 }
 
 void BGNetwork::initialize_cells() {
     std::cout << "Start Initialized Cells" << std::endl;
-    all_cells["th"] = new std::vector<Neuron*>();
-    all_cells["th"]->reserve(20);
-    all_cells["th"]->push_back(new THNeuron(dt, duration, 0.05, network_parameters["th"]));
+    (*all_cells)["th"] = new std::vector<Neuron*>();
+    (*all_cells)["th"]->reserve(20);
+    (*all_cells)["th"]->push_back(new THNeuron(dt, duration, 0.05, (*network_parameters)["th"]));
     std::cout << "Initialized Cell" << std::endl;
 
 }
 
 int BGNetwork::simulate() {
-    std::cout << "Hello, World!" << std::endl;
     auto iterations = (unsigned long) (duration/dt);
     for (int round = 0; round < iterations; ++round){
-        std::cout << "Round" << round << "\n";
-        for (auto&& [cell_type, cells]: all_cells) {
+//        std::cout << "Round" << round << "\n";
+        for (auto&& [cell_type, cells]: *all_cells) {
             for (auto&& n: *cells) {
                 n->advance_time_step();
             }

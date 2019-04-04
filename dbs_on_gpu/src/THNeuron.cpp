@@ -17,6 +17,7 @@ void THNeuron::compute_currents() {
     std::vector<double> v = *voltage;
 
     c["I_L"] = -p["g_L"] * v[dt_index - 1] - p["E_L"];
+    std::cout << c["I_L"] << std::endl;
     std::cout << "I_L = " << c["I_L"] << std::endl;
     std::cout << "g_L = " << p["g_L"] << std::endl;
     // Write in other currents
