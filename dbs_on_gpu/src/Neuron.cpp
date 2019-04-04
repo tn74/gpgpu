@@ -5,17 +5,22 @@
 #include "Neuron.h"
 #include <map>
 #include <string>
+#include <iostream>
 
-Neuron::Neuron(double delta, double simulation_duration, double start_voltage, std::map<std::string, double> &neuron_parameters) {
-    voltage.reserve((unsigned long) (duration/dt));
-    voltage[0] = start_voltage;
+Neuron::Neuron(double delta, double simulation_duration, double start_voltage, std::map<std::string, double>* neuron_parameters) {
+    std::cout << "Began Neuron Constructor" << std::endl;
     dt = delta;
     duration = simulation_duration;
     dt_index = 1;
     parameters = neuron_parameters;
+    voltage = new std::vector<double>();
+    currents = new std::map<std::string, double>();
+
+    voltage->reserve((unsigned long) (duration/dt));
+    voltage->push_back(start_voltage);
 }
 
-std::vector<double> Neuron::get_voltages() {
+std::vector<double>* Neuron::get_voltages() {
     return voltage;
 }
 
@@ -23,9 +28,8 @@ void Neuron::advance_time_step() {
     compute_currents();
     compute_gating_variables();
     double current_sum = 0.0;
-    for(auto iter = currents.begin(); iter != currents.end(); ++iter)
-    {
+    for(auto iter = currents->begin(); iter != currents->end(); ++iter) {
         current_sum += iter->second;
     }
-    voltage[dt_index] = voltage[dt_index-1] + current_sum / parameters["C"];
+    (*voltage)[dt_index] = (*voltage)[dt_index-1] + current_sum / (*parameters)["C"];
 }

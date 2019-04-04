@@ -13,8 +13,8 @@
 
 class BGNetwork {
 private:
-    std::map<std::string, std::vector<Neuron*>> all_cells;                               // cell-type -> index -> cell
-    std::map<std::string, std::map<std::string, double>> network_parameters;        // cell-type -> parameter map
+    std::map<std::string, std::vector<Neuron*>* > all_cells;                               // cell-type -> index -> cell
+    std::map<std::string, std::map<std::string, double>* > network_parameters;        // cell-type -> parameter map
     double duration;
     double dt;
 
