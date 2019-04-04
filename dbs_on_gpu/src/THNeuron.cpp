@@ -6,10 +6,11 @@
 #include "Neuron.h"
 #include "gating.h"
 #include <string>
+#include <iostream>
 
 THNeuron::THNeuron(double dt, double duration, double start_voltage, std::map<std::string, double>& parameters):
 Neuron(dt, duration, start_voltage, parameters){
-
+    std::cout << "Started Constructor" << std::endl;
 };
 
 void THNeuron::compute_currents() {

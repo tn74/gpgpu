@@ -3,9 +3,16 @@
 //
 
 #include "BGNetwork.h"
+#include <iostream>
+
 
 BGNetwork::BGNetwork(){
+    std::cout << "BGNetwork Constructor" << std::endl;
+    dt = 0.0001;
+    duration = 1000;
+    all_cells["th"].reserve(1);
     build_parameter_map();
+    std::cout << "Finished Parameter Map" << std::endl;
     initialize_cells();
 }
 
@@ -21,19 +28,27 @@ void BGNetwork::build_parameter_map() {
     th_params["g_T"] = 5.0;
     th_params["E_T"] = 0.0;
     network_parameters["th"] = th_params;
+    std::cout << "Built Parameter Map" << std::endl;
 }
 
 void BGNetwork::initialize_cells() {
+    std::cout << "Start Initialized Cells" << std::endl;
+    THNeuron* instance = new THNeuron(dt, duration, 0.05, network_parameters["th"]);
+    std::cout << "Instantiated" << std::endl;
     all_cells["th"].push_back(new THNeuron(dt, duration, 0.05, network_parameters["th"]));
+    std::cout << "Initialized Cell" << std::endl;
 
 }
 
 int BGNetwork::simulate() {
+    std::cout << "Hello, World!" << std::endl;
     auto iterations = (unsigned long) (duration/dt);
     for (int round = 0; round < iterations; ++round){
+        std::cout << "Round" << round << "\n";
         for (auto&& [cell_type, cells]: all_cells) {
             for (auto&& n: cells) {
                 n->advance_time_step();
+                std::cout << "Round" << round << "\n";
             }
         }
     }
