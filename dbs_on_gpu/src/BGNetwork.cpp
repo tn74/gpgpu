@@ -10,8 +10,8 @@ BGNetwork::BGNetwork(){
     std::cout << "BGNetwork Constructor" << std::endl;
     network_parameters = new std::map<std::string, std::map<std::string, double>* >();
     all_cells = new std::map<std::string, std::vector<Neuron*>* >();
-    dt = 0.001;
-    duration = 1.0;
+    dt = 0.00001;
+    duration = 1;
     build_parameter_map();
     std::cout << "Finished Parameter Map" << std::endl;
 
@@ -24,28 +24,20 @@ void BGNetwork::build_parameter_map() {
     std::cout << (*network_parameters)["th"] << (*network_parameters)["th"] << std::endl;
     std::map<std::string, double>* th_param_ptr = (*network_parameters)["th"];
     std::map<std::string, double> &th_param = *th_param_ptr;
-//    (*th_param_ptr)["C_m"] = 1.0;
-//    (*th_param_ptr)["g_L"] = 0.05;
-//    (*th_param_ptr)["E_L"] = -70;
-//    (*th_param_ptr)["g_Na"] = 3.0;
-//    (*th_param_ptr)["E_Na"] = 50.0;
-//    (*th_param_ptr)["g_k"] = 5.0;
-//    (*th_param_ptr)["E_k"] = -75.0;
-//    (*th_param_ptr)["g_T"] = 5.0;
-//    (*th_param_ptr)["E_T"] = 0.0;
+
     th_param["C_m"] = 1.0;
     th_param["g_L"] = 0.05;
     th_param["E_L"] = -70;
     th_param["g_Na"] = 3.0;
     th_param["E_Na"] = 50.0;
-    th_param["g_k"] = 5.0;
-    th_param["E_k"] = -75.0;
+    th_param["g_K"] = 5.0;
+    th_param["E_K"] = -75.0;
     th_param["g_T"] = 5.0;
     th_param["E_T"] = 0.0;
-    std::cout << "g_L = " << (*th_param_ptr)["g_L"]  << std::endl;
-    std::cout << "th_params: "  << &th_param << ", th_params_ptr: " << th_param_ptr << " " << &(*th_param_ptr) << std::endl;
-    std::cout << "Built Parameter Map" << std::endl;
-    std::cout << "Size = " << (*network_parameters)["th"]->size() << std::endl;
+//    std::cout << "g_L = " << (*th_param_ptr)["g_L"]  << std::endl;
+//    std::cout << "th_params: "  << &th_param << ", th_params_ptr: " << th_param_ptr << " " << &(*th_param_ptr) << std::endl;
+//    std::cout << "Built Parameter Map" << std::endl;
+//    std::cout << "Size = " << (*network_parameters)["th"]->size() << std::endl;
 }
 
 void BGNetwork::initialize_cells() {

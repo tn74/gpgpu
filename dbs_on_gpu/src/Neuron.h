@@ -21,6 +21,7 @@ protected:
 
     virtual void compute_currents() = 0;
     virtual void compute_gating_variables() = 0;
+    virtual void initialize_gating_variables() = 0;
 
 public:
     Neuron(double dt, double duration, double start_voltage, std::map<std::string, double>* parameters);
