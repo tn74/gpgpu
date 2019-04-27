@@ -20,7 +20,7 @@ void THNeuron::compute_currents() {
 
     c["I_L"] = -(p["g_L"] * (v - p["E_L"]));
     c["I_Na"] = -(p["g_Na"] * (pow(th_minf(v), 3)) * h_gate * (v - p["E_Na"]));
-    c["I_K"] = -(p["g_K"] * pow(0.75 *(1 - h_gate), 4) * (v - p["E_K"]));
+    c["I_K"] = -(p["g_K"] * pow(0.75 *(1 - h_gate), 4) * (v - p["E_K"])); // SAME AS MATLAB BUT DIFFERENT FROM PAPER
     c["I_T"] = -(p["g_T"] * pow(th_pinf(v), 2) * r_gate * (v - p["E_T"]));
 
     std::cout << "Voltage: " << v << std::endl;
