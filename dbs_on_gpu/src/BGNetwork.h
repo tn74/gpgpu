@@ -10,6 +10,12 @@
 #include <map>
 #include "Neuron.h"
 #include "THNeuron.h"
+#include "GPiNeuron.h"
+#include "GPeNeuron.h"
+#include "STNNeuron.h"
+
+
+
 
 class BGNetwork {
 private:
@@ -20,6 +26,7 @@ private:
 
     void build_parameter_map();
     void initialize_cells();
+    void run_cell_thread(Neuron*);
 
 public:
     BGNetwork();
