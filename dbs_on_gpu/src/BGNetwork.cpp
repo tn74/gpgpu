@@ -114,7 +114,6 @@ void BGNetwork::initialize_cells() {
 int BGNetwork::simulate() {
     auto iterations = (unsigned long) (duration/dt);
     for (int round = 0; round < iterations; ++round){
-//        std::cout << "Round" << round << "\n";
         for (auto&& [cell_type, cells]: *all_cells) {
             for (auto&& n: *cells) {
                 n->advance_time_step();
