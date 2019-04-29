@@ -51,9 +51,9 @@ void BGNetwork::initialize_cells() {
 
 int BGNetwork::simulate() {
     auto iterations = (unsigned long) (duration/dt);
-    for (int round = 0; round < iterations; ++round){
+    for (auto&& [cell_type, cells]: *all_cells) {
 //        std::cout << "Round" << round << "\n";
-        for (auto&& [cell_type, cells]: *all_cells) {
+        for (int round = 0; round < iterations; ++round){
             for (auto&& n: *cells) {
                 n->advance_time_step();
             }
@@ -61,6 +61,8 @@ int BGNetwork::simulate() {
     }
     return 0;
 };
+
+
 
 std::map<std::string, std::vector<std::vector<double>>> BGNetwork::get_voltages() {
 //    std::map<std::string, std::vector<std::vector<double>>> voltages = new std::map<std::string, std::vector<std::vector<double>>>();
