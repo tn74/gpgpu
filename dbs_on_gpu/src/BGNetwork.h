@@ -10,6 +10,12 @@
 #include <map>
 #include "Neuron.h"
 #include "THNeuron.h"
+#include "GPiNeuron.h"
+#include "GPeNeuron.h"
+#include "STNNeuron.h"
+
+
+
 
 class BGNetwork {
 private:

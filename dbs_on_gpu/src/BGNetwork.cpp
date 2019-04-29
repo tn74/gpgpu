@@ -53,7 +53,7 @@ void BGNetwork::build_parameter_map() {
     stn_param["g_T"] = 0.5;
     stn_param["E_T"] = 0.0;
     stn_param["g_Ca"] = 2.0;
-    stn_parma["E_Ca"] = 140.0;
+    stn_param["E_Ca"] = 140.0;
     stn_param["g_ahp"] = 20.0;
     stn_param["E_ahp"] = -80.0;
 
@@ -73,7 +73,7 @@ void BGNetwork::build_parameter_map() {
     gpe_param["g_T"] = 0.5;
     gpe_param["E_T"] = 0.0;
     gpe_param["g_Ca"] = 0.15;
-    gpe_parma["E_Ca"] = 120.0;
+    gpe_param["E_Ca"] = 120.0;
     gpe_param["g_ahp"] = 10.0;
     gpe_param["E_ahp"] = -80.0;
 
@@ -93,7 +93,7 @@ void BGNetwork::build_parameter_map() {
     gpi_param["g_T"] = 0.5;
     gpi_param["E_T"] = 0.0;
     gpi_param["g_Ca"] = 0.15;
-    gpi_parma["E_Ca"] = 120.0;
+    gpi_param["E_Ca"] = 120.0;
     gpi_param["g_ahp"] = 10.0;
     gpi_param["E_ahp"] = -80.0;
 //    std::cout << "g_L = " << (*th_param_ptr)["g_L"]  << std::endl;
@@ -106,7 +106,7 @@ void BGNetwork::initialize_cells() {
     std::cout << "Start Initialized Cells" << std::endl;
     (*all_cells)["th"] = new std::vector<Neuron*>();
     (*all_cells)["th"]->reserve(20);
-    (*all_cells)["th"]->push_back(new THNeuron(dt, duration, -57.0, (*network_parameters)["th"]));
+    (*all_cells)["th"]->push_back(new GPeNeuron(dt, duration, -57.0, (*network_parameters)["th"]));
     std::cout << "Initialized Cell" << std::endl;
 
 }

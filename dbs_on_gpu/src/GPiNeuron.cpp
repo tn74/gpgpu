@@ -37,7 +37,7 @@ void GPiNeuron::compute_currents() {
     std::cout << std::endl;
 }
 
-void GPeNeuron::compute_gating_variables() {
+void GPiNeuron::compute_gating_variables() {
     std::map<std::string, double> &c = *currents;
 
     double v = (*voltage)[dt_index-1];
@@ -47,7 +47,7 @@ void GPeNeuron::compute_gating_variables() {
     CA = CA + dt * pow(10, -4) * (-(c["I_Ca"]) - c["I_T"] - (15 * CA));
 }
 
-void GPeNeuron::initialize_gating_variables() {
+void GPiNeuron::initialize_gating_variables() {
     double v = (*voltage)[dt_index-1];
     h_gate = gpe_hinf(v);
     r_gate = gpe_rinf(v);
