@@ -47,6 +47,22 @@ S2=zeros(n,1); S21=zeros(n,1); S3=zeros(n,1);
 S31=zeros(n,1);S32=zeros(n,1); S4=zeros(n,1); 
 Z2=zeros(n,1);Z4=zeros(n,1);
 
+IL_vec=zeros(n,length(t));
+INa_vec=zeros(n,length(t));
+IK_vec=zeros(n,length(t));
+IT_vec=zeros(n,length(t));
+H1_vec=zeros(n,length(t));
+R1_vec=zeros(n,length(t));
+
+
+IL_gpe_vec=zeros(n,length(t));
+INa_gpe_vec=zeros(n,length(t));
+IK_gpe_vec=zeros(n,length(t));
+IT_gpe_vec=zeros(n,length(t));
+ICa_gpe_vec=zeros(n,length(t));
+Iahp_gpe_vec=zeros(n,length(t));
+H2_gpe_vec=zeros(n,length(t));
+R2_gpe_vec=zeros(n,length(t));
 
 %%with or without dbs
 Idbs=creatdbs(freq,tmax,dt); %creating DBS train with frequency freq
@@ -64,6 +80,8 @@ R1=th_rinf(vth(:,1)); R2=stn_rinf(vsn(:,1)); R3=gpe_rinf(vge(:,1));R4=gpe_rinf(v
 CA2=0.1; CA3=CA2;CA4=CA2; 
 C2=stn_cinf(vsn(:,1));
 
+H1_vec(:,1) = H1;
+R1_vec(:,1) = R1;
 %%Time loop
 for i=2:length(t)        
     V1=vth(:,i-1);    V2=vsn(:,i-1);     V3=vge(:,i-1);    V4=vgi(:,i-1);
@@ -93,7 +111,15 @@ for i=2:length(t)
     Ina1=gna(1)*(m1.^3).*H1.*(V1-Ena(1));
     Ik1=gk(1)*((0.75*(1-H1)).^4).*(V1-Ek(1));
     It1=gt(1)*(p1.^2).*R1.*(V1-Et);
-    Igith=1.4*gsyn(6)*(V1-Esyn(6)).*S4; 
+    Igith=1.4*gsyn(6)*(V1-Esyn(6)).*S4 .*0; 
+    
+    IL_vec(:, i)=Il1;
+    INa_vec(:, i)=Ina1;
+    IK_vec(:, i)=Ik1;
+    IT_vec(:, i)=It1;
+    H1_vec(:, i)=H1;
+    R1_vec(:, i)=R1;
+    
     
     %STN cell currents
     Il2=gl(2)*(V2-El(2));
@@ -104,6 +130,7 @@ for i=2:length(t)
     Iahp2=gahp(2)*(V2-Ek(2)).*(CA2./(CA2+k1(2)));
     Igesn=0.5*(gsyn(1)*(V2-Esyn(1)).*(S3+S31)); %Igesn=0;
     Iappstn=33-pd*10;
+   
     
     %GPe cell currents
     Il3=gl(3)*(V3-El(3));
@@ -115,6 +142,13 @@ for i=2:length(t)
     Isnge=0.5*(gsyn(2)*(V3-Esyn(2)).*(S2+S21)); %Isnge=0;
     Igege=0.5*(gsyn(3)*(V3-Esyn(3)).*(S31+S32)); %Igege=0;
     Iappgpe=21-13*pd+r;
+    
+    IL_gpe_vec(:, i)=Il3;
+    INa_gpe_vec(:, i)=Ina3;
+    IK_gpe_vec(:, i)=Ik3;
+    IT_gpe_vec(:, i)=It3;
+    H2_gpe_vec(:, i)=H3;
+    R2_gpe_vec(:, i)=R3;
 
     %GPi cell currents
     Il4=gl(3)*(V4-El(3));
@@ -168,9 +202,29 @@ for i=2:length(t)
 end
 
 %%Calculation of error index
-EI=calculateEI(t,vth,timespike,tmax);
+%EI=calculateEI(t,vth,timespike,tmax);
 
 %%Plots membrane potential for one cell in each nucleus
 plotpotentials; 
+
+save('vsn.mat', 'vsn');
+
+save('vge.mat', 'vge');
+save('IL3.mat', 'IL_gpe_vec');
+save('INa3.mat', 'INa_gpe_vec');
+save('IK3.mat', 'IK_gpe_vec');
+save('IT3.mat', 'IT_gpe_vec');
+save('H3.mat', 'H1_gpe_vec');
+save('R3.mat', 'R1_gpe_vec');
+
+save('vgi.mat', 'vgi');
+
+save('vth.mat', 'vth');
+save('IL1.mat', 'IL_vec');
+save('INa1.mat', 'INa_vec');
+save('IK1.mat', 'IK_vec');
+save('IT1.mat', 'IT_vec');
+save('H1.mat', 'H1_vec');
+save('R1.mat', 'R1_vec');
 
 return

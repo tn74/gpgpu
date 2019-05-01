@@ -16,14 +16,16 @@ n=4; %number of neurons in each nucleus (TH, STN, GPe, GPi)
 % v4=-62+randn(n,1)*5;
 % r=randn(n,1)*2;
 
-v1=-62+zeros(n,1)*5;
-v2=-62+zeros(n,1)*5;
-v3=-62+zeros(n,1)*5;
-v4=-62+zeros(n,1)*5;
+v1=-62+ones(n,1)*5;
+v2=-62+ones(n,1)*5;
+v3=-62+ones(n,1)*5;
+v4=-62+ones(n,1)*5;
 r=0.5 + zeros(n,1)*2;
 
 %Sensorimotor cortex input to talamic cells
 [Istim, timespike]=createSMC(tmax,dt,14,0.2);
+Istim = Istim.*0;
+timespike = timespike .*0;
 
 %BGnetwork loads Istim.mat which has all the initial conditions
 save('Istim.mat','Istim','timespike','tmax','dt','v1','v2','v3','v4','r','n');
