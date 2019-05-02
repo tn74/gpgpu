@@ -106,7 +106,7 @@ void BGNetwork::initialize_cells() {
     std::cout << "Start Initialized Cells" << std::endl;
     (*all_cells)["th"] = new std::vector<Neuron*>();
     (*all_cells)["th"]->reserve(20);
-    (*all_cells)["th"]->push_back(new GPeNeuron(dt, duration, -57.0, (*network_parameters)["gpe"]));
+    (*all_cells)["th"]->push_back(new GPiNeuron(dt, duration, -57.0, (*network_parameters)["gpi"]));
     std::cout << "Initialized Cell" << std::endl;
 
 }
