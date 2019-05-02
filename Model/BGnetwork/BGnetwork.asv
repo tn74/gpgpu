@@ -293,38 +293,16 @@ save('saveddata/th_H.mat', 'H1_vec');
 save('saveddata/th_R.mat', 'R1_vec');
 
 save('vsn.mat', 'vsn');
-save('saveddata/sn_v.mat', 'vsn');
+save('saveddata/sn_v.mat', 'vth');
 save('saveddata/sn_IL.mat', 'IL2_vec');
 save('saveddata/sn_INa.mat', 'INa2_vec');
 save('saveddata/sn_IK.mat', 'IK2_vec');
 save('saveddata/sn_IT.mat', 'IT2_vec');
-save('saveddata/sn_ICa.mat', 'ICa2_vec');
-save('saveddata/sn_Iahp.mat', 'Iahp2_vec');
-save('saveddata/sn_Igesn.mat', 'Igesn_vec');
-save('saveddata/sn_Iappstn.mat', 'Iappstn_vec');
-save('saveddata/sn_H.mat', 'H2_vec');
-save('saveddata/sn_R.mat', 'R2_vec');
-save('saveddata/sn_N.mat', 'N2_vec');
-save('saveddata/sn_CA.mat', 'CA2_vec');
-save('saveddata/sn_C.mat', 'C2_vec');
+save('saveddata/sn_H.mat', 'H21_vec');
+save('saveddata/sn_R.mat', 'R1_vec');
 
-save('saveddata/ge_v.mat', 'vge');
-save('saveddata/ge_IL.mat', 'IL3_vec');
-save('saveddata/ge_IK.mat', 'IK3_vec');
-save('saveddata/ge_INa.mat', 'INa3_vec');
-save('saveddata/ge_IT.mat', 'IT3_vec');
-save('saveddata/ge_ICa.mat', 'ICa3_vec');
-save('saveddata/ge_Iahp.mat', 'IL3_vec');
-save('saveddata/ge_Isnge.mat', 'Isnge_vec');
-save('saveddata/ge_Igege.mat', 'Igege_vec');
-save('saveddata/ge_Iappgpe.mat', 'Iappgpe_vec');
-save('saveddata/ge_N3.mat', 'N3_vec');
-save('saveddata/ge_H3.mat', 'H3_vec');
-save('saveddata/ge_R3.mat', 'R3_vec');
-save('saveddata/ge_CA3.mat', 'CA3_vec');
-save('saveddata/ge_S3.mat', 'S3_vec');
+save('vge.mat', 'vge');
 
-save('saveddata/gi_v.mat', 'vgi');
-
+save('vgi.mat', 'vgi');
 
 return
