@@ -11,7 +11,7 @@ BGNetwork::BGNetwork(){
     network_parameters = new std::map<std::string, std::map<std::string, double>* >();
     all_cells = new std::map<std::string, std::vector<Neuron*>* >();
     dt = 0.01;
-    duration = .10;
+    duration = 5;
     build_parameter_map();
     std::cout << "Finished Parameter Map" << std::endl;
 
