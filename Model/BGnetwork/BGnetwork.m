@@ -48,43 +48,43 @@ S31=zeros(n,1);S32=zeros(n,1); S4=zeros(n,1);
 Z2=zeros(n,1);Z4=zeros(n,1);
 
 % TH Debug
-IL_vec=zeros(n,length(t));
-INa_vec=zeros(n,length(t));
-IK_vec=zeros(n,length(t));
-IT_vec=zeros(n,length(t));
-H1_vec=zeros(n,length(t));
-R1_vec=zeros(n,length(t));
+th_IL=zeros(n,length(t));
+th_INa=zeros(n,length(t));
+th_IK=zeros(n,length(t));
+th_IT=zeros(n,length(t));
+th_H=zeros(n,length(t));
+th_R=zeros(n,length(t));
 
 % STN Debug
-IL2_vec = zeros(n,length(t));
-IK2_vec = zeros(n,length(t));
-INa2_vec = zeros(n,length(t));
-IT2_vec = zeros(n,length(t));
-ICa2_vec = zeros(n,length(t));
-Iahp2_vec = zeros(n,length(t));
-Igesn_vec = zeros(n,length(t));
-Iappstn_vec = zeros(n,length(t));
-N2_vec=zeros(n,length(t));
-H2_vec=zeros(n,length(t));
-R2_vec=zeros(n,length(t));
-CA2_vec=zeros(n,length(t));
-C2_vec=zeros(n,length(t));
+stn_IL = zeros(n,length(t));
+stn_IK = zeros(n,length(t));
+stn_INa = zeros(n,length(t));
+stn_IT = zeros(n,length(t));
+stn_ICa = zeros(n,length(t));
+stn_Iahp = zeros(n,length(t));
+stn_Igesn = zeros(n,length(t));
+stn_Iapp = zeros(n,length(t));
+stn_N=zeros(n,length(t));
+stn_H=zeros(n,length(t));
+stn_R=zeros(n,length(t));
+stn_CA=zeros(n,length(t));
+stn_C=zeros(n,length(t));
 
 % GPE Debug
-IL3_vec = zeros(n,length(t));
-IK3_vec = zeros(n,length(t));
-INa3_vec = zeros(n,length(t));
-IT3_vec = zeros(n,length(t));
-ICa3_vec = zeros(n,length(t));
-Iahp3_vec = zeros(n,length(t));
-Isnge_vec = zeros(n,length(t));
-Igege_vec = zeros(n,length(t));
-Iappgpe_vec = zeros(n,length(t));
-N3_vec = zeros(n,length(t));
-H3_vec = zeros(n,length(t));
-R3_vec = zeros(n,length(t));
-CA3_vec = zeros(n,length(t));
-S3_vec = zeros(n,length(t));
+gpe_IL = zeros(n,length(t));
+gpe_IK = zeros(n,length(t));
+gpe_INa = zeros(n,length(t));
+gpe_IT = zeros(n,length(t));
+gpe_ICa = zeros(n,length(t));
+gpe_Iahp = zeros(n,length(t));
+gpe_Isnge = zeros(n,length(t));
+gpe_Igege = zeros(n,length(t));
+gpe_Iapp = zeros(n,length(t));
+gpe_N = zeros(n,length(t));
+gpe_H = zeros(n,length(t));
+gpe_R = zeros(n,length(t));
+gpe_CA = zeros(n,length(t));
+gpe_S = zeros(n,length(t));
 
 % GPI Debug
 IL4_vec = zeros(n,length(t));
@@ -150,13 +150,13 @@ for i=2:length(t)
     It1=gt(1)*(p1.^2).*R1.*(V1-Et);
     Igith=1.4*gsyn(6)*(V1-Esyn(6)).*S4 .*0; 
     
-    IL_vec(:, i)=Il1;
-    INa_vec(:, i)=Ina1;
-    IK_vec(:, i)=Ik1;
-    IT_vec(:, i)=It1;
+    th_IL(:, i)=Il1;
+    th_INa(:, i)=Ina1;
+    th_IK(:, i)=Ik1;
+    th_IT(:, i)=It1;
     
-    H1_vec(:, i)=H1;
-    R1_vec(:, i)=R1;
+    th_H(:, i)=H1;
+    th_R(:, i)=R1;
     
     %STN cell currents
     Il2=gl(2)*(V2-El(2));
@@ -168,20 +168,20 @@ for i=2:length(t)
     Igesn=0.5*(gsyn(1)*(V2-Esyn(1)).*(S3+S31)); %Igesn=0;
     Iappstn=33-pd*10;
     
-    IL2_vec(:, i) = Il2;
-    IK2_vec(:, i) = Ik2;
-    INa2_vec(:, i) = Ina2;
-    IT2_vec(:, i) = It2;
-    ICa2_vec(:, i) = Ica2;
-    Iahp2_vec(:, i) = Iahp2;
-    Igesn_vec(:, i) = Igesn;
-    Iappstn_vec(:, i) = Iappstn;
+    stn_IL(:, i) = Il2;
+    stn_IK(:, i) = Ik2;
+    stn_INa(:, i) = Ina2;
+    stn_IT(:, i) = It2;
+    stn_ICa(:, i) = Ica2;
+    stn_Iahp(:, i) = Iahp2;
+    stn_Igesn(:, i) = Igesn;
+    stn_Iapp(:, i) = Iappstn;
     
-    N2_vec(:, i)=N2;
-    H2_vec(:, i)=H2;
-    R2_vec(:, i)=R2;
-    CA2_vec(:, i)=CA2;
-    C2_vec(:, i)=C2;
+    stn_N(:, i)=N2;
+    stn_H(:, i)=H2;
+    stn_R(:, i)=R2;
+    stn_CA(:, i)=CA2;
+    stn_C(:, i)=C2;
     
     %GPe cell currents
     Il3=gl(3)*(V3-El(3));
@@ -194,21 +194,21 @@ for i=2:length(t)
     Igege=0.5*(gsyn(3)*(V3-Esyn(3)).*(S31+S32)); Igege=0;
     Iappgpe=21-13*pd+r; Iappgpe=0;
     
-    IL3_vec(:, i) = Il3;
-    IK3_vec(:, i) = Ik3;
-    INa3_vec(:, i) = Ina3;
-    IT3_vec(:, i) = It3;
-    ICa3_vec(:, i) = Ica3;
-    Iahp3_vec(:, i) = Iahp3;
-    Isnge_vec(:, i) = Isnge;
-    Igege_vec(:, i) = Igege;
-    Iappgpe_vec(:, i) = Iappgpe;
+    gpe_IL(:, i) = Il3;
+    gpe_IK(:, i) = Ik3;
+    gpe_INa(:, i) = Ina3;
+    gpe_IT(:, i) = It3;
+    gpe_ICa(:, i) = Ica3;
+    gpe_Iahp(:, i) = Iahp3;
+    gpe_Isnge(:, i) = Isnge;
+    gpe_Igege(:, i) = Igege;
+    gpe_Iapp(:, i) = Iappgpe;
     
-    N3_vec(:, 1) = N3;
-    H3_vec(:, 1) = H3;
-    R3_vec(:, 1) = R3;
-    CA3_vec(:, 1) = CA3;
-    S3_vec(:, 1) = S3;
+    gpe_N(:, 1) = N3;
+    gpe_H(:, 1) = H3;
+    gpe_R(:, 1) = R3;
+    gpe_CA(:, 1) = CA3;
+    gpe_S(:, 1) = S3;
 
     %GPi cell currents
     Il4=gl(3)*(V4-El(3));
@@ -284,47 +284,6 @@ end
 %%Plots membrane potential for one cell in each nucleus
 plotpotentials; 
 
-save('saveddata/th_v.mat', 'vth');
-save('saveddata/th_IL.mat', 'IL_vec');
-save('saveddata/th_INa.mat', 'INa_vec');
-save('saveddata/th_IK.mat', 'IK_vec');
-save('saveddata/th_IT.mat', 'IT_vec');
-save('saveddata/th_H.mat', 'H1_vec');
-save('saveddata/th_R.mat', 'R1_vec');
-
-save('vsn.mat', 'vsn');
-save('saveddata/sn_v.mat', 'vsn');
-save('saveddata/sn_IL.mat', 'IL2_vec');
-save('saveddata/sn_INa.mat', 'INa2_vec');
-save('saveddata/sn_IK.mat', 'IK2_vec');
-save('saveddata/sn_IT.mat', 'IT2_vec');
-save('saveddata/sn_ICa.mat', 'ICa2_vec');
-save('saveddata/sn_Iahp.mat', 'Iahp2_vec');
-save('saveddata/sn_Igesn.mat', 'Igesn_vec');
-save('saveddata/sn_Iappstn.mat', 'Iappstn_vec');
-save('saveddata/sn_H.mat', 'H2_vec');
-save('saveddata/sn_R.mat', 'R2_vec');
-save('saveddata/sn_N.mat', 'N2_vec');
-save('saveddata/sn_CA.mat', 'CA2_vec');
-save('saveddata/sn_C.mat', 'C2_vec');
-
-save('saveddata/ge_v.mat', 'vge');
-save('saveddata/ge_IL.mat', 'IL3_vec');
-save('saveddata/ge_IK.mat', 'IK3_vec');
-save('saveddata/ge_INa.mat', 'INa3_vec');
-save('saveddata/ge_IT.mat', 'IT3_vec');
-save('saveddata/ge_ICa.mat', 'ICa3_vec');
-save('saveddata/ge_Iahp.mat', 'IL3_vec');
-save('saveddata/ge_Isnge.mat', 'Isnge_vec');
-save('saveddata/ge_Igege.mat', 'Igege_vec');
-save('saveddata/ge_Iappgpe.mat', 'Iappgpe_vec');
-save('saveddata/ge_N3.mat', 'N3_vec');
-save('saveddata/ge_H3.mat', 'H3_vec');
-save('saveddata/ge_R3.mat', 'R3_vec');
-save('saveddata/ge_CA3.mat', 'CA3_vec');
-save('saveddata/ge_S3.mat', 'S3_vec');
-
-save('saveddata/gi_v.mat', 'vgi');
-
+save('all_variables');
 
 return
