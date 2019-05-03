@@ -284,6 +284,10 @@ end
 %%Plots membrane potential for one cell in each nucleus
 plotpotentials; 
 
+th_VOLTAGE = vth;
+stn_VOLTAGE = vsn;
+gpe_VOLTAGE = vge;
+gpi_VOLTAGE = vgi;
 save('all_variables');
 
 return
