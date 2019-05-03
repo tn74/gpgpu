@@ -27,6 +27,8 @@ private:
     void build_parameter_map();
     void initialize_cells();
     void run_cell_thread(Neuron*);
+    void run_all_cells();
+    void run_one_cell(Neuron*);
 
 public:
     BGNetwork();

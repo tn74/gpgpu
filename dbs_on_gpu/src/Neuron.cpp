@@ -25,8 +25,9 @@ std::vector<double>* Neuron::get_voltages() {
 }
 
 void Neuron::advance_time_step() {
-    compute_currents();
+    compute_currents(); // this is the bit that takes the most time
     compute_gating_variables();
+    // can parallelize this with a reduce
     double current_sum = 0.0;
     for(auto iter = currents->begin(); iter != currents->end(); ++iter) {
         current_sum += iter->second;
@@ -36,5 +37,4 @@ void Neuron::advance_time_step() {
 
     std::cout << "Time: " << dt * dt_index << ", DT INDEX: " << dt_index << ", DT = " << dt << std::endl;
     dt_index = dt_index + 1;
-
 }

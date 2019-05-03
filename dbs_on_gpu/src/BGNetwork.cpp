@@ -10,6 +10,7 @@ BGNetwork::BGNetwork(){
     std::cout << "BGNetwork Constructor" << std::endl;
     network_parameters = new std::map<std::string, std::map<std::string, double>* >();
     all_cells = new std::map<std::string, std::vector<Neuron*>* >();
+    // map string neuron identifier to Neuron[]s
     dt = 0.01;
     duration = .10;
     build_parameter_map();
@@ -112,14 +113,33 @@ void BGNetwork::initialize_cells() {
 }
 
 int BGNetwork::simulate() {
+    // for each iteration, run each cell
+    auto iterations = (unsigned long) (duration/dt);
+    for (int round = 0; round < iterations; ++round){
+        run_all_cells();
+    }
+// Alternatively,
+    // for each cell, run 10 iterations
+//    for (auto&& [cell_type, cells]: *all_cells) {
+////        std::cout << "Round" << round << "\n";
+//        for (auto&& n: *cells) {
+//            run_cell_thread(n);
+//        }
+//    }
+    return 0;
+}
+
+void BGNetwork::run_all_cells() {
     for (auto&& [cell_type, cells]: *all_cells) {
-//        std::cout << "Round" << round << "\n";
         for (auto&& n: *cells) {
-            run_cell_thread(n);
+            run_one_cell(n);
         }
     }
-    return 0;
-};
+}
+
+void BGNetwork::run_one_cell(Neuron* n) {
+    n->advance_time_step();
+}
 
 void BGNetwork::run_cell_thread(Neuron* n) {
     auto iterations = (unsigned long) (duration/dt);
