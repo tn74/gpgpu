@@ -3,24 +3,32 @@ import os
 from shutil import copytree
 
 
-def save_matlab(test_name):
-    basepath = os.path.dirname(os.path.abspath(__file__))
-    out_path =os.path.join(basepath, "saved_tests", test_name)
-    copytree(os.path.join(basepath, "saveddata"), out_path)
+def get_cell_type(key_string):
+    if key_string.startswith(("th_", "stn_", "gpe_", "gpi_")):
+        return key_string.split("_")[0]
+    return None
 
 
-def load_test_data(test_name):
-    basepath = os.path.dirname(os.path.abspath(__file__))
-    test_path = os.path.join(basepath, "saved_tests", test_name)
-
-    for mat_fname in os.listdir(test_path):
-        mat_path = os.path.join(test_path, mat_fname)
-        if ".mat" not in mat_path:
+def parse_mat(matfile):
+    parsed_data = {"th": {}, "stn": {}, "gpe": {}, "gpi": {}}
+    for key, value in matfile.items():
+        cell_type = get_cell_type(key)
+        if cell_type is None:
             continue
-        data = loadmat(mat_path)
-        print(data)
+        debug_val = key.split("_")[1]
+        parsed_data[cell_type][debug_val] = value
+    return parsed_data
+
+
+def load_matlab(test_name):
+    basepath = os.path.dirname(os.path.abspath(__file__))
+    test_path = os.path.join(basepath, "saved_tests", "{}.mat".format(test_name))
+    return parse_mat(loadmat(test_path))
 
 
 if __name__ == "__main__":
-    # save_matlab("test1")
-    load_test_data(("test1"))
+    for k, v in load_matlab("test1").items():
+        print(k)
+        for k2 in v.keys():
+            print(k2)
+        print()
