@@ -11,7 +11,7 @@ BGNetwork::BGNetwork(){
     network_parameters = new std::map<std::string, std::map<std::string, double>* >();
     all_cells = new std::map<std::string, std::vector<Neuron*>* >();
     dt = 0.01;
-    duration = 10;
+    duration = .10;
     build_parameter_map();
     std::cout << "Finished Parameter Map" << std::endl;
 
@@ -106,7 +106,7 @@ void BGNetwork::initialize_cells() {
     std::cout << "Start Initialized Cells" << std::endl;
     (*all_cells)["th"] = new std::vector<Neuron*>();
     (*all_cells)["th"]->reserve(20);
-    (*all_cells)["th"]->push_back(new THNeuron(dt, duration, -57.0, (*network_parameters)["th"]));
+    (*all_cells)["th"]->push_back(new GPeNeuron(dt, duration, -57.0, (*network_parameters)["gpe"]));
     std::cout << "Initialized Cell" << std::endl;
 
 }
