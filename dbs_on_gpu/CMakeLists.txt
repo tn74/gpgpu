@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.13)
 
 project(dbs_on_gpu)
 # LANGUAGES CXX CUDA
-set(CMAKE_CXX_STANDARD 14)
+set(CMAKE_CXX_STANDARD 17)
 set(c_SOURCES main.cpp
         src/gating.cpp
         src/gating.h

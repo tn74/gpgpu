@@ -116,7 +116,11 @@ int BGNetwork::simulate() {
     // for each iteration, run each cell
     auto iterations = (unsigned long) (duration/dt);
     for (int round = 0; round < iterations; ++round){
-        run_all_cells();
+        for (auto&& [cell_type, cells]: *all_cells) {
+            for (auto&& n: *cells) {
+                n->advance_time_step();
+            }
+        }
     }
 // Alternatively,
     // for each cell, run 10 iterations
@@ -127,18 +131,6 @@ int BGNetwork::simulate() {
 //        }
 //    }
     return 0;
-}
-
-void BGNetwork::run_all_cells() {
-    for (auto&& [cell_type, cells]: *all_cells) {
-        for (auto&& n: *cells) {
-            run_one_cell(n);
-        }
-    }
-}
-
-void BGNetwork::run_one_cell(Neuron* n) {
-    n->advance_time_step();
 }
 
 void BGNetwork::run_cell_thread(Neuron* n) {
