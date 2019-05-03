@@ -87,6 +87,22 @@ gpe_H = zeros(n,length(t));
 gpe_R = zeros(n,length(t));
 gpe_CA = zeros(n,length(t));
 gpe_S = zeros(n,length(t));
+
+gpi_IL = zeros(n,length(t));
+gpi_IK =  zeros(n,length(t));
+gpi_INa = zeros(n,length(t));
+gpi_IT = zeros(n,length(t));
+gpi_ICa = zeros(n,length(t));
+gpi_Iahp = zeros(n,length(t));
+gpi_Isngi = zeros(n,length(t));
+gpi_Igigi = zeros(n,length(t));
+gpi_Iapp = zeros(n,length(t));
+gpi_N=zeros(n,length(t));
+gpi_H=zeros(n,length(t));
+gpi_R=zeros(n,length(t));
+gpi_CA=zeros(n,length(t));
+gpi_S=zeros(n,length(t));
+gpi_Z=zeros(n,length(t));
 %========================== End Debug Initialization =================================
 
 
@@ -198,11 +214,11 @@ for i=2:length(t)
     gpe_Igege(:, i) = Igege;
     gpe_Iapp(:, i) = Iappgpe;
 
-    gpe_N(:, 1) = N3;
-    gpe_H(:, 1) = H3;
-    gpe_R(:, 1) = R3;
-    gpe_CA(:, 1) = CA3;
-    gpe_S(:, 1) = S3;
+    gpe_N(:, i) = N3;
+    gpe_H(:, i) = H3;
+    gpe_R(:, i) = R3;
+    gpe_CA(:, i) = CA3;
+    gpe_S(:, i) = S3;
 
 
     %GPi cell currents
@@ -215,6 +231,24 @@ for i=2:length(t)
     Isngi=0.5*(gsyn(4)*(V4-Esyn(4)).*(S2+S21)); Isngi=0;%special
     Igigi=0.5*(gsyn(5)*(V4-Esyn(5)).*(S31+S32)); Igigi=0;%special
     Iappgpi=22-pd*6; Iappgpi=0;
+    
+    gpi_IL(:, i) = Il4;
+    gpi_IK(:, i) = Ik4;
+    gpi_INa(:, i) = Ina4;
+    gpi_IT(:, i) = It4;
+    gpi_ICa(:, i) = Ica4;
+    gpi_Iahp(:, i) = Iahp4;
+    gpi_Isngi(:, i) = Isngi;
+    gpi_Igigi(:, i) = Igigi;
+    gpi_Iapp(:, i) = Iappgpi;
+    
+    gpi_N(:, i)=N4;
+    gpi_H(:, i)=H4;
+    gpi_R(:, i)=R4;
+    gpi_CA(:, i)=CA4;
+    gpi_S(:, i)=S4;
+    gpi_Z(:, i)=Z4;
+
     
     %Differential Equations for cells
     %thalamic
