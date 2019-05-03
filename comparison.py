@@ -22,12 +22,12 @@ def parse_mat(matfile):
 
 def load_matlab(test_name):
     basepath = os.path.dirname(os.path.abspath(__file__))
-    test_path = os.path.join(basepath, "saved_tests", "{}.mat".format(test_name))
+    test_path = os.path.join(basepath, "Model", "BGNetwork", "saved_tests", "{}.mat".format(test_name))
     return parse_mat(loadmat(test_path))
 
 
 if __name__ == "__main__":
-    for k, v in load_matlab("test1").items():
+    for k, v in load_matlab("healthy_isolated_cells").items():
         print(k)
         for k2 in v.keys():
             print(k2)

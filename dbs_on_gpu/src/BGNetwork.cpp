@@ -106,7 +106,7 @@ void BGNetwork::initialize_cells() {
     std::cout << "Start Initialized Cells" << std::endl;
     (*all_cells)["th"] = new std::vector<Neuron*>();
     (*all_cells)["th"]->reserve(20);
-    (*all_cells)["th"]->push_back(new GPiNeuron(dt, duration, -57.0, (*network_parameters)["gpi"]));
+    (*all_cells)["th"]->push_back(new THNeuron(dt, duration, -57.0, (*network_parameters)["th"], 1));
     std::cout << "Initialized Cell" << std::endl;
 
 }
@@ -123,19 +123,10 @@ int BGNetwork::simulate() {
 
 void BGNetwork::run_cell_thread(Neuron* n) {
     auto iterations = (unsigned long) (duration/dt);
-    for (int round = 0; round < iterations; ++round){
+    n-> debug();
+    for (int round = 0; round < iterations - 1; ++round){
         n->advance_time_step();
+        n->debug();
         // SYNCHRONIZE WITH OTHER CELLS
     }
-}
-
-std::map<std::string, std::vector<std::vector<double>>> BGNetwork::get_voltages() {
-//    std::map<std::string, std::vector<std::vector<double>>> voltages = new std::map<std::string, std::vector<std::vector<double>>>();
-//    for(auto cell_type = all_cells.begin(); iter != all_cells.end(); ++iter)
-//    {
-//        std::vector<Neuron> neurons = cell_type->second;
-//        for (int i = 0; i < neurons.size(); ++i){
-//
-//        }
-//    }
 }

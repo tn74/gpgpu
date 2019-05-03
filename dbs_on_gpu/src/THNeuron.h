@@ -18,7 +18,7 @@ protected:
     void initialize_gating_variables() override;
 
 public:
-    THNeuron(double dt, double duration, double start_voltage, std::map<std::string, double>* parameters);
+    THNeuron(double dt, double duration, double start_voltage, std::map<std::string, double>* parameters, int id);
 };
 
 

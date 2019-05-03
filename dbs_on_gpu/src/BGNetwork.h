@@ -31,7 +31,6 @@ private:
 public:
     BGNetwork();
     int simulate();
-    std::map<std::string, std::vector<std::vector<double>>> get_voltages();
 };
 
 
