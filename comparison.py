@@ -1,7 +1,6 @@
 from scipy.io import loadmat
 import os
 import numpy as np
-from shutil import copytree
 from matplotlib import pyplot as plt
 
 
@@ -108,5 +107,5 @@ if __name__ == "__main__":
     m, c = load_matlab("healthy_isolated_cells"), load_cpp("healthy_isolated_cells")
     comparator = Comparator()
     # comparator.plot_voltages(m, c)
-    comparator.see_differences(m["GPE"], c["GPE"])
+    comparator.see_differences(m["GPI"], c["GPI"])
     comparator.plot_voltages(m, c)

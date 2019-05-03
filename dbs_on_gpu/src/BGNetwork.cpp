@@ -123,6 +123,11 @@ void BGNetwork::initialize_cells() {
         (*all_cells)["GPE"]->push_back(new GPeNeuron(dt, duration, -57.0, (*network_parameters)["GPE"], i));
     }
 
+    (*all_cells)["GPI"] = new std::vector<Neuron*>();
+    (*all_cells)["GPI"]->reserve(NUMBER_OF_CELLS);
+    for (int i = 0 ; i < NUMBER_OF_CELLS; ++i) {
+        (*all_cells)["GPI"]->push_back(new GPiNeuron(dt, duration, -57.0, (*network_parameters)["GPI"], i));
+    }
 
     std::cout << "Initialized Cell" << std::endl;
 

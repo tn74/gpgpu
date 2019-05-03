@@ -45,7 +45,6 @@ void Neuron::advance_time_step() {
 int Neuron::debug() {
     if (output_file == nullptr) {
         std::string filename = std::string("output/") + *cell_identifier;
-//        std::string filename =  *cell_identifier;
         filename.append(".txt");
         output_file = fopen(filename.c_str(), "w");
     };
