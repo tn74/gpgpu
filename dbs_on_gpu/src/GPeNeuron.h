@@ -8,11 +8,6 @@
 #include "Neuron.h"
 
 class GPeNeuron : public Neuron{
-private:
-    double h_gate;
-    double r_gate;
-    double n_gate;
-    double CA;
 
 protected:
     void compute_currents() override;
@@ -20,7 +15,7 @@ protected:
     void initialize_gating_variables() override;
 
 public:
-    GPeNeuron(double dt, double duration, double start_voltage, std::map<std::string, double>* parameters);
+    GPeNeuron(double dt, double duration, double start_voltage, std::map<std::string, double>* parameters, int id);
 };
 
 

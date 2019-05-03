@@ -11,7 +11,6 @@ class THNeuron : public Neuron{
 private:
     double h_gate;
     double r_gate;
-
 protected:
     void compute_currents() override;
     void compute_gating_variables() override;

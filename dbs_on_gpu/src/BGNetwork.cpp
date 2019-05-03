@@ -6,12 +6,13 @@
 #include <iostream>
 
 
-BGNetwork::BGNetwork(){
+BGNetwork::BGNetwork(int n, double dur, double delta){
     std::cout << "BGNetwork Constructor" << std::endl;
     network_parameters = new std::map<std::string, std::map<std::string, double>* >();
     all_cells = new std::map<std::string, std::vector<Neuron*>* >();
-    dt = 0.01;
-    duration = 5;
+    dt = delta;
+    duration = dur;
+    NUMBER_OF_CELLS = n;
     build_parameter_map();
     std::cout << "Finished Parameter Map" << std::endl;
 
@@ -22,9 +23,9 @@ void BGNetwork::build_parameter_map() {
     std::cout << "Starting parameter map" << std::endl;
 
     //TH NEURON
-    (*network_parameters)["th"] = new std::map<std::string, double>();
-    std::cout << (*network_parameters)["th"] << (*network_parameters)["th"] << std::endl;
-    std::map<std::string, double>* th_param_ptr = (*network_parameters)["th"];
+    (*network_parameters)["TH"] = new std::map<std::string, double>();
+    std::cout << (*network_parameters)["TH"] << (*network_parameters)["TH"] << std::endl;
+    std::map<std::string, double>* th_param_ptr = (*network_parameters)["TH"];
     std::map<std::string, double> &th_param = *th_param_ptr;
 
     th_param["C_m"] = 1.0;
@@ -38,9 +39,9 @@ void BGNetwork::build_parameter_map() {
     th_param["E_T"] = 0.0;
 
     //STN NEURON
-    (*network_parameters)["stn"] = new std::map<std::string, double>();
-    std::cout << (*network_parameters)["stn"] << (*network_parameters)["stn"] << std::endl;
-    std::map<std::string, double>* stn_param_ptr = (*network_parameters)["stn"];
+    (*network_parameters)["STN"] = new std::map<std::string, double>();
+    std::cout << (*network_parameters)["STN"] << (*network_parameters)["STN"] << std::endl;
+    std::map<std::string, double>* stn_param_ptr = (*network_parameters)["STN"];
     std::map<std::string, double> &stn_param = *stn_param_ptr;
 
     stn_param["C_m"] = 1.0;
@@ -58,9 +59,9 @@ void BGNetwork::build_parameter_map() {
     stn_param["E_ahp"] = -80.0;
 
     //GPe Neuron
-    (*network_parameters)["gpe"] = new std::map<std::string, double>();
-    std::cout << (*network_parameters)["gpe"] << (*network_parameters)["gpe"] << std::endl;
-    std::map<std::string, double>* gpe_param_ptr = (*network_parameters)["gpe"];
+    (*network_parameters)["GPE"] = new std::map<std::string, double>();
+    std::cout << (*network_parameters)["GPE"] << (*network_parameters)["GPE"] << std::endl;
+    std::map<std::string, double>* gpe_param_ptr = (*network_parameters)["GPE"];
     std::map<std::string, double> &gpe_param = *gpe_param_ptr;
 
     gpe_param["C_m"] = 1.0;
@@ -78,9 +79,9 @@ void BGNetwork::build_parameter_map() {
     gpe_param["E_ahp"] = -80.0;
 
     //GPi Neuron
-    (*network_parameters)["gpi"] = new std::map<std::string, double>();
-    std::cout << (*network_parameters)["gpi"] << (*network_parameters)["gpi"] << std::endl;
-    std::map<std::string, double>* gpi_param_ptr = (*network_parameters)["gpi"];
+    (*network_parameters)["GPI"] = new std::map<std::string, double>();
+    std::cout << (*network_parameters)["GPI"] << (*network_parameters)["GPI"] << std::endl;
+    std::map<std::string, double>* gpi_param_ptr = (*network_parameters)["GPI"];
     std::map<std::string, double> &gpi_param = *gpi_param_ptr;
 
     gpi_param["C_m"] = 1.0;
@@ -104,16 +105,31 @@ void BGNetwork::build_parameter_map() {
 
 void BGNetwork::initialize_cells() {
     std::cout << "Start Initialized Cells" << std::endl;
-    (*all_cells)["th"] = new std::vector<Neuron*>();
-    (*all_cells)["th"]->reserve(20);
-    (*all_cells)["th"]->push_back(new THNeuron(dt, duration, -57.0, (*network_parameters)["th"], 1));
+    (*all_cells)["TH"] = new std::vector<Neuron*>();
+    (*all_cells)["TH"]->reserve(NUMBER_OF_CELLS);
+    for (int i = 0 ; i < NUMBER_OF_CELLS; ++i) {
+        (*all_cells)["TH"]->push_back(new THNeuron(dt, duration, -57.0, (*network_parameters)["TH"], i));
+    }
+
+    (*all_cells)["STN"] = new std::vector<Neuron*>();
+    (*all_cells)["STN"]->reserve(NUMBER_OF_CELLS);
+    for (int i = 0 ; i < NUMBER_OF_CELLS; ++i) {
+        (*all_cells)["STN"]->push_back(new STNNeuron(dt, duration, -57.0, (*network_parameters)["STN"], i));
+    }
+
+    (*all_cells)["GPE"] = new std::vector<Neuron*>();
+    (*all_cells)["GPE"]->reserve(NUMBER_OF_CELLS);
+    for (int i = 0 ; i < NUMBER_OF_CELLS; ++i) {
+        (*all_cells)["GPE"]->push_back(new GPeNeuron(dt, duration, -57.0, (*network_parameters)["GPE"], i));
+    }
+
+
     std::cout << "Initialized Cell" << std::endl;
 
 }
 
 int BGNetwork::simulate() {
     for (auto&& [cell_type, cells]: *all_cells) {
-//        std::cout << "Round" << round << "\n";
         for (auto&& n: *cells) {
             run_cell_thread(n);
         }

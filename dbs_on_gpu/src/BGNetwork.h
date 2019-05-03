@@ -23,13 +23,14 @@ private:
     std::map<std::string, std::map<std::string, double>* >* network_parameters;             // cell-type -> parameter map
     double duration;
     double dt;
+    int NUMBER_OF_CELLS;
 
     void build_parameter_map();
     void initialize_cells();
     void run_cell_thread(Neuron*);
 
 public:
-    BGNetwork();
+    BGNetwork(int n, double dur, double delta);
     int simulate();
 };
 

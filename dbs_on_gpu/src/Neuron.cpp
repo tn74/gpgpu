@@ -23,9 +23,7 @@ Neuron::Neuron(
     gating_variables = new std::map<std::string, double>();
 
     voltage->reserve((unsigned long) (duration/dt));
-//    std::cout << "DT Index = " << dt_index << ", Voltage Size = " << voltage->size() << std::endl;
     voltage->push_back(start_voltage);
-//    std::cout << "DT Index = " << dt_index << ", Voltage Size = " << voltage->size() << std::endl;
 
 }
 
@@ -41,8 +39,6 @@ void Neuron::advance_time_step() {
         current_sum += iter->second;
     }
     voltage->push_back((*voltage)[dt_index] + dt * current_sum / (*parameters)["C_m"]);
-
-//    std::cout << "Time: "  << dt * dt_index << ", DT INDEX: " << dt_index << ", DT = " << dt << std::endl;
     dt_index = dt_index + 1;
 }
 
@@ -54,16 +50,16 @@ int Neuron::debug() {
         output_file = fopen(filename.c_str(), "w");
     };
 
-    fprintf(output_file, "DT=%d, VOLTAGE=%.8f", dt_index, voltage->back());
+    fprintf(output_file, "DT=%d, VOLTAGE=%.15f", dt_index, voltage->back());
     for (auto& [current_name, amps]: *currents) {
-        fprintf(output_file, ", %s=%.8f", current_name.c_str(), amps);
+        fprintf(output_file, ", %s=%.15f", current_name.c_str(), amps);
     }
     for (auto& [gate, volts]: *gating_variables) {
-        fprintf(output_file, ", %s=%.8f", gate.c_str(), volts);
+        fprintf(output_file, ", %s=%.15f", gate.c_str(), volts);
     }
     fprintf(output_file, ", \n");
 
-    std::cout << "DT Index = " << dt_index << ", Voltage Size = " << voltage->capacity() << std::endl;
+//    std::cout << "DT Index = " << dt_index << ", Voltage Size = " << voltage->capacity() << std::endl;
     if (dt_index == voltage->capacity() - 1) {
         fclose(output_file);
         std::cout << "File Closed" << std::endl;
