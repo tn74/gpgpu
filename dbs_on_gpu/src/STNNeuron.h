@@ -8,12 +8,6 @@
 #include "Neuron.h"
 
 class STNNeuron : public Neuron{
-private:
-    double h_gate;
-    double r_gate;
-    double n_gate;
-    double c_gate;
-    double CA;
 
 protected:
     void compute_currents() override;
@@ -21,7 +15,7 @@ protected:
     void initialize_gating_variables() override;
 
 public:
-    STNNeuron(double dt, double duration, double start_voltage, std::map<std::string, double>* parameters);
+    STNNeuron(double dt, double duration, double start_voltage, std::map<std::string, double>* parameters, int id);
 };
 
 
