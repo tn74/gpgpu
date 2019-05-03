@@ -48,7 +48,7 @@ S31=zeros(n,1);S32=zeros(n,1); S4=zeros(n,1);
 Z2=zeros(n,1);Z4=zeros(n,1);
 
 % TH Debug
-th_IL=zeros(n,length(t));
+%th_IL=zeros(n,length(t));
 th_INa=zeros(n,length(t));
 th_IK=zeros(n,length(t));
 th_IT=zeros(n,length(t));
