@@ -17,6 +17,7 @@ function EI = BGnetwork(pd,wstim,freq)
 
 
 load('Istim.mat') %loads initial conditions
+Istim = Istim.*0;
 addpath('gating')
 
 %%Membrane parameters
@@ -135,7 +136,7 @@ for i=2:length(t)
     Ina1=gna(1)*(m1.^3).*H1.*(V1-Ena(1));
     Ik1=gk(1)*((0.75*(1-H1)).^4).*(V1-Ek(1));
     It1=gt(1)*(p1.^2).*R1.*(V1-Et);
-    Igith=1.4*gsyn(6)*(V1-Esyn(6)).*S4; 
+    Igith=1.4*gsyn(6)*(V1-Esyn(6)).*S4; Igith =0;
 
     % TH DEBUG
     th_IL(:, i)=Il1;
@@ -154,8 +155,8 @@ for i=2:length(t)
     It2=gt(2)*(a2.^3).*(b2.^2).*(V2-Eca(2));
     Ica2=gca(2)*(C2.^2).*(V2-Eca(2));
     Iahp2=gahp(2)*(V2-Ek(2)).*(CA2./(CA2+k1(2)));
-    Igesn=0.5*(gsyn(1)*(V2-Esyn(1)).*(S3+S31)); %Igesn=0;
-    Iappstn=33-pd*10;
+    Igesn=0.5*(gsyn(1)*(V2-Esyn(1)).*(S3+S31)); Igesn=0;
+    Iappstn=33-pd*10; Iappstn=0;
 
     % STN Debug
     stn_IL(:, i) = Il2;
@@ -181,9 +182,9 @@ for i=2:length(t)
     It3=gt(3)*(a3.^3).*R3.*(V3-Eca(3));
     Ica3=gca(3)*(s3.^2).*(V3-Eca(3));
     Iahp3=gahp(3)*(V3-Ek(3)).*(CA3./(CA3+k1(3)));
-    Isnge=0.5*(gsyn(2)*(V3-Esyn(2)).*(S2+S21)); %Isnge=0;
-    Igege=0.5*(gsyn(3)*(V3-Esyn(3)).*(S31+S32)); %Igege=0;
-    Iappgpe=21-13*pd+r;
+    Isnge=0.5*(gsyn(2)*(V3-Esyn(2)).*(S2+S21)); Isnge=0;
+    Igege=0.5*(gsyn(3)*(V3-Esyn(3)).*(S31+S32)); Igege=0;
+    Iappgpe=21-13*pd+r; Iappgpe=0;
 
     %GPE Debug
 
@@ -211,9 +212,9 @@ for i=2:length(t)
     It4=gt(3)*(a4.^3).*R4.*(V4-Eca(3));
     Ica4=gca(3)*(s4.^2).*(V4-Eca(3));
     Iahp4=gahp(3)*(V4-Ek(3)).*(CA4./(CA4+k1(3)));
-    Isngi=0.5*(gsyn(4)*(V4-Esyn(4)).*(S2+S21)); %Isngi=0;%special
-    Igigi=0.5*(gsyn(5)*(V4-Esyn(5)).*(S31+S32)); %Igigi=0;%special
-    Iappgpi=22-pd*6;
+    Isngi=0.5*(gsyn(4)*(V4-Esyn(4)).*(S2+S21)); Isngi=0;%special
+    Igigi=0.5*(gsyn(5)*(V4-Esyn(5)).*(S31+S32)); Igigi=0;%special
+    Iappgpi=22-pd*6; Iappgpi=0;
     
     %Differential Equations for cells
     %thalamic
