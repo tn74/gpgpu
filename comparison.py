@@ -91,18 +91,34 @@ class Comparator:
                 axes[i, 1].plot(x, voltage)
         plt.show()
 
-    def see_differences(self, mc, cc, iterations = 5):
+    def see_differences(self, mc, cc, print_range=(0, 5)):
         for property, values in mc.items():
-                if property in cc.keys():
-                    print("Property = {}".format(property))
-                    for i in range(iterations):
-                        print("{}: Matlab = {:.4}, C++ = {:.4}".format(property, mc[property][0][i], cc[property][0][i]))
-                    print()
+            if property in cc.keys():
+                print("Property = {}".format(property))
+                start, finish = print_range
+                for i in range(start, finish):
+                    print("{:5d} | {:.2e} ms | {} | Matlab = {:.3e} | C++ = {:.3e}".format(
+                        i, i*0.01, property, mc[property][0][i], cc[property][0][i]))
+                print()
+
+    def plot_voltage_differential(self, m, c):
+        fig, axes = plt.subplots(4,1)
+        for type_index, cell_type in enumerate(m.keys()):
+            m_voltage = m[cell_type]["VOLTAGE"]
+            c_voltage = c[cell_type]["VOLTAGE"]
+            for cell_index in range(min(len(m_voltage), len(c_voltage))):
+                x = np.linspace(0, 0.01 * len(m_voltage[0]), len(m_voltage[0]))
+                difference = m_voltage[cell_index] - c_voltage[cell_index]
+                axes[type_index].plot(x, difference, label="Cell {}".format(cell_index))
+                axes[type_index].set_title(cell_type)
+        fig.legend()
+        plt.show()
 
 
 if __name__ == "__main__":
     loader = Loader()
     m, c = loader.load_matlab("healthy_isolated_cells"), loader.load_cpp("healthy_isolated_cells")
     comparator = Comparator()
-    comparator.see_differences(m["GPI"], c["GPI"])
-    comparator.plot_voltages(m, c)
+    comparator.see_differences(m["STN"], c["STN"], print_range=(0, 10))
+    # comparator.plot_voltages(m, c)
+    comparator.plot_voltage_differential(m, c)

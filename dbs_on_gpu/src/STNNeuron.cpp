@@ -31,7 +31,7 @@ void STNNeuron::compute_currents() {
     c["I_L"] = -(p["g_L"] * (v - p["E_L"]));
     c["I_Na"] = -(p["g_Na"] * (pow(stn_minf(v), 3)) * g["H"] * (v - p["E_Na"]));
     c["I_K"] = -(p["g_K"] * pow(g["N"], 4) * (v - p["E_K"]));
-    c["I_T"] = -(p["g_T"] * pow(stn_ainf(v), 3) * pow(stn_binf(g["R"]), 2) * g["R"] * (v - p["E_T"]));
+    c["I_T"] = -(p["g_T"] * pow(stn_ainf(v), 3) * pow(stn_binf(g["R"]), 2) * g["R"] * (v - p["E_Ca"]));
     c["I_Ca"] = -(p["g_Ca"] * pow(g["C"], 2) * (v - p["E_Ca"]));
     c["I_ahp"] = -(p["g_ahp"] * (v - p["E_ahp"]) * (g["CA"]/(g["CA"] + 15)));
 

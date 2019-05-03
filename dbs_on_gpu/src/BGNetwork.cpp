@@ -145,7 +145,7 @@ int BGNetwork::simulate() {
 void BGNetwork::run_cell_thread(Neuron* n) {
     auto iterations = (unsigned long) (duration/dt);
     n-> debug();
-    for (int round = 0; round < iterations - 1; ++round){
+    for (int round = 0; round < iterations; ++round){
         n->advance_time_step();
         n->debug();
         // SYNCHRONIZE WITH OTHER CELLS

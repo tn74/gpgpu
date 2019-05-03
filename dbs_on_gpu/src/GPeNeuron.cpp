@@ -35,19 +35,6 @@ void GPeNeuron::compute_currents() {
     c["I_T"] = -(p["g_T"] * pow(gpe_ainf(v), 3) * g["R"] * (v - p["E_Ca"]));
     c["I_Ca"] = -(p["g_Ca"] * pow(gpe_sinf(v), 2) * (v - p["E_Ca"]));
     c["I_ahp"] = -(p["g_ahp"] * (v - p["E_ahp"]) * (g["CA"]/(g["CA"] + 10)));
-
-//    std::cout << "Voltage: " << v << std::endl;
-//    std::cout << "H: " << h_gate << std::endl;
-//    std::cout << "g_L = " << p["g_L"] << std::endl;
-//    std::cout << "E_L = " << p["E_L"] << std::endl;
-//    std::cout << "R: " << r_gate << std::endl;
-//    std::cout << "Current I_L: " << c["I_L"] << std::endl;
-//    std::cout << "Current I_Na: " << c["I_Na"] << std::endl;
-//    std::cout << "Current I_K: " << c["I_K"] << std::endl;
-//    std::cout << "Current I_T: " << c["I_T"] << std::endl;
-//    std::cout << "Current I_Ca: " << c["I_Ca"] << std::endl;
-//    std::cout << "Current I_ahp: " << c["I_ahp"] << std::endl;
-//    std::cout << std::endl;
 }
 
 void GPeNeuron::compute_gating_variables() {

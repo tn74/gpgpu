@@ -22,7 +22,7 @@ Neuron::Neuron(
     currents = new std::map<std::string, double>();
     gating_variables = new std::map<std::string, double>();
 
-    voltage->reserve((unsigned long) (duration/dt));
+    voltage->reserve((unsigned long) (duration/dt) + 1);
     voltage->push_back(start_voltage);
 
 }
