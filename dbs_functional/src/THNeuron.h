@@ -24,12 +24,17 @@ void compute_currents(double v, th_current_t*, th_param_t* p);
 void compute_gating(double v, th_gate_t*, th_param_t* p);
 
 class THNeuron : public Neuron{
+private:
+    th_param_t* cell_params;
+    th_current_t* currents;
+    th_gate_t* gates;
 
 protected:
     void initialize_gating_variables() override;
 
 public:
-    THNeuron(double dt, double duration, double start_voltage, th_param_t* thp, int id);
+    THNeuron(double dt, double duration, double start_voltage, param_t* network_params, int id);
+    int debug_write();
 };
 
 

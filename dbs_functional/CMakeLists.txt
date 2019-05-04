@@ -17,12 +17,6 @@ add_executable(
         src/Neuron.h
         src/THNeuron.cpp
         src/THNeuron.h
-        src/GPeNeuron.cpp
-        src/GPeNeuron.h
-        src/GPiNeuron.cpp
-        src/GPiNeuron.h
-        src/STNNeuron.cpp
-        src/STNNeuron.h
         src/BGNetwork.cpp
         src/BGNetwork.h
 )

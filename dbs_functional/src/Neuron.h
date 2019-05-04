@@ -7,6 +7,7 @@
 
 #include <map>
 #include <vector>
+#include "parameter_structs.h"
 
 
 class Neuron {
@@ -16,24 +17,19 @@ protected:
     int dt_index;
     double dt;
 
+    // For output purposes only
     std::string* cell_identifier;
     FILE* output_file;
+    std::map<std::string, double>* map_currents;
+    std::map<std::string, double>* map_gates;
 
-    std::vector<double>* voltage;
-    std::map<std::string, double>* parameters;
-    std::map<std::string, double>* currents;
-    std::map<std::string, double>* gating_variables;
-
-    virtual void compute_currents() = 0;
-    virtual void compute_gating_variables() = 0;
     virtual void initialize_gating_variables() = 0;
 
 public:
-    Neuron(double dt, double duration, double start_voltage, std::map<std::string, double>* parameters);
-    std::vector<double>* get_voltages();
-    int debug();
+    std::vector<double>* voltage;                       // Track cell's voltage
+    Neuron(double dt, double duration, double start_voltage);
+    int debug_write();
 
-    virtual void advance_time_step();
 
 };
 

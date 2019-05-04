@@ -89,28 +89,10 @@
 		<Unit filename="/Users/trishul/Documents/Duke/s6/ece590/gpgpu/dbs_functional/src/BGNetwork.h">
 			<Option target="dbs_functional"/>
 		</Unit>
-		<Unit filename="/Users/trishul/Documents/Duke/s6/ece590/gpgpu/dbs_functional/src/GPeNeuron.cpp">
-			<Option target="dbs_functional"/>
-		</Unit>
-		<Unit filename="/Users/trishul/Documents/Duke/s6/ece590/gpgpu/dbs_functional/src/GPeNeuron.h">
-			<Option target="dbs_functional"/>
-		</Unit>
-		<Unit filename="/Users/trishul/Documents/Duke/s6/ece590/gpgpu/dbs_functional/src/GPiNeuron.cpp">
-			<Option target="dbs_functional"/>
-		</Unit>
-		<Unit filename="/Users/trishul/Documents/Duke/s6/ece590/gpgpu/dbs_functional/src/GPiNeuron.h">
-			<Option target="dbs_functional"/>
-		</Unit>
 		<Unit filename="/Users/trishul/Documents/Duke/s6/ece590/gpgpu/dbs_functional/src/Neuron.cpp">
 			<Option target="dbs_functional"/>
 		</Unit>
 		<Unit filename="/Users/trishul/Documents/Duke/s6/ece590/gpgpu/dbs_functional/src/Neuron.h">
-			<Option target="dbs_functional"/>
-		</Unit>
-		<Unit filename="/Users/trishul/Documents/Duke/s6/ece590/gpgpu/dbs_functional/src/STNNeuron.cpp">
-			<Option target="dbs_functional"/>
-		</Unit>
-		<Unit filename="/Users/trishul/Documents/Duke/s6/ece590/gpgpu/dbs_functional/src/STNNeuron.h">
 			<Option target="dbs_functional"/>
 		</Unit>
 		<Unit filename="/Users/trishul/Documents/Duke/s6/ece590/gpgpu/dbs_functional/src/THNeuron.cpp">

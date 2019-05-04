@@ -21,17 +21,32 @@ THNeuron::THNeuron(
         double dt,
         double duration,
         double start_voltage,
-        th_param_t* thp,
+        param_t* network_parameters,
         int id
-        ):Neuron(dt, duration, start_voltage, parameters){
+        ):Neuron(dt, duration, start_voltage){
     cell_identifier = new std::string("TH_NEURON_" + std::to_string(id));
+    cell_params = network_parameters -> th;
+    gates = (th_gate_t*) malloc(sizeof(th_gate));
+    currents = (th_current_t*) malloc(sizeof(th_current));
     initialize_gating_variables();
 };
 
 
 void THNeuron::initialize_gating_variables() {
-    std::map<std::string, double> &g = *gating_variables;
     double v = (*voltage).back();
-    g["H"] = th_hinf(v);
-    g["R"] = th_rinf(v);
+    gates-> H = th_hinf(v);
+    std::cout << "Gates H" << std::endl;
+
+    gates-> R = th_rinf(v);
+}
+
+int THNeuron::debug_write() {
+    std::map<std::string, double> &map_c = *map_currents;
+    std::map<std::string, double> &map_g = *map_gates;
+    map_c["I_L"] = currents -> I_L;
+    map_c["I_K"] = currents -> I_K;
+    map_c["I_Na"] = currents -> I_Na;
+    map_c["I_T"] = currents -> I_T;
+    map_g["H"] = gates -> H;
+    map_g["R"] = gates -> R;
 }

@@ -177,60 +177,6 @@ src/BGNetwork.cpp.s:
 	$(MAKE) -f CMakeFiles/dbs_functional.dir/build.make CMakeFiles/dbs_functional.dir/src/BGNetwork.cpp.s
 .PHONY : src/BGNetwork.cpp.s
 
-src/GPeNeuron.o: src/GPeNeuron.cpp.o
-
-.PHONY : src/GPeNeuron.o
-
-# target to build an object file
-src/GPeNeuron.cpp.o:
-	$(MAKE) -f CMakeFiles/dbs_functional.dir/build.make CMakeFiles/dbs_functional.dir/src/GPeNeuron.cpp.o
-.PHONY : src/GPeNeuron.cpp.o
-
-src/GPeNeuron.i: src/GPeNeuron.cpp.i
-
-.PHONY : src/GPeNeuron.i
-
-# target to preprocess a source file
-src/GPeNeuron.cpp.i:
-	$(MAKE) -f CMakeFiles/dbs_functional.dir/build.make CMakeFiles/dbs_functional.dir/src/GPeNeuron.cpp.i
-.PHONY : src/GPeNeuron.cpp.i
-
-src/GPeNeuron.s: src/GPeNeuron.cpp.s
-
-.PHONY : src/GPeNeuron.s
-
-# target to generate assembly for a file
-src/GPeNeuron.cpp.s:
-	$(MAKE) -f CMakeFiles/dbs_functional.dir/build.make CMakeFiles/dbs_functional.dir/src/GPeNeuron.cpp.s
-.PHONY : src/GPeNeuron.cpp.s
-
-src/GPiNeuron.o: src/GPiNeuron.cpp.o
-
-.PHONY : src/GPiNeuron.o
-
-# target to build an object file
-src/GPiNeuron.cpp.o:
-	$(MAKE) -f CMakeFiles/dbs_functional.dir/build.make CMakeFiles/dbs_functional.dir/src/GPiNeuron.cpp.o
-.PHONY : src/GPiNeuron.cpp.o
-
-src/GPiNeuron.i: src/GPiNeuron.cpp.i
-
-.PHONY : src/GPiNeuron.i
-
-# target to preprocess a source file
-src/GPiNeuron.cpp.i:
-	$(MAKE) -f CMakeFiles/dbs_functional.dir/build.make CMakeFiles/dbs_functional.dir/src/GPiNeuron.cpp.i
-.PHONY : src/GPiNeuron.cpp.i
-
-src/GPiNeuron.s: src/GPiNeuron.cpp.s
-
-.PHONY : src/GPiNeuron.s
-
-# target to generate assembly for a file
-src/GPiNeuron.cpp.s:
-	$(MAKE) -f CMakeFiles/dbs_functional.dir/build.make CMakeFiles/dbs_functional.dir/src/GPiNeuron.cpp.s
-.PHONY : src/GPiNeuron.cpp.s
-
 src/Neuron.o: src/Neuron.cpp.o
 
 .PHONY : src/Neuron.o
@@ -257,33 +203,6 @@ src/Neuron.s: src/Neuron.cpp.s
 src/Neuron.cpp.s:
 	$(MAKE) -f CMakeFiles/dbs_functional.dir/build.make CMakeFiles/dbs_functional.dir/src/Neuron.cpp.s
 .PHONY : src/Neuron.cpp.s
-
-src/STNNeuron.o: src/STNNeuron.cpp.o
-
-.PHONY : src/STNNeuron.o
-
-# target to build an object file
-src/STNNeuron.cpp.o:
-	$(MAKE) -f CMakeFiles/dbs_functional.dir/build.make CMakeFiles/dbs_functional.dir/src/STNNeuron.cpp.o
-.PHONY : src/STNNeuron.cpp.o
-
-src/STNNeuron.i: src/STNNeuron.cpp.i
-
-.PHONY : src/STNNeuron.i
-
-# target to preprocess a source file
-src/STNNeuron.cpp.i:
-	$(MAKE) -f CMakeFiles/dbs_functional.dir/build.make CMakeFiles/dbs_functional.dir/src/STNNeuron.cpp.i
-.PHONY : src/STNNeuron.cpp.i
-
-src/STNNeuron.s: src/STNNeuron.cpp.s
-
-.PHONY : src/STNNeuron.s
-
-# target to generate assembly for a file
-src/STNNeuron.cpp.s:
-	$(MAKE) -f CMakeFiles/dbs_functional.dir/build.make CMakeFiles/dbs_functional.dir/src/STNNeuron.cpp.s
-.PHONY : src/STNNeuron.cpp.s
 
 src/THNeuron.o: src/THNeuron.cpp.o
 
@@ -381,18 +300,9 @@ help:
 	@echo "... src/BGNetwork.o"
 	@echo "... src/BGNetwork.i"
 	@echo "... src/BGNetwork.s"
-	@echo "... src/GPeNeuron.o"
-	@echo "... src/GPeNeuron.i"
-	@echo "... src/GPeNeuron.s"
-	@echo "... src/GPiNeuron.o"
-	@echo "... src/GPiNeuron.i"
-	@echo "... src/GPiNeuron.s"
 	@echo "... src/Neuron.o"
 	@echo "... src/Neuron.i"
 	@echo "... src/Neuron.s"
-	@echo "... src/STNNeuron.o"
-	@echo "... src/STNNeuron.i"
-	@echo "... src/STNNeuron.s"
 	@echo "... src/THNeuron.o"
 	@echo "... src/THNeuron.i"
 	@echo "... src/THNeuron.s"

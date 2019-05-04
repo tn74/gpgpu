@@ -10,9 +10,6 @@
 #include <map>
 #include "Neuron.h"
 #include "THNeuron.h"
-#include "GPiNeuron.h"
-#include "GPeNeuron.h"
-#include "STNNeuron.h"
 #include "parameter_structs.h"
 
 
@@ -22,7 +19,7 @@ private:
     double duration;
     double dt;
     param_t* network_parameters;
-    std::map<std::string, std::vector<Neuron*>* >* all_cells;                               // cell-type -> index -> cell
+    std::map<std::string, std::vector<Neuron*>* >* all_cells;                             // cell-type -> index -> cell
 
     void build_parameter_map();
     void initialize_cells();
