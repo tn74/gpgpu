@@ -204,6 +204,33 @@ src/gating.cu.s:
 	$(MAKE) -f CMakeFiles/dbs_functional.dir/build.make CMakeFiles/dbs_functional.dir/src/gating.cu.s
 .PHONY : src/gating.cu.s
 
+src/parameter_structs.o: src/parameter_structs.cpp.o
+
+.PHONY : src/parameter_structs.o
+
+# target to build an object file
+src/parameter_structs.cpp.o:
+	$(MAKE) -f CMakeFiles/dbs_functional.dir/build.make CMakeFiles/dbs_functional.dir/src/parameter_structs.cpp.o
+.PHONY : src/parameter_structs.cpp.o
+
+src/parameter_structs.i: src/parameter_structs.cpp.i
+
+.PHONY : src/parameter_structs.i
+
+# target to preprocess a source file
+src/parameter_structs.cpp.i:
+	$(MAKE) -f CMakeFiles/dbs_functional.dir/build.make CMakeFiles/dbs_functional.dir/src/parameter_structs.cpp.i
+.PHONY : src/parameter_structs.cpp.i
+
+src/parameter_structs.s: src/parameter_structs.cpp.s
+
+.PHONY : src/parameter_structs.s
+
+# target to generate assembly for a file
+src/parameter_structs.cpp.s:
+	$(MAKE) -f CMakeFiles/dbs_functional.dir/build.make CMakeFiles/dbs_functional.dir/src/parameter_structs.cpp.s
+.PHONY : src/parameter_structs.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -222,6 +249,9 @@ help:
 	@echo "... src/gating.o"
 	@echo "... src/gating.i"
 	@echo "... src/gating.s"
+	@echo "... src/parameter_structs.o"
+	@echo "... src/parameter_structs.i"
+	@echo "... src/parameter_structs.s"
 .PHONY : help
 
 

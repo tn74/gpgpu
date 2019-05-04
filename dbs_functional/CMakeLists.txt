@@ -10,4 +10,4 @@ add_executable(
         dbs_functional
         main.cu
         src/gating.cu
-        src/currents.cpp src/currents.h)
+        src/currents.cpp src/currents.h src/parameter_structs.h src/parameter_structs.cpp)

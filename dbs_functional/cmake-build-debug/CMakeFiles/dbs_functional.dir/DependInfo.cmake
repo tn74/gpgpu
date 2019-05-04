@@ -15,6 +15,7 @@ set(CMAKE_CUDA_TARGET_INCLUDE_PATH
   )
 set(CMAKE_DEPENDS_CHECK_CXX
   "/Users/trishul/Documents/Duke/s6/ece590/gpgpu/dbs_functional/src/currents.cpp" "/Users/trishul/Documents/Duke/s6/ece590/gpgpu/dbs_functional/cmake-build-debug/CMakeFiles/dbs_functional.dir/src/currents.cpp.o"
+  "/Users/trishul/Documents/Duke/s6/ece590/gpgpu/dbs_functional/src/parameter_structs.cpp" "/Users/trishul/Documents/Duke/s6/ece590/gpgpu/dbs_functional/cmake-build-debug/CMakeFiles/dbs_functional.dir/src/parameter_structs.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "AppleClang")
 

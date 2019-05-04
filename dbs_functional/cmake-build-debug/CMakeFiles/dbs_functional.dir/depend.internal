@@ -3,9 +3,13 @@
 
 CMakeFiles/dbs_functional.dir/main.cu.o
  /Users/trishul/Documents/Duke/s6/ece590/gpgpu/dbs_functional/main.cu
+ /Users/trishul/Documents/Duke/s6/ece590/gpgpu/dbs_functional/src/parameter_structs.h
 CMakeFiles/dbs_functional.dir/src/gating.cu.o
  /Users/trishul/Documents/Duke/s6/ece590/gpgpu/dbs_functional/src/gating.cu
  /Users/trishul/Documents/Duke/s6/ece590/gpgpu/dbs_functional/src/gating.cuh
 CMakeFiles/dbs_functional.dir/src/currents.cpp.o
  /Users/trishul/Documents/Duke/s6/ece590/gpgpu/dbs_functional/src/currents.cpp
  /Users/trishul/Documents/Duke/s6/ece590/gpgpu/dbs_functional/src/currents.h
+CMakeFiles/dbs_functional.dir/src/parameter_structs.cpp.o
+ /Users/trishul/Documents/Duke/s6/ece590/gpgpu/dbs_functional/src/parameter_structs.cpp
+ /Users/trishul/Documents/Duke/s6/ece590/gpgpu/dbs_functional/src/parameter_structs.h
