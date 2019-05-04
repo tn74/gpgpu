@@ -123,86 +123,221 @@ dbs_functional/fast:
 	$(MAKE) -f CMakeFiles/dbs_functional.dir/build.make CMakeFiles/dbs_functional.dir/build
 .PHONY : dbs_functional/fast
 
-main.o: main.cu.o
+main.o: main.cpp.o
 
 .PHONY : main.o
 
 # target to build an object file
-main.cu.o:
-	$(MAKE) -f CMakeFiles/dbs_functional.dir/build.make CMakeFiles/dbs_functional.dir/main.cu.o
-.PHONY : main.cu.o
+main.cpp.o:
+	$(MAKE) -f CMakeFiles/dbs_functional.dir/build.make CMakeFiles/dbs_functional.dir/main.cpp.o
+.PHONY : main.cpp.o
 
-main.i: main.cu.i
+main.i: main.cpp.i
 
 .PHONY : main.i
 
 # target to preprocess a source file
-main.cu.i:
-	$(MAKE) -f CMakeFiles/dbs_functional.dir/build.make CMakeFiles/dbs_functional.dir/main.cu.i
-.PHONY : main.cu.i
+main.cpp.i:
+	$(MAKE) -f CMakeFiles/dbs_functional.dir/build.make CMakeFiles/dbs_functional.dir/main.cpp.i
+.PHONY : main.cpp.i
 
-main.s: main.cu.s
+main.s: main.cpp.s
 
 .PHONY : main.s
 
 # target to generate assembly for a file
-main.cu.s:
-	$(MAKE) -f CMakeFiles/dbs_functional.dir/build.make CMakeFiles/dbs_functional.dir/main.cu.s
-.PHONY : main.cu.s
+main.cpp.s:
+	$(MAKE) -f CMakeFiles/dbs_functional.dir/build.make CMakeFiles/dbs_functional.dir/main.cpp.s
+.PHONY : main.cpp.s
 
-src/currents.o: src/currents.cpp.o
+src/BGNetwork.o: src/BGNetwork.cpp.o
 
-.PHONY : src/currents.o
+.PHONY : src/BGNetwork.o
 
 # target to build an object file
-src/currents.cpp.o:
-	$(MAKE) -f CMakeFiles/dbs_functional.dir/build.make CMakeFiles/dbs_functional.dir/src/currents.cpp.o
-.PHONY : src/currents.cpp.o
+src/BGNetwork.cpp.o:
+	$(MAKE) -f CMakeFiles/dbs_functional.dir/build.make CMakeFiles/dbs_functional.dir/src/BGNetwork.cpp.o
+.PHONY : src/BGNetwork.cpp.o
 
-src/currents.i: src/currents.cpp.i
+src/BGNetwork.i: src/BGNetwork.cpp.i
 
-.PHONY : src/currents.i
+.PHONY : src/BGNetwork.i
 
 # target to preprocess a source file
-src/currents.cpp.i:
-	$(MAKE) -f CMakeFiles/dbs_functional.dir/build.make CMakeFiles/dbs_functional.dir/src/currents.cpp.i
-.PHONY : src/currents.cpp.i
+src/BGNetwork.cpp.i:
+	$(MAKE) -f CMakeFiles/dbs_functional.dir/build.make CMakeFiles/dbs_functional.dir/src/BGNetwork.cpp.i
+.PHONY : src/BGNetwork.cpp.i
 
-src/currents.s: src/currents.cpp.s
+src/BGNetwork.s: src/BGNetwork.cpp.s
 
-.PHONY : src/currents.s
+.PHONY : src/BGNetwork.s
 
 # target to generate assembly for a file
-src/currents.cpp.s:
-	$(MAKE) -f CMakeFiles/dbs_functional.dir/build.make CMakeFiles/dbs_functional.dir/src/currents.cpp.s
-.PHONY : src/currents.cpp.s
+src/BGNetwork.cpp.s:
+	$(MAKE) -f CMakeFiles/dbs_functional.dir/build.make CMakeFiles/dbs_functional.dir/src/BGNetwork.cpp.s
+.PHONY : src/BGNetwork.cpp.s
 
-src/gating.o: src/gating.cu.o
+src/GPeNeuron.o: src/GPeNeuron.cpp.o
+
+.PHONY : src/GPeNeuron.o
+
+# target to build an object file
+src/GPeNeuron.cpp.o:
+	$(MAKE) -f CMakeFiles/dbs_functional.dir/build.make CMakeFiles/dbs_functional.dir/src/GPeNeuron.cpp.o
+.PHONY : src/GPeNeuron.cpp.o
+
+src/GPeNeuron.i: src/GPeNeuron.cpp.i
+
+.PHONY : src/GPeNeuron.i
+
+# target to preprocess a source file
+src/GPeNeuron.cpp.i:
+	$(MAKE) -f CMakeFiles/dbs_functional.dir/build.make CMakeFiles/dbs_functional.dir/src/GPeNeuron.cpp.i
+.PHONY : src/GPeNeuron.cpp.i
+
+src/GPeNeuron.s: src/GPeNeuron.cpp.s
+
+.PHONY : src/GPeNeuron.s
+
+# target to generate assembly for a file
+src/GPeNeuron.cpp.s:
+	$(MAKE) -f CMakeFiles/dbs_functional.dir/build.make CMakeFiles/dbs_functional.dir/src/GPeNeuron.cpp.s
+.PHONY : src/GPeNeuron.cpp.s
+
+src/GPiNeuron.o: src/GPiNeuron.cpp.o
+
+.PHONY : src/GPiNeuron.o
+
+# target to build an object file
+src/GPiNeuron.cpp.o:
+	$(MAKE) -f CMakeFiles/dbs_functional.dir/build.make CMakeFiles/dbs_functional.dir/src/GPiNeuron.cpp.o
+.PHONY : src/GPiNeuron.cpp.o
+
+src/GPiNeuron.i: src/GPiNeuron.cpp.i
+
+.PHONY : src/GPiNeuron.i
+
+# target to preprocess a source file
+src/GPiNeuron.cpp.i:
+	$(MAKE) -f CMakeFiles/dbs_functional.dir/build.make CMakeFiles/dbs_functional.dir/src/GPiNeuron.cpp.i
+.PHONY : src/GPiNeuron.cpp.i
+
+src/GPiNeuron.s: src/GPiNeuron.cpp.s
+
+.PHONY : src/GPiNeuron.s
+
+# target to generate assembly for a file
+src/GPiNeuron.cpp.s:
+	$(MAKE) -f CMakeFiles/dbs_functional.dir/build.make CMakeFiles/dbs_functional.dir/src/GPiNeuron.cpp.s
+.PHONY : src/GPiNeuron.cpp.s
+
+src/Neuron.o: src/Neuron.cpp.o
+
+.PHONY : src/Neuron.o
+
+# target to build an object file
+src/Neuron.cpp.o:
+	$(MAKE) -f CMakeFiles/dbs_functional.dir/build.make CMakeFiles/dbs_functional.dir/src/Neuron.cpp.o
+.PHONY : src/Neuron.cpp.o
+
+src/Neuron.i: src/Neuron.cpp.i
+
+.PHONY : src/Neuron.i
+
+# target to preprocess a source file
+src/Neuron.cpp.i:
+	$(MAKE) -f CMakeFiles/dbs_functional.dir/build.make CMakeFiles/dbs_functional.dir/src/Neuron.cpp.i
+.PHONY : src/Neuron.cpp.i
+
+src/Neuron.s: src/Neuron.cpp.s
+
+.PHONY : src/Neuron.s
+
+# target to generate assembly for a file
+src/Neuron.cpp.s:
+	$(MAKE) -f CMakeFiles/dbs_functional.dir/build.make CMakeFiles/dbs_functional.dir/src/Neuron.cpp.s
+.PHONY : src/Neuron.cpp.s
+
+src/STNNeuron.o: src/STNNeuron.cpp.o
+
+.PHONY : src/STNNeuron.o
+
+# target to build an object file
+src/STNNeuron.cpp.o:
+	$(MAKE) -f CMakeFiles/dbs_functional.dir/build.make CMakeFiles/dbs_functional.dir/src/STNNeuron.cpp.o
+.PHONY : src/STNNeuron.cpp.o
+
+src/STNNeuron.i: src/STNNeuron.cpp.i
+
+.PHONY : src/STNNeuron.i
+
+# target to preprocess a source file
+src/STNNeuron.cpp.i:
+	$(MAKE) -f CMakeFiles/dbs_functional.dir/build.make CMakeFiles/dbs_functional.dir/src/STNNeuron.cpp.i
+.PHONY : src/STNNeuron.cpp.i
+
+src/STNNeuron.s: src/STNNeuron.cpp.s
+
+.PHONY : src/STNNeuron.s
+
+# target to generate assembly for a file
+src/STNNeuron.cpp.s:
+	$(MAKE) -f CMakeFiles/dbs_functional.dir/build.make CMakeFiles/dbs_functional.dir/src/STNNeuron.cpp.s
+.PHONY : src/STNNeuron.cpp.s
+
+src/THNeuron.o: src/THNeuron.cpp.o
+
+.PHONY : src/THNeuron.o
+
+# target to build an object file
+src/THNeuron.cpp.o:
+	$(MAKE) -f CMakeFiles/dbs_functional.dir/build.make CMakeFiles/dbs_functional.dir/src/THNeuron.cpp.o
+.PHONY : src/THNeuron.cpp.o
+
+src/THNeuron.i: src/THNeuron.cpp.i
+
+.PHONY : src/THNeuron.i
+
+# target to preprocess a source file
+src/THNeuron.cpp.i:
+	$(MAKE) -f CMakeFiles/dbs_functional.dir/build.make CMakeFiles/dbs_functional.dir/src/THNeuron.cpp.i
+.PHONY : src/THNeuron.cpp.i
+
+src/THNeuron.s: src/THNeuron.cpp.s
+
+.PHONY : src/THNeuron.s
+
+# target to generate assembly for a file
+src/THNeuron.cpp.s:
+	$(MAKE) -f CMakeFiles/dbs_functional.dir/build.make CMakeFiles/dbs_functional.dir/src/THNeuron.cpp.s
+.PHONY : src/THNeuron.cpp.s
+
+src/gating.o: src/gating.cpp.o
 
 .PHONY : src/gating.o
 
 # target to build an object file
-src/gating.cu.o:
-	$(MAKE) -f CMakeFiles/dbs_functional.dir/build.make CMakeFiles/dbs_functional.dir/src/gating.cu.o
-.PHONY : src/gating.cu.o
+src/gating.cpp.o:
+	$(MAKE) -f CMakeFiles/dbs_functional.dir/build.make CMakeFiles/dbs_functional.dir/src/gating.cpp.o
+.PHONY : src/gating.cpp.o
 
-src/gating.i: src/gating.cu.i
+src/gating.i: src/gating.cpp.i
 
 .PHONY : src/gating.i
 
 # target to preprocess a source file
-src/gating.cu.i:
-	$(MAKE) -f CMakeFiles/dbs_functional.dir/build.make CMakeFiles/dbs_functional.dir/src/gating.cu.i
-.PHONY : src/gating.cu.i
+src/gating.cpp.i:
+	$(MAKE) -f CMakeFiles/dbs_functional.dir/build.make CMakeFiles/dbs_functional.dir/src/gating.cpp.i
+.PHONY : src/gating.cpp.i
 
-src/gating.s: src/gating.cu.s
+src/gating.s: src/gating.cpp.s
 
 .PHONY : src/gating.s
 
 # target to generate assembly for a file
-src/gating.cu.s:
-	$(MAKE) -f CMakeFiles/dbs_functional.dir/build.make CMakeFiles/dbs_functional.dir/src/gating.cu.s
-.PHONY : src/gating.cu.s
+src/gating.cpp.s:
+	$(MAKE) -f CMakeFiles/dbs_functional.dir/build.make CMakeFiles/dbs_functional.dir/src/gating.cpp.s
+.PHONY : src/gating.cpp.s
 
 src/parameter_structs.o: src/parameter_structs.cpp.o
 
@@ -243,9 +378,24 @@ help:
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
-	@echo "... src/currents.o"
-	@echo "... src/currents.i"
-	@echo "... src/currents.s"
+	@echo "... src/BGNetwork.o"
+	@echo "... src/BGNetwork.i"
+	@echo "... src/BGNetwork.s"
+	@echo "... src/GPeNeuron.o"
+	@echo "... src/GPeNeuron.i"
+	@echo "... src/GPeNeuron.s"
+	@echo "... src/GPiNeuron.o"
+	@echo "... src/GPiNeuron.i"
+	@echo "... src/GPiNeuron.s"
+	@echo "... src/Neuron.o"
+	@echo "... src/Neuron.i"
+	@echo "... src/Neuron.s"
+	@echo "... src/STNNeuron.o"
+	@echo "... src/STNNeuron.i"
+	@echo "... src/STNNeuron.s"
+	@echo "... src/THNeuron.o"
+	@echo "... src/THNeuron.i"
+	@echo "... src/THNeuron.s"
 	@echo "... src/gating.o"
 	@echo "... src/gating.i"
 	@echo "... src/gating.s"

@@ -8,6 +8,21 @@ set(CMAKE_CXX_STANDARD 17)
 
 add_executable(
         dbs_functional
-        main.cu
-        src/gating.cu
-        src/currents.cpp src/currents.h src/parameter_structs.h src/parameter_structs.cpp)
+        main.cpp
+        src/parameter_structs.h
+        src/parameter_structs.cpp
+        src/gating.cpp
+        src/gating.h
+        src/Neuron.cpp
+        src/Neuron.h
+        src/THNeuron.cpp
+        src/THNeuron.h
+        src/GPeNeuron.cpp
+        src/GPeNeuron.h
+        src/GPiNeuron.cpp
+        src/GPiNeuron.h
+        src/STNNeuron.cpp
+        src/STNNeuron.h
+        src/BGNetwork.cpp
+        src/BGNetwork.h
+)
