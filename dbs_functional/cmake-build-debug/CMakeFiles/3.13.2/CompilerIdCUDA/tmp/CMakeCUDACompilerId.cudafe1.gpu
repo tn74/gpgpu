@@ -1,0 +1,25 @@
+typedef char __nv_bool;
+# 125 "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1/limits" 3
+enum _ZNSt3__117float_round_styleE {
+# 127 "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1/limits" 3
+_ZNSt3__119round_indeterminateE = (-1),
+# 128 "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1/limits" 3
+_ZNSt3__117round_toward_zeroE,
+# 129 "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1/limits" 3
+_ZNSt3__116round_to_nearestE,
+# 130 "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1/limits" 3
+_ZNSt3__121round_toward_infinityE,
+# 131 "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1/limits" 3
+_ZNSt3__125round_toward_neg_infinityE};
+# 134 "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1/limits" 3
+enum _ZNSt3__118float_denorm_styleE {
+# 136 "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1/limits" 3
+_ZNSt3__120denorm_indeterminateE = (-1),
+# 137 "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1/limits" 3
+_ZNSt3__113denorm_absentE,
+# 138 "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1/limits" 3
+_ZNSt3__114denorm_presentE};
+# 62 "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/10.0.0/include/stddef.h" 3
+typedef unsigned long size_t;
+#include "crt/device_runtime.h"
+#include "common_functions.h"
