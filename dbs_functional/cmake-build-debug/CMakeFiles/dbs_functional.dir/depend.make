@@ -18,6 +18,7 @@ CMakeFiles/dbs_functional.dir/src/BGNetwork.cpp.o: ../src/GPiNeuron.h
 CMakeFiles/dbs_functional.dir/src/BGNetwork.cpp.o: ../src/Neuron.h
 CMakeFiles/dbs_functional.dir/src/BGNetwork.cpp.o: ../src/STNNeuron.h
 CMakeFiles/dbs_functional.dir/src/BGNetwork.cpp.o: ../src/THNeuron.h
+CMakeFiles/dbs_functional.dir/src/BGNetwork.cpp.o: ../src/parameter_structs.h
 
 CMakeFiles/dbs_functional.dir/src/GPeNeuron.cpp.o: ../src/GPeNeuron.cpp
 CMakeFiles/dbs_functional.dir/src/GPeNeuron.cpp.o: ../src/GPeNeuron.h

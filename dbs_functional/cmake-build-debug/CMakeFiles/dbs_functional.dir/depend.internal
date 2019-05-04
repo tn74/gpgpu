@@ -19,6 +19,7 @@ CMakeFiles/dbs_functional.dir/src/BGNetwork.cpp.o
  /Users/trishul/Documents/Duke/s6/ece590/gpgpu/dbs_functional/src/Neuron.h
  /Users/trishul/Documents/Duke/s6/ece590/gpgpu/dbs_functional/src/STNNeuron.h
  /Users/trishul/Documents/Duke/s6/ece590/gpgpu/dbs_functional/src/THNeuron.h
+ /Users/trishul/Documents/Duke/s6/ece590/gpgpu/dbs_functional/src/parameter_structs.h
 CMakeFiles/dbs_functional.dir/src/GPeNeuron.cpp.o
  /Users/trishul/Documents/Duke/s6/ece590/gpgpu/dbs_functional/src/GPeNeuron.cpp
  /Users/trishul/Documents/Duke/s6/ece590/gpgpu/dbs_functional/src/GPeNeuron.h

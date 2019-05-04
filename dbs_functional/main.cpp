@@ -18,19 +18,20 @@ struct TH_PARAM {
 //}
 
 void struct_test() {
-    th_param_t* s;
+    auto* s = (th_param_t*) malloc(sizeof(th_param));
 //    cudaMallocManaged(&s, sizeof(th_param));
     initialize_th_param(s);
-    std::cout << s->c_m << std::endl;
+    std::cout << s->C_m << std::endl;
 }
 
 
 int main() {
+    struct_test();
     BGNetwork net = BGNetwork(1, 500, 0.01);
     net.simulate();
     return 0;
 
-//    struct_test();
+
 //    int* num_ptr = (int*) malloc(255 * sizeof(int));
 //    std::cout << *num_ptr << std::endl;
 ////    func <<<1,  32>>> (num_ptr);

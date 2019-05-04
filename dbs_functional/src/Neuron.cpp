@@ -11,7 +11,7 @@ Neuron::Neuron(
         double delta,
         double simulation_duration,
         double start_voltage, std::map<std::string,
-        double>* neuron_parameters
+        double neuron_parameters
         ) {
     std::cout << "Began Neuron Constructor" << std::endl;
     dt = delta;

@@ -6,18 +6,30 @@
 #define DBS_ON_GPU_THNEURON_H
 
 #include "Neuron.h"
+#include "parameter_structs.h"
+
+typedef struct th_current {
+    double I_L;
+    double I_Na;
+    double I_K;
+    double I_T;
+} th_current_t;
+
+typedef struct th_gate {
+    double H;
+    double R;
+} th_gate_t;
+
+void compute_currents(double v, th_current_t*, th_param_t* p);
+void compute_gating(double v, th_gate_t*, th_param_t* p);
 
 class THNeuron : public Neuron{
-private:
-    double h_gate;
-    double r_gate;
+
 protected:
-    void compute_currents() override;
-    void compute_gating_variables() override;
     void initialize_gating_variables() override;
 
 public:
-    THNeuron(double dt, double duration, double start_voltage, std::map<std::string, double>* parameters, int id);
+    THNeuron(double dt, double duration, double start_voltage, th_param_t* thp, int id);
 };
 
 
