@@ -17,6 +17,7 @@ function EI = BGnetwork(pd,wstim,freq)
 
 
 load('Istim.mat') %loads initial conditions
+Istim = Istim.*0;
 addpath('gating')
 
 %%Membrane parameters
@@ -47,6 +48,7 @@ S2=zeros(n,1); S21=zeros(n,1); S3=zeros(n,1);
 S31=zeros(n,1);S32=zeros(n,1); S4=zeros(n,1); 
 Z2=zeros(n,1);Z4=zeros(n,1);
 
+%========================== Debug Initialization =================================
 % TH Debug
 %th_IL=zeros(n,length(t));
 th_INa=zeros(n,length(t));
@@ -86,22 +88,24 @@ gpe_R = zeros(n,length(t));
 gpe_CA = zeros(n,length(t));
 gpe_S = zeros(n,length(t));
 
-% GPI Debug
-IL4_vec = zeros(n,length(t));
-IK4_vec = zeros(n,length(t));
-INa4_vec = zeros(n,length(t));
-IT4_vec = zeros(n,length(t));
-ICa4_vec = zeros(n,length(t));
-Iahp4_vec = zeros(n,length(t));
-Igisn_vec = zeros(n,length(t));
-Igigi_vec = zeros(n,length(t));
-Iappgpi_vec = zeros(n,length(t));
-N4_vec = zeros(n,length(t));
-H4_vec = zeros(n,length(t));
-R4_vec = zeros(n,length(t));
-CA4_vec = zeros(n,length(t));
-S4_vec = zeros(n,length(t));
-Z4_vec = zeros(n,length(t));
+gpi_IL = zeros(n,length(t));
+gpi_IK =  zeros(n,length(t));
+gpi_INa = zeros(n,length(t));
+gpi_IT = zeros(n,length(t));
+gpi_ICa = zeros(n,length(t));
+gpi_Iahp = zeros(n,length(t));
+gpi_Isngi = zeros(n,length(t));
+gpi_Igigi = zeros(n,length(t));
+gpi_Iapp = zeros(n,length(t));
+gpi_N=zeros(n,length(t));
+gpi_H=zeros(n,length(t));
+gpi_R=zeros(n,length(t));
+gpi_CA=zeros(n,length(t));
+gpi_S=zeros(n,length(t));
+gpi_Z=zeros(n,length(t));
+%========================== End Debug Initialization =================================
+
+
 
 %%with or without dbs
 Idbs=creatdbs(freq,tmax,dt); %creating DBS train with frequency freq
@@ -148,16 +152,18 @@ for i=2:length(t)
     Ina1=gna(1)*(m1.^3).*H1.*(V1-Ena(1));
     Ik1=gk(1)*((0.75*(1-H1)).^4).*(V1-Ek(1));
     It1=gt(1)*(p1.^2).*R1.*(V1-Et);
-    Igith=1.4*gsyn(6)*(V1-Esyn(6)).*S4 .*0; 
-    
+    Igith=1.4*gsyn(6)*(V1-Esyn(6)).*S4; Igith =0;
+
+    % TH DEBUG
     th_IL(:, i)=Il1;
     th_INa(:, i)=Ina1;
     th_IK(:, i)=Ik1;
     th_IT(:, i)=It1;
-    
+
     th_H(:, i)=H1;
     th_R(:, i)=R1;
-    
+
+
     %STN cell currents
     Il2=gl(2)*(V2-El(2));
     Ik2=gk(2)*(N2.^4).*(V2-Ek(2));
@@ -165,9 +171,10 @@ for i=2:length(t)
     It2=gt(2)*(a2.^3).*(b2.^2).*(V2-Eca(2));
     Ica2=gca(2)*(C2.^2).*(V2-Eca(2));
     Iahp2=gahp(2)*(V2-Ek(2)).*(CA2./(CA2+k1(2)));
-    Igesn=0.5*(gsyn(1)*(V2-Esyn(1)).*(S3+S31)); %Igesn=0;
-    Iappstn=33-pd*10;
-    
+    Igesn=0.5*(gsyn(1)*(V2-Esyn(1)).*(S3+S31)); Igesn=0;
+    Iappstn=33-pd*10; Iappstn=0;
+
+    % STN Debug
     stn_IL(:, i) = Il2;
     stn_IK(:, i) = Ik2;
     stn_INa(:, i) = Ina2;
@@ -176,13 +183,14 @@ for i=2:length(t)
     stn_Iahp(:, i) = Iahp2;
     stn_Igesn(:, i) = Igesn;
     stn_Iapp(:, i) = Iappstn;
-    
+
     stn_N(:, i)=N2;
     stn_H(:, i)=H2;
     stn_R(:, i)=R2;
     stn_CA(:, i)=CA2;
     stn_C(:, i)=C2;
-    
+
+
     %GPe cell currents
     Il3=gl(3)*(V3-El(3));
     Ik3=gk(3)*(N3.^4).*(V3-Ek(3));
@@ -193,7 +201,9 @@ for i=2:length(t)
     Isnge=0.5*(gsyn(2)*(V3-Esyn(2)).*(S2+S21)); Isnge=0;
     Igege=0.5*(gsyn(3)*(V3-Esyn(3)).*(S31+S32)); Igege=0;
     Iappgpe=21-13*pd+r; Iappgpe=0;
-    
+
+    %GPE Debug
+
     gpe_IL(:, i) = Il3;
     gpe_IK(:, i) = Ik3;
     gpe_INa(:, i) = Ina3;
@@ -203,12 +213,13 @@ for i=2:length(t)
     gpe_Isnge(:, i) = Isnge;
     gpe_Igege(:, i) = Igege;
     gpe_Iapp(:, i) = Iappgpe;
-    
-    gpe_N(:, 1) = N3;
-    gpe_H(:, 1) = H3;
-    gpe_R(:, 1) = R3;
-    gpe_CA(:, 1) = CA3;
-    gpe_S(:, 1) = S3;
+
+    gpe_N(:, i) = N3;
+    gpe_H(:, i) = H3;
+    gpe_R(:, i) = R3;
+    gpe_CA(:, i) = CA3;
+    gpe_S(:, i) = S3;
+
 
     %GPi cell currents
     Il4=gl(3)*(V4-El(3));
@@ -219,24 +230,25 @@ for i=2:length(t)
     Iahp4=gahp(3)*(V4-Ek(3)).*(CA4./(CA4+k1(3)));
     Isngi=0.5*(gsyn(4)*(V4-Esyn(4)).*(S2+S21)); Isngi=0;%special
     Igigi=0.5*(gsyn(5)*(V4-Esyn(5)).*(S31+S32)); Igigi=0;%special
-    Iappgpi=22-pd*6; Iappgpi = 0;
+    Iappgpi=22-pd*6; Iappgpi=0;
     
-    IL4_vec(:, i) = Il3;
-    IK4_vec(:, i) = Ik3;
-    INa4_vec(:, i) = Ina3;
-    IT4_vec(:, i) = It3;
-    ICa4_vec(:, i) = Ica3;
-    Iahp4_vec(:, i) = Iahp3;
-    Igisn_vec(:, i) = Isnge;
-    Igigi_vec(:, i) = Igigi;
-    Iappgpi_vec(:, i) = Iappgpe;
+    gpi_IL(:, i) = Il4;
+    gpi_IK(:, i) = Ik4;
+    gpi_INa(:, i) = Ina4;
+    gpi_IT(:, i) = It4;
+    gpi_ICa(:, i) = Ica4;
+    gpi_Iahp(:, i) = Iahp4;
+    gpi_Isngi(:, i) = Isngi;
+    gpi_Igigi(:, i) = Igigi;
+    gpi_Iapp(:, i) = Iappgpi;
     
-    N4_vec(:, i)=N4;
-    H4_vec(:, i)=H4;
-    R4_vec(:, i)=R4;
-    CA4_vec(:, i)=CA4;
-    S4_vec(:, i)=S4;
-    Z4_vec(:, i)=Z4;
+    gpi_N(:, i)=N4;
+    gpi_H(:, i)=H4;
+    gpi_R(:, i)=R4;
+    gpi_CA(:, i)=CA4;
+    gpi_S(:, i)=S4;
+    gpi_Z(:, i)=Z4;
+
     
     %Differential Equations for cells
     %thalamic
@@ -279,10 +291,10 @@ for i=2:length(t)
 end
 
 %%Calculation of error index
-%EI=calculateEI(t,vth,timespike,tmax);
+EI=calculateEI(t,vth,timespike,tmax);
 
 %%Plots membrane potential for one cell in each nucleus
-plotpotentials; 
+plotpotentials;
 
 th_VOLTAGE = vth;
 stn_VOLTAGE = vsn;

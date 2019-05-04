@@ -9,51 +9,52 @@
 #include <iostream>
 #include <math.h>
 
-GPeNeuron::GPeNeuron(double dt, double duration, double start_voltage, std::map<std::string, double>* parameters):Neuron(dt, duration, start_voltage, parameters){
+GPeNeuron::GPeNeuron(
+        double dt,
+        double duration,
+        double start_voltage,
+        std::map<std::string,
+        double>* parameters,
+        int id
+        ):Neuron(dt, duration, start_voltage, parameters){
     initialize_gating_variables();
+    cell_identifier = new std::string("GPE_NEURON_" + std::to_string(id));
+
 };
 
 void GPeNeuron::compute_currents() {
     std::map<std::string, double> &c = *currents;
     std::map<std::string, double> &p = *parameters;
-    double v = (*voltage)[dt_index - 1];
+    std::map<std::string, double> &g = *gating_variables;
+
+    double v = (*voltage)[dt_index];
 
     c["I_L"] = -(p["g_L"] * (v - p["E_L"]));
-    c["I_Na"] = -(p["g_Na"] * (pow(gpe_minf(v), 3)) * h_gate * (v - p["E_Na"]));
-    c["I_K"] = -(p["g_K"] * pow(n_gate, 4) * (v - p["E_K"]));
-    c["I_T"] = -(p["g_T"] * pow(gpe_ainf(v), 3) * r_gate * (v - p["E_Ca"]));
-    c["I_Ca"] = -(p["g_Ca"] * pow(gpe_sinf(v), 3) * (v - p["E_Ca"]));
-    c["I_ahp"] = -(p["g_ahp"] * (v - p["E_ahp"]) * (CA/(CA + 10)));
-
-    std::cout << "Voltage: " << v << std::endl;
-    std::cout << "H: " << h_gate << std::endl;
-    std::cout << "g_L = " << p["g_L"] << std::endl;
-    std::cout << "E_L = " << p["E_L"] << std::endl;
-    std::cout << "R: " << r_gate << std::endl;
-    std::cout << "Current I_L: " << c["I_L"] << std::endl;
-    std::cout << "Current I_Na: " << c["I_Na"] << std::endl;
-    std::cout << "Current I_K: " << c["I_K"] << std::endl;
-    std::cout << "Current I_T: " << c["I_T"] << std::endl;
-    std::cout << "Current I_Ca: " << c["I_Ca"] << std::endl;
-    std::cout << "Current I_ahp: " << c["I_ahp"] << std::endl;
-    std::cout << std::endl;
+    c["I_Na"] = -(p["g_Na"] * (pow(gpe_minf(v), 3)) * g["H"] * (v - p["E_Na"]));
+    c["I_K"] = -(p["g_K"] * pow(g["N"], 4) * (v - p["E_K"]));
+    c["I_T"] = -(p["g_T"] * pow(gpe_ainf(v), 3) * g["R"] * (v - p["E_Ca"]));
+    c["I_Ca"] = -(p["g_Ca"] * pow(gpe_sinf(v), 2) * (v - p["E_Ca"]));
+    c["I_ahp"] = -(p["g_ahp"] * (v - p["E_ahp"]) * (g["CA"]/(g["CA"] + 10)));
 }
 
 void GPeNeuron::compute_gating_variables() {
     std::map<std::string, double> &c = *currents;
+    std::map<std::string, double> &g = *gating_variables;
+    double v = (*voltage)[dt_index];
 
-    double v = (*voltage)[dt_index-1];
-    h_gate = h_gate + dt * 0.05 * ((gpe_hinf(v) - h_gate)/gpe_tauh(v));
-    r_gate = r_gate + dt * 1.0 * (gpe_rinf(v) - r_gate)/30.0;
-    n_gate = n_gate + dt * 0.1 * (gpe_ninf(v) - n_gate)/gpe_taun(v);
-    CA = CA + dt * pow(10, -4) * (-(c["I_Ca"]) - c["I_T"] - (15 * CA));
+    g["H"] = g["H"] + dt * 0.05 * ((gpe_hinf(v) - g["H"])/gpe_tauh(v));
+    g["R"] = g["R"] + dt * 1.0 * (gpe_rinf(v) - g["R"])/30.0;
+    g["N"] = g["N"] + dt * 0.1 * (gpe_ninf(v) - g["N"])/gpe_taun(v);
+    g["CA"] = g["CA"] + dt * pow(10, -4) * (-(c["I_Ca"]) - c["I_T"] - (15 * g["CA"]));
 }
 
 void GPeNeuron::initialize_gating_variables() {
-    double v = (*voltage)[dt_index-1];
-    h_gate = gpe_hinf(v);
-    r_gate = gpe_rinf(v);
-    n_gate = gpe_ninf(v);
-    CA = 0.1;
+    double v = (*voltage)[dt_index];
+    std::map<std::string, double> &g = *gating_variables;
+
+    g["H"] = gpe_hinf(v);
+    g["R"] = gpe_rinf(v);
+    g["N"] = gpe_ninf(v);
+    g["CA"] = 0.1;
     // Write in other currents
 }
