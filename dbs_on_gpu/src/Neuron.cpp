@@ -44,9 +44,15 @@ void Neuron::advance_time_step() {
 
 int Neuron::debug() {
     if (output_file == nullptr) {
-        std::string filename = std::string("output/") + *cell_identifier;
+		//std::string filename = std::string("output/") + *cell_identifier;
+		// CHANGE THIS TO AN ABSOLUTE FILEPATH
+        std::string filename = std::string("/mnt/c/Users/trebl/Documents/gpgpu/dbs_on_gpu/src/output/") + *cell_identifier;
         filename.append(".txt");
         output_file = fopen(filename.c_str(), "w");
+		/*std::cout << "Output file path, 0 on failure: " << std::endl;
+		std::cout << output_file << std::endl;
+		std::cout << "meant it to be:" << std::endl;
+		std::cout << filename << std::endl;*/
     };
 
     fprintf(output_file, "DT=%d, VOLTAGE=%.15f", dt_index, voltage->back());
