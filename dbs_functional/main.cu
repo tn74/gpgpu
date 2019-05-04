@@ -7,16 +7,14 @@ struct TH_PARAM {
     }
 };
 
-__global__ void func(int* num_ptr) {
-    int &num = *num_ptr;
-    num = num + 1;
+__global__ void func(int* num_array) {
+    num_array[threadIdx.x] = threadIdx.x;
     return;
 }
 
 
 int main() {
-    int* num_ptr = (int*) malloc(sizeof(int));
-    (*num_ptr) = 10;
+    int* num_ptr = (int*) malloc(255 * sizeof(int));
     std::cout << *num_ptr << std::endl;
     func <<<1,  32>>> (num_ptr);
     std::cout << *num_ptr << std::endl;
