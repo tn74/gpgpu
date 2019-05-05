@@ -8,12 +8,16 @@
 #include <string>
 #include <iostream>
 #include <math.h>
+#include "BGNetwork.h"
 
-void compute_currents(double v, th_current_t* c, th_param_t* p) {
-    c->I_L = 2;
+void th_compute_currents(double v, compute_memory* compute, int cell_index) {
+    auto c = compute->c_mat->th[cell_index];
+    auto p = compute->network_parameters->th;
+    auto g = compute->g_mat->th;
+    c->I_Na = 0;
 }
 
-void compute_gating(double v, th_gate_t* g, th_param_t* p) {
+void th_compute_gating(double v, th_gate_t* g, th_param_t* p) {
     g->H = 0;
 }
 
@@ -35,12 +39,10 @@ THNeuron::THNeuron(
 void THNeuron::initialize_gating_variables() {
     double v = (*voltage).back();
     gates-> H = th_hinf(v);
-    std::cout << "Gates H" << std::endl;
-
     gates-> R = th_rinf(v);
 }
 
-int THNeuron::debug_write() {
+int THNeuron::debug() {
     std::map<std::string, double> &map_c = *map_currents;
     std::map<std::string, double> &map_g = *map_gates;
     map_c["I_L"] = currents -> I_L;
@@ -49,4 +51,5 @@ int THNeuron::debug_write() {
     map_c["I_T"] = currents -> I_T;
     map_g["H"] = gates -> H;
     map_g["R"] = gates -> R;
+    debug_write();
 }

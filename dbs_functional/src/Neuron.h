@@ -28,9 +28,8 @@ protected:
 public:
     std::vector<double>* voltage;                       // Track cell's voltage
     Neuron(double dt, double duration, double start_voltage);
+    virtual int debug() = 0;
     int debug_write();
-
-
 };
 
 

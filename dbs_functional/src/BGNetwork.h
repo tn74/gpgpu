@@ -12,18 +12,34 @@
 #include "THNeuron.h"
 #include "parameter_structs.h"
 
+typedef struct current_matrix {
+    th_current_t** th;
+} current_matrix_t;
+
+typedef struct gates_matrix {
+    th_current_t** th;
+} gates_matrix_t;
+
+typedef struct compute_memory {
+    double** v1;
+    double** v2;
+    param_t* network_parameters;
+    current_matrix_t* c_mat;
+    gates_matrix_t* g_mat;
+} compute_memory_t;
 
 class BGNetwork {
 private:
+    int dt_index;
     int number_of_cells;
     double duration;
     double dt;
-    param_t* network_parameters;
-    std::map<std::string, std::vector<Neuron*>* >* all_cells;                             // cell-type -> index -> cell
+    compute_memory_t* compute_mem;
+    std::map<int, std::vector<Neuron*>*>* all_cells;                          // cell-type -> index -> cell
 
     void build_parameter_map();
     void initialize_cells();
-    void run_cell_thread(Neuron*);
+    void advance_time_step();
 
 public:
     BGNetwork(int n, double dur, double delta);
