@@ -6,7 +6,7 @@
 #include <iostream>
 
 
-BGNetwork::BGNetwork(int n, double dur, double delta){
+BGNetwork::BGNetwork(*s){
     std::cout << "BGNetwork Constructor" << std::endl;
     network_parameters = new std::map<std::string, std::map<std::string, double>* >();
     all_cells = new std::map<std::string, std::vector<Neuron*>* >();

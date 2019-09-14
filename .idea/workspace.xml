@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true">
+    <generated />
+  </component>
+  <component name="CMakeSettings">
+    <configurations>
+      <configuration PROFILE_NAME="Debug" CONFIG_NAME="Debug" />
+    </configurations>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="ef46d214-47e3-46da-802a-5635e347a271" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/dbs_functional/.idea/dbs_functional.iml" beforeDir="false" afterPath="$PROJECT_DIR$/dbs_functional/.idea/dbs_functional.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dbs_functional/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/dbs_functional/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dbs_functional/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/dbs_functional/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dbs_functional/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/dbs_functional/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dbs_functional/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/dbs_functional/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dbs_functional/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/dbs_functional/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dbs_functional/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/dbs_functional/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dbs_functional/cmake-build-debug/CMakeCache.txt" beforeDir="false" afterPath="$PROJECT_DIR$/dbs_functional/cmake-build-debug/CMakeCache.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dbs_functional/cmake-build-debug/CMakeFiles/3.13.2/CMakeCUDACompiler.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/dbs_functional/cmake-build-debug/CMakeFiles/3.13.2/CMakeCUDACompiler.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dbs_functional/cmake-build-debug/CMakeFiles/3.13.2/CMakeCXXCompiler.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/dbs_functional/cmake-build-debug/CMakeFiles/3.13.2/CMakeCXXCompiler.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dbs_functional/cmake-build-debug/CMakeFiles/3.13.2/CMakeSystem.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/dbs_functional/cmake-build-debug/CMakeFiles/3.13.2/CMakeSystem.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dbs_functional/cmake-build-debug/CMakeFiles/3.13.2/CompilerIdCUDA/CMakeCUDACompilerId.cu" beforeDir="false" afterPath="$PROJECT_DIR$/dbs_functional/cmake-build-debug/CMakeFiles/3.13.2/CompilerIdCUDA/CMakeCUDACompilerId.cu" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dbs_functional/cmake-build-debug/CMakeFiles/3.13.2/CompilerIdCUDA/tmp/CMakeCUDACompilerId.cpp1.ii" beforeDir="false" afterPath="$PROJECT_DIR$/dbs_functional/cmake-build-debug/CMakeFiles/3.13.2/CompilerIdCUDA/tmp/CMakeCUDACompilerId.cpp1.ii" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dbs_functional/cmake-build-debug/CMakeFiles/3.13.2/CompilerIdCUDA/tmp/CMakeCUDACompilerId.cpp4.ii" beforeDir="false" afterPath="$PROJECT_DIR$/dbs_functional/cmake-build-debug/CMakeFiles/3.13.2/CompilerIdCUDA/tmp/CMakeCUDACompilerId.cpp4.ii" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dbs_functional/cmake-build-debug/CMakeFiles/3.13.2/CompilerIdCUDA/tmp/CMakeCUDACompilerId.cudafe1.c" beforeDir="false" afterPath="$PROJECT_DIR$/dbs_functional/cmake-build-debug/CMakeFiles/3.13.2/CompilerIdCUDA/tmp/CMakeCUDACompilerId.cudafe1.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dbs_functional/cmake-build-debug/CMakeFiles/3.13.2/CompilerIdCUDA/tmp/CMakeCUDACompilerId.cudafe1.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/dbs_functional/cmake-build-debug/CMakeFiles/3.13.2/CompilerIdCUDA/tmp/CMakeCUDACompilerId.cudafe1.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dbs_functional/cmake-build-debug/CMakeFiles/3.13.2/CompilerIdCUDA/tmp/CMakeCUDACompilerId.cudafe1.gpu" beforeDir="false" afterPath="$PROJECT_DIR$/dbs_functional/cmake-build-debug/CMakeFiles/3.13.2/CompilerIdCUDA/tmp/CMakeCUDACompilerId.cudafe1.gpu" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dbs_functional/cmake-build-debug/CMakeFiles/3.13.2/CompilerIdCUDA/tmp/CMakeCUDACompilerId.cudafe1.stub.c" beforeDir="false" afterPath="$PROJECT_DIR$/dbs_functional/cmake-build-debug/CMakeFiles/3.13.2/CompilerIdCUDA/tmp/CMakeCUDACompilerId.cudafe1.stub.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dbs_functional/cmake-build-debug/CMakeFiles/3.13.2/CompilerIdCUDA/tmp/CMakeCUDACompilerId.fatbin" beforeDir="false" afterPath="$PROJECT_DIR$/dbs_functional/cmake-build-debug/CMakeFiles/3.13.2/CompilerIdCUDA/tmp/CMakeCUDACompilerId.fatbin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dbs_functional/cmake-build-debug/CMakeFiles/3.13.2/CompilerIdCUDA/tmp/CMakeCUDACompilerId.fatbin.c" beforeDir="false" afterPath="$PROJECT_DIR$/dbs_functional/cmake-build-debug/CMakeFiles/3.13.2/CompilerIdCUDA/tmp/CMakeCUDACompilerId.fatbin.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dbs_functional/cmake-build-debug/CMakeFiles/3.13.2/CompilerIdCUDA/tmp/CMakeCUDACompilerId.module_id" beforeDir="false" afterPath="$PROJECT_DIR$/dbs_functional/cmake-build-debug/CMakeFiles/3.13.2/CompilerIdCUDA/tmp/CMakeCUDACompilerId.module_id" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dbs_functional/cmake-build-debug/CMakeFiles/3.13.2/CompilerIdCUDA/tmp/CMakeCUDACompilerId.o" beforeDir="false" afterPath="$PROJECT_DIR$/dbs_functional/cmake-build-debug/CMakeFiles/3.13.2/CompilerIdCUDA/tmp/CMakeCUDACompilerId.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dbs_functional/cmake-build-debug/CMakeFiles/3.13.2/CompilerIdCUDA/tmp/CMakeCUDACompilerId.ptx" beforeDir="false" afterPath="$PROJECT_DIR$/dbs_functional/cmake-build-debug/CMakeFiles/3.13.2/CompilerIdCUDA/tmp/CMakeCUDACompilerId.ptx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dbs_functional/cmake-build-debug/CMakeFiles/3.13.2/CompilerIdCUDA/tmp/CMakeCUDACompilerId.sm_30.cubin" beforeDir="false" afterPath="$PROJECT_DIR$/dbs_functional/cmake-build-debug/CMakeFiles/3.13.2/CompilerIdCUDA/tmp/CMakeCUDACompilerId.sm_30.cubin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dbs_functional/cmake-build-debug/CMakeFiles/3.13.2/CompilerIdCUDA/tmp/a_dlink.fatbin" beforeDir="false" afterPath="$PROJECT_DIR$/dbs_functional/cmake-build-debug/CMakeFiles/3.13.2/CompilerIdCUDA/tmp/a_dlink.fatbin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dbs_functional/cmake-build-debug/CMakeFiles/3.13.2/CompilerIdCUDA/tmp/a_dlink.fatbin.c" beforeDir="false" afterPath="$PROJECT_DIR$/dbs_functional/cmake-build-debug/CMakeFiles/3.13.2/CompilerIdCUDA/tmp/a_dlink.fatbin.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dbs_functional/cmake-build-debug/CMakeFiles/3.13.2/CompilerIdCUDA/tmp/a_dlink.o" beforeDir="false" afterPath="$PROJECT_DIR$/dbs_functional/cmake-build-debug/CMakeFiles/3.13.2/CompilerIdCUDA/tmp/a_dlink.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dbs_functional/cmake-build-debug/CMakeFiles/3.13.2/CompilerIdCUDA/tmp/a_dlink.reg.c" beforeDir="false" afterPath="$PROJECT_DIR$/dbs_functional/cmake-build-debug/CMakeFiles/3.13.2/CompilerIdCUDA/tmp/a_dlink.reg.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dbs_functional/cmake-build-debug/CMakeFiles/3.13.2/CompilerIdCUDA/tmp/a_dlink.sm_30.cubin" beforeDir="false" afterPath="$PROJECT_DIR$/dbs_functional/cmake-build-debug/CMakeFiles/3.13.2/CompilerIdCUDA/tmp/a_dlink.sm_30.cubin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dbs_functional/cmake-build-debug/CMakeFiles/3.13.2/CompilerIdCXX/CMakeCXXCompilerId.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/dbs_functional/cmake-build-debug/CMakeFiles/3.13.2/CompilerIdCXX/CMakeCXXCompilerId.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dbs_functional/cmake-build-debug/CMakeFiles/CMakeDirectoryInformation.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/dbs_functional/cmake-build-debug/CMakeFiles/CMakeDirectoryInformation.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dbs_functional/cmake-build-debug/CMakeFiles/CMakeOutput.log" beforeDir="false" afterPath="$PROJECT_DIR$/dbs_functional/cmake-build-debug/CMakeFiles/CMakeOutput.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dbs_functional/cmake-build-debug/CMakeFiles/clion-environment.txt" beforeDir="false" afterPath="$PROJECT_DIR$/dbs_functional/cmake-build-debug/CMakeFiles/clion-environment.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dbs_functional/cmake-build-debug/CMakeFiles/clion-log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/dbs_functional/cmake-build-debug/CMakeFiles/clion-log.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dbs_functional/cmake-build-debug/CMakeFiles/cmake.check_cache" beforeDir="false" afterPath="$PROJECT_DIR$/dbs_functional/cmake-build-debug/CMakeFiles/cmake.check_cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dbs_functional/cmake-build-debug/CMakeFiles/dbs_functional.dir/CUDA.includecache" beforeDir="false" afterPath="$PROJECT_DIR$/dbs_functional/cmake-build-debug/CMakeFiles/dbs_functional.dir/CUDA.includecache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dbs_functional/cmake-build-debug/CMakeFiles/dbs_functional.dir/CXX.includecache" beforeDir="false" afterPath="$PROJECT_DIR$/dbs_functional/cmake-build-debug/CMakeFiles/dbs_functional.dir/CXX.includecache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dbs_functional/cmake-build-debug/CMakeFiles/dbs_functional.dir/DependInfo.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/dbs_functional/cmake-build-debug/CMakeFiles/dbs_functional.dir/DependInfo.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dbs_functional/cmake-build-debug/CMakeFiles/dbs_functional.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/dbs_functional/cmake-build-debug/CMakeFiles/dbs_functional.dir/build.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dbs_functional/cmake-build-debug/CMakeFiles/dbs_functional.dir/cmake_clean.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/dbs_functional/cmake-build-debug/CMakeFiles/dbs_functional.dir/cmake_clean.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dbs_functional/cmake-build-debug/CMakeFiles/dbs_functional.dir/cmake_device_link.o" beforeDir="false" afterPath="$PROJECT_DIR$/dbs_functional/cmake-build-debug/CMakeFiles/dbs_functional.dir/cmake_device_link.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dbs_functional/cmake-build-debug/CMakeFiles/dbs_functional.dir/depend.internal" beforeDir="false" afterPath="$PROJECT_DIR$/dbs_functional/cmake-build-debug/CMakeFiles/dbs_functional.dir/depend.internal" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dbs_functional/cmake-build-debug/CMakeFiles/dbs_functional.dir/depend.make" beforeDir="false" afterPath="$PROJECT_DIR$/dbs_functional/cmake-build-debug/CMakeFiles/dbs_functional.dir/depend.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dbs_functional/cmake-build-debug/CMakeFiles/dbs_functional.dir/dlink.txt" beforeDir="false" afterPath="$PROJECT_DIR$/dbs_functional/cmake-build-debug/CMakeFiles/dbs_functional.dir/dlink.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dbs_functional/cmake-build-debug/CMakeFiles/dbs_functional.dir/flags.make" beforeDir="false" afterPath="$PROJECT_DIR$/dbs_functional/cmake-build-debug/CMakeFiles/dbs_functional.dir/flags.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dbs_functional/cmake-build-debug/CMakeFiles/dbs_functional.dir/link.txt" beforeDir="false" afterPath="$PROJECT_DIR$/dbs_functional/cmake-build-debug/CMakeFiles/dbs_functional.dir/link.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dbs_functional/cmake-build-debug/CMakeFiles/dbs_functional.dir/main.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/dbs_functional/cmake-build-debug/CMakeFiles/dbs_functional.dir/main.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dbs_functional/cmake-build-debug/CMakeFiles/dbs_functional.dir/src/BGNetwork.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/dbs_functional/cmake-build-debug/CMakeFiles/dbs_functional.dir/src/BGNetwork.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dbs_functional/cmake-build-debug/CMakeFiles/dbs_functional.dir/src/Neuron.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/dbs_functional/cmake-build-debug/CMakeFiles/dbs_functional.dir/src/Neuron.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dbs_functional/cmake-build-debug/CMakeFiles/dbs_functional.dir/src/THNeuron.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/dbs_functional/cmake-build-debug/CMakeFiles/dbs_functional.dir/src/THNeuron.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dbs_functional/cmake-build-debug/CMakeFiles/dbs_functional.dir/src/gating.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/dbs_functional/cmake-build-debug/CMakeFiles/dbs_functional.dir/src/gating.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dbs_functional/cmake-build-debug/CMakeFiles/dbs_functional.dir/src/parameter_structs.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/dbs_functional/cmake-build-debug/CMakeFiles/dbs_functional.dir/src/parameter_structs.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dbs_functional/cmake-build-debug/CMakeFiles/feature_tests.cxx" beforeDir="false" afterPath="$PROJECT_DIR$/dbs_functional/cmake-build-debug/CMakeFiles/feature_tests.cxx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dbs_functional/cmake-build-debug/cmake_install.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/dbs_functional/cmake-build-debug/cmake_install.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dbs_functional/cmake-build-debug/output/TH_NEURON_0.txt" beforeDir="false" afterPath="$PROJECT_DIR$/dbs_functional/cmake-build-debug/output/TH_NEURON_0.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dbs_functional/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/dbs_functional/main.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dbs_functional/src/BGNetwork.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/dbs_functional/src/BGNetwork.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dbs_functional/src/BGNetwork.h" beforeDir="false" afterPath="$PROJECT_DIR$/dbs_functional/src/BGNetwork.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dbs_functional/src/Neuron.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/dbs_functional/src/Neuron.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dbs_functional/src/Neuron.h" beforeDir="false" afterPath="$PROJECT_DIR$/dbs_functional/src/Neuron.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dbs_functional/src/THNeuron.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/dbs_functional/src/THNeuron.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dbs_functional/src/THNeuron.h" beforeDir="false" afterPath="$PROJECT_DIR$/dbs_functional/src/THNeuron.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dbs_functional/src/gating.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/dbs_functional/src/gating.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dbs_functional/src/gating.h" beforeDir="false" afterPath="$PROJECT_DIR$/dbs_functional/src/gating.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dbs_functional/src/parameter_structs.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/dbs_functional/src/parameter_structs.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dbs_functional/src/parameter_structs.h" beforeDir="false" afterPath="$PROJECT_DIR$/dbs_functional/src/parameter_structs.h" afterDir="false" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectFrameBounds" fullScreen="true">
+    <option name="width" value="714" />
+    <option name="height" value="900" />
+  </component>
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane" />
+      <pane id="Scope" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="ef46d214-47e3-46da-802a-5635e347a271" name="Default Changelist" comment="" />
+      <created>1568482695487</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1568482695487</updated>
+      <workItem from="1568482696864" duration="13000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="13000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="0" y="0" width="1440" height="900" extended-state="6" />
+    <layout>
+      <window_info id="Favorites" side_tool="true" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24964234" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="bottom" id="Database Changes" />
+      <window_info anchor="bottom" id="Version Control" />
+      <window_info anchor="bottom" id="Terminal" />
+      <window_info anchor="bottom" id="Event Log" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="right" id="Database" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+</project>
