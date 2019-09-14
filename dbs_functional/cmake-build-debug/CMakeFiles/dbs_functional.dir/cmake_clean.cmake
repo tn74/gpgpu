@@ -1,8 +1,6 @@
 file(REMOVE_RECURSE
   "CMakeFiles/dbs_functional.dir/main.cpp.o"
-  "CMakeFiles/dbs_functional.dir/src/parameter_structs.cpp.o"
   "CMakeFiles/dbs_functional.dir/src/gating.cpp.o"
-  "CMakeFiles/dbs_functional.dir/src/Neuron.cpp.o"
   "CMakeFiles/dbs_functional.dir/src/THNeuron.cpp.o"
   "CMakeFiles/dbs_functional.dir/src/BGNetwork.cpp.o"
   "dbs_functional.pdb"

@@ -3,30 +3,17 @@
 
 CMakeFiles/dbs_functional.dir/main.cpp.o: ../main.cpp
 CMakeFiles/dbs_functional.dir/main.cpp.o: ../src/BGNetwork.h
-CMakeFiles/dbs_functional.dir/main.cpp.o: ../src/Neuron.h
 CMakeFiles/dbs_functional.dir/main.cpp.o: ../src/THNeuron.h
 CMakeFiles/dbs_functional.dir/main.cpp.o: ../src/gating.h
-CMakeFiles/dbs_functional.dir/main.cpp.o: ../src/parameter_structs.h
 
 CMakeFiles/dbs_functional.dir/src/BGNetwork.cpp.o: ../src/BGNetwork.cpp
 CMakeFiles/dbs_functional.dir/src/BGNetwork.cpp.o: ../src/BGNetwork.h
-CMakeFiles/dbs_functional.dir/src/BGNetwork.cpp.o: ../src/Neuron.h
 CMakeFiles/dbs_functional.dir/src/BGNetwork.cpp.o: ../src/THNeuron.h
-CMakeFiles/dbs_functional.dir/src/BGNetwork.cpp.o: ../src/parameter_structs.h
 
-CMakeFiles/dbs_functional.dir/src/Neuron.cpp.o: ../src/Neuron.cpp
-CMakeFiles/dbs_functional.dir/src/Neuron.cpp.o: ../src/Neuron.h
-CMakeFiles/dbs_functional.dir/src/Neuron.cpp.o: ../src/parameter_structs.h
-
-CMakeFiles/dbs_functional.dir/src/THNeuron.cpp.o: ../src/Neuron.h
 CMakeFiles/dbs_functional.dir/src/THNeuron.cpp.o: ../src/THNeuron.cpp
 CMakeFiles/dbs_functional.dir/src/THNeuron.cpp.o: ../src/THNeuron.h
 CMakeFiles/dbs_functional.dir/src/THNeuron.cpp.o: ../src/gating.h
-CMakeFiles/dbs_functional.dir/src/THNeuron.cpp.o: ../src/parameter_structs.h
 
 CMakeFiles/dbs_functional.dir/src/gating.cpp.o: ../src/gating.cpp
 CMakeFiles/dbs_functional.dir/src/gating.cpp.o: ../src/gating.h
-
-CMakeFiles/dbs_functional.dir/src/parameter_structs.cpp.o: ../src/parameter_structs.cpp
-CMakeFiles/dbs_functional.dir/src/parameter_structs.cpp.o: ../src/parameter_structs.h
 

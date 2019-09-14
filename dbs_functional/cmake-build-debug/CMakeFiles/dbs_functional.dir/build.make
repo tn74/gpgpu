@@ -70,22 +70,9 @@ CMakeFiles/dbs_functional.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/dbs_functional.dir/main.cpp.s"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/trishul/Documents/Duke/s6/ece590/gpgpu/dbs_functional/main.cpp -o CMakeFiles/dbs_functional.dir/main.cpp.s
 
-CMakeFiles/dbs_functional.dir/src/parameter_structs.cpp.o: CMakeFiles/dbs_functional.dir/flags.make
-CMakeFiles/dbs_functional.dir/src/parameter_structs.cpp.o: ../src/parameter_structs.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/trishul/Documents/Duke/s6/ece590/gpgpu/dbs_functional/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/dbs_functional.dir/src/parameter_structs.cpp.o"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/dbs_functional.dir/src/parameter_structs.cpp.o -c /Users/trishul/Documents/Duke/s6/ece590/gpgpu/dbs_functional/src/parameter_structs.cpp
-
-CMakeFiles/dbs_functional.dir/src/parameter_structs.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/dbs_functional.dir/src/parameter_structs.cpp.i"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/trishul/Documents/Duke/s6/ece590/gpgpu/dbs_functional/src/parameter_structs.cpp > CMakeFiles/dbs_functional.dir/src/parameter_structs.cpp.i
-
-CMakeFiles/dbs_functional.dir/src/parameter_structs.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/dbs_functional.dir/src/parameter_structs.cpp.s"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/trishul/Documents/Duke/s6/ece590/gpgpu/dbs_functional/src/parameter_structs.cpp -o CMakeFiles/dbs_functional.dir/src/parameter_structs.cpp.s
-
 CMakeFiles/dbs_functional.dir/src/gating.cpp.o: CMakeFiles/dbs_functional.dir/flags.make
 CMakeFiles/dbs_functional.dir/src/gating.cpp.o: ../src/gating.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/trishul/Documents/Duke/s6/ece590/gpgpu/dbs_functional/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/dbs_functional.dir/src/gating.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/trishul/Documents/Duke/s6/ece590/gpgpu/dbs_functional/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/dbs_functional.dir/src/gating.cpp.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/dbs_functional.dir/src/gating.cpp.o -c /Users/trishul/Documents/Duke/s6/ece590/gpgpu/dbs_functional/src/gating.cpp
 
 CMakeFiles/dbs_functional.dir/src/gating.cpp.i: cmake_force
@@ -96,22 +83,9 @@ CMakeFiles/dbs_functional.dir/src/gating.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/dbs_functional.dir/src/gating.cpp.s"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/trishul/Documents/Duke/s6/ece590/gpgpu/dbs_functional/src/gating.cpp -o CMakeFiles/dbs_functional.dir/src/gating.cpp.s
 
-CMakeFiles/dbs_functional.dir/src/Neuron.cpp.o: CMakeFiles/dbs_functional.dir/flags.make
-CMakeFiles/dbs_functional.dir/src/Neuron.cpp.o: ../src/Neuron.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/trishul/Documents/Duke/s6/ece590/gpgpu/dbs_functional/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/dbs_functional.dir/src/Neuron.cpp.o"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/dbs_functional.dir/src/Neuron.cpp.o -c /Users/trishul/Documents/Duke/s6/ece590/gpgpu/dbs_functional/src/Neuron.cpp
-
-CMakeFiles/dbs_functional.dir/src/Neuron.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/dbs_functional.dir/src/Neuron.cpp.i"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/trishul/Documents/Duke/s6/ece590/gpgpu/dbs_functional/src/Neuron.cpp > CMakeFiles/dbs_functional.dir/src/Neuron.cpp.i
-
-CMakeFiles/dbs_functional.dir/src/Neuron.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/dbs_functional.dir/src/Neuron.cpp.s"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/trishul/Documents/Duke/s6/ece590/gpgpu/dbs_functional/src/Neuron.cpp -o CMakeFiles/dbs_functional.dir/src/Neuron.cpp.s
-
 CMakeFiles/dbs_functional.dir/src/THNeuron.cpp.o: CMakeFiles/dbs_functional.dir/flags.make
 CMakeFiles/dbs_functional.dir/src/THNeuron.cpp.o: ../src/THNeuron.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/trishul/Documents/Duke/s6/ece590/gpgpu/dbs_functional/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/dbs_functional.dir/src/THNeuron.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/trishul/Documents/Duke/s6/ece590/gpgpu/dbs_functional/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/dbs_functional.dir/src/THNeuron.cpp.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/dbs_functional.dir/src/THNeuron.cpp.o -c /Users/trishul/Documents/Duke/s6/ece590/gpgpu/dbs_functional/src/THNeuron.cpp
 
 CMakeFiles/dbs_functional.dir/src/THNeuron.cpp.i: cmake_force
@@ -124,7 +98,7 @@ CMakeFiles/dbs_functional.dir/src/THNeuron.cpp.s: cmake_force
 
 CMakeFiles/dbs_functional.dir/src/BGNetwork.cpp.o: CMakeFiles/dbs_functional.dir/flags.make
 CMakeFiles/dbs_functional.dir/src/BGNetwork.cpp.o: ../src/BGNetwork.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/trishul/Documents/Duke/s6/ece590/gpgpu/dbs_functional/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/dbs_functional.dir/src/BGNetwork.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/trishul/Documents/Duke/s6/ece590/gpgpu/dbs_functional/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/dbs_functional.dir/src/BGNetwork.cpp.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/dbs_functional.dir/src/BGNetwork.cpp.o -c /Users/trishul/Documents/Duke/s6/ece590/gpgpu/dbs_functional/src/BGNetwork.cpp
 
 CMakeFiles/dbs_functional.dir/src/BGNetwork.cpp.i: cmake_force
@@ -138,9 +112,7 @@ CMakeFiles/dbs_functional.dir/src/BGNetwork.cpp.s: cmake_force
 # Object files for target dbs_functional
 dbs_functional_OBJECTS = \
 "CMakeFiles/dbs_functional.dir/main.cpp.o" \
-"CMakeFiles/dbs_functional.dir/src/parameter_structs.cpp.o" \
 "CMakeFiles/dbs_functional.dir/src/gating.cpp.o" \
-"CMakeFiles/dbs_functional.dir/src/Neuron.cpp.o" \
 "CMakeFiles/dbs_functional.dir/src/THNeuron.cpp.o" \
 "CMakeFiles/dbs_functional.dir/src/BGNetwork.cpp.o"
 
@@ -148,14 +120,12 @@ dbs_functional_OBJECTS = \
 dbs_functional_EXTERNAL_OBJECTS =
 
 dbs_functional: CMakeFiles/dbs_functional.dir/main.cpp.o
-dbs_functional: CMakeFiles/dbs_functional.dir/src/parameter_structs.cpp.o
 dbs_functional: CMakeFiles/dbs_functional.dir/src/gating.cpp.o
-dbs_functional: CMakeFiles/dbs_functional.dir/src/Neuron.cpp.o
 dbs_functional: CMakeFiles/dbs_functional.dir/src/THNeuron.cpp.o
 dbs_functional: CMakeFiles/dbs_functional.dir/src/BGNetwork.cpp.o
 dbs_functional: CMakeFiles/dbs_functional.dir/build.make
 dbs_functional: CMakeFiles/dbs_functional.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/trishul/Documents/Duke/s6/ece590/gpgpu/dbs_functional/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Linking CXX executable dbs_functional"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/trishul/Documents/Duke/s6/ece590/gpgpu/dbs_functional/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX executable dbs_functional"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/dbs_functional.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

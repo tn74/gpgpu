@@ -177,33 +177,6 @@ src/BGNetwork.cpp.s:
 	$(MAKE) -f CMakeFiles/dbs_functional.dir/build.make CMakeFiles/dbs_functional.dir/src/BGNetwork.cpp.s
 .PHONY : src/BGNetwork.cpp.s
 
-src/Neuron.o: src/Neuron.cpp.o
-
-.PHONY : src/Neuron.o
-
-# target to build an object file
-src/Neuron.cpp.o:
-	$(MAKE) -f CMakeFiles/dbs_functional.dir/build.make CMakeFiles/dbs_functional.dir/src/Neuron.cpp.o
-.PHONY : src/Neuron.cpp.o
-
-src/Neuron.i: src/Neuron.cpp.i
-
-.PHONY : src/Neuron.i
-
-# target to preprocess a source file
-src/Neuron.cpp.i:
-	$(MAKE) -f CMakeFiles/dbs_functional.dir/build.make CMakeFiles/dbs_functional.dir/src/Neuron.cpp.i
-.PHONY : src/Neuron.cpp.i
-
-src/Neuron.s: src/Neuron.cpp.s
-
-.PHONY : src/Neuron.s
-
-# target to generate assembly for a file
-src/Neuron.cpp.s:
-	$(MAKE) -f CMakeFiles/dbs_functional.dir/build.make CMakeFiles/dbs_functional.dir/src/Neuron.cpp.s
-.PHONY : src/Neuron.cpp.s
-
 src/THNeuron.o: src/THNeuron.cpp.o
 
 .PHONY : src/THNeuron.o
@@ -258,33 +231,6 @@ src/gating.cpp.s:
 	$(MAKE) -f CMakeFiles/dbs_functional.dir/build.make CMakeFiles/dbs_functional.dir/src/gating.cpp.s
 .PHONY : src/gating.cpp.s
 
-src/parameter_structs.o: src/parameter_structs.cpp.o
-
-.PHONY : src/parameter_structs.o
-
-# target to build an object file
-src/parameter_structs.cpp.o:
-	$(MAKE) -f CMakeFiles/dbs_functional.dir/build.make CMakeFiles/dbs_functional.dir/src/parameter_structs.cpp.o
-.PHONY : src/parameter_structs.cpp.o
-
-src/parameter_structs.i: src/parameter_structs.cpp.i
-
-.PHONY : src/parameter_structs.i
-
-# target to preprocess a source file
-src/parameter_structs.cpp.i:
-	$(MAKE) -f CMakeFiles/dbs_functional.dir/build.make CMakeFiles/dbs_functional.dir/src/parameter_structs.cpp.i
-.PHONY : src/parameter_structs.cpp.i
-
-src/parameter_structs.s: src/parameter_structs.cpp.s
-
-.PHONY : src/parameter_structs.s
-
-# target to generate assembly for a file
-src/parameter_structs.cpp.s:
-	$(MAKE) -f CMakeFiles/dbs_functional.dir/build.make CMakeFiles/dbs_functional.dir/src/parameter_structs.cpp.s
-.PHONY : src/parameter_structs.cpp.s
-
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -300,18 +246,12 @@ help:
 	@echo "... src/BGNetwork.o"
 	@echo "... src/BGNetwork.i"
 	@echo "... src/BGNetwork.s"
-	@echo "... src/Neuron.o"
-	@echo "... src/Neuron.i"
-	@echo "... src/Neuron.s"
 	@echo "... src/THNeuron.o"
 	@echo "... src/THNeuron.i"
 	@echo "... src/THNeuron.s"
 	@echo "... src/gating.o"
 	@echo "... src/gating.i"
 	@echo "... src/gating.s"
-	@echo "... src/parameter_structs.o"
-	@echo "... src/parameter_structs.i"
-	@echo "... src/parameter_structs.s"
 .PHONY : help
 
 

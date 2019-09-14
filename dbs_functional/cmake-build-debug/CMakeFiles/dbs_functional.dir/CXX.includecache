@@ -9,14 +9,18 @@
 /Users/trishul/Documents/Duke/s6/ece590/gpgpu/dbs_functional/main.cpp
 iostream
 -
-src/parameter_structs.h
-/Users/trishul/Documents/Duke/s6/ece590/gpgpu/dbs_functional/src/parameter_structs.h
-src/Neuron.h
-/Users/trishul/Documents/Duke/s6/ece590/gpgpu/dbs_functional/src/Neuron.h
 src/gating.h
 /Users/trishul/Documents/Duke/s6/ece590/gpgpu/dbs_functional/src/gating.h
 src/BGNetwork.h
 /Users/trishul/Documents/Duke/s6/ece590/gpgpu/dbs_functional/src/BGNetwork.h
+
+/Users/trishul/Documents/Duke/s6/ece590/gpgpu/dbs_functional/src/BGNetwork.cpp
+iostream
+-
+BGNetwork.h
+/Users/trishul/Documents/Duke/s6/ece590/gpgpu/dbs_functional/src/BGNetwork.h
+THNeuron.h
+/Users/trishul/Documents/Duke/s6/ece590/gpgpu/dbs_functional/src/THNeuron.h
 
 /Users/trishul/Documents/Duke/s6/ece590/gpgpu/dbs_functional/src/BGNetwork.h
 string
@@ -25,28 +29,10 @@ vector
 -
 map
 -
-Neuron.h
-/Users/trishul/Documents/Duke/s6/ece590/gpgpu/dbs_functional/src/Neuron.h
 THNeuron.h
 /Users/trishul/Documents/Duke/s6/ece590/gpgpu/dbs_functional/src/THNeuron.h
-parameter_structs.h
-/Users/trishul/Documents/Duke/s6/ece590/gpgpu/dbs_functional/src/parameter_structs.h
-
-/Users/trishul/Documents/Duke/s6/ece590/gpgpu/dbs_functional/src/Neuron.h
-map
--
-vector
--
-parameter_structs.h
-/Users/trishul/Documents/Duke/s6/ece590/gpgpu/dbs_functional/src/parameter_structs.h
 
 /Users/trishul/Documents/Duke/s6/ece590/gpgpu/dbs_functional/src/THNeuron.h
-Neuron.h
-/Users/trishul/Documents/Duke/s6/ece590/gpgpu/dbs_functional/src/Neuron.h
-parameter_structs.h
-/Users/trishul/Documents/Duke/s6/ece590/gpgpu/dbs_functional/src/parameter_structs.h
 
 /Users/trishul/Documents/Duke/s6/ece590/gpgpu/dbs_functional/src/gating.h
-
-/Users/trishul/Documents/Duke/s6/ece590/gpgpu/dbs_functional/src/parameter_structs.h
 

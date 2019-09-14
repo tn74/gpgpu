@@ -89,12 +89,6 @@
 		<Unit filename="/Users/trishul/Documents/Duke/s6/ece590/gpgpu/dbs_functional/src/BGNetwork.h">
 			<Option target="dbs_functional"/>
 		</Unit>
-		<Unit filename="/Users/trishul/Documents/Duke/s6/ece590/gpgpu/dbs_functional/src/Neuron.cpp">
-			<Option target="dbs_functional"/>
-		</Unit>
-		<Unit filename="/Users/trishul/Documents/Duke/s6/ece590/gpgpu/dbs_functional/src/Neuron.h">
-			<Option target="dbs_functional"/>
-		</Unit>
 		<Unit filename="/Users/trishul/Documents/Duke/s6/ece590/gpgpu/dbs_functional/src/THNeuron.cpp">
 			<Option target="dbs_functional"/>
 		</Unit>
@@ -105,12 +99,6 @@
 			<Option target="dbs_functional"/>
 		</Unit>
 		<Unit filename="/Users/trishul/Documents/Duke/s6/ece590/gpgpu/dbs_functional/src/gating.h">
-			<Option target="dbs_functional"/>
-		</Unit>
-		<Unit filename="/Users/trishul/Documents/Duke/s6/ece590/gpgpu/dbs_functional/src/parameter_structs.cpp">
-			<Option target="dbs_functional"/>
-		</Unit>
-		<Unit filename="/Users/trishul/Documents/Duke/s6/ece590/gpgpu/dbs_functional/src/parameter_structs.h">
 			<Option target="dbs_functional"/>
 		</Unit>
 		<Unit filename="/Users/trishul/Documents/Duke/s6/ece590/gpgpu/dbs_functional/CMakeLists.txt">

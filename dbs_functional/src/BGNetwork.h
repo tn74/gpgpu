@@ -8,41 +8,30 @@
 #include <string>
 #include <vector>
 #include <map>
-#include "Neuron.h"
 #include "THNeuron.h"
-#include "parameter_structs.h"
 
-typedef struct current_matrix {
-    th_current_t** th;
-} current_matrix_t;
+typedef struct simulation_parameters {
+    double dt;
+    double duration;
+    int cells_per_type;
+} simulation_parameters_t;
 
-typedef struct gates_matrix {
-    th_current_t** th;
-} gates_matrix_t;
 
-typedef struct compute_memory {
-    double** v1;
-    double** v2;
-    param_t* network_parameters;
-    current_matrix_t* c_mat;
-    gates_matrix_t* g_mat;
-} compute_memory_t;
 
 class BGNetwork {
 private:
     int dt_index;
-    int number_of_cells;
-    double duration;
-    double dt;
-    compute_memory_t* compute_mem;
-    std::map<int, std::vector<Neuron*>*>* all_cells;                          // cell-type -> index -> cell
+    simulation_parameters_t* sim_params;
+    th_param_t* th_params;
+    th_state_t* state_array;
+    th_state_t* state_array_1;
 
     void build_parameter_map();
     void initialize_cells();
     void advance_time_step();
 
 public:
-    BGNetwork(int n, double dur, double delta);
+    BGNetwork(simulation_parameters_t* sim_params);
     int simulate();
 };
 

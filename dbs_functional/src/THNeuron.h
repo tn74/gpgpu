@@ -5,37 +5,35 @@
 #ifndef DBS_ON_GPU_THNEURON_H
 #define DBS_ON_GPU_THNEURON_H
 
-#include "Neuron.h"
-#include "parameter_structs.h"
 
-typedef struct th_current {
+typedef struct th_param {
+    double C_m;
+    double g_L;
+    double E_L;
+    double g_Na;
+    double E_Na;
+    double g_K;
+    double E_K;
+    double g_T;
+    double E_T;
+} th_param_t;
+
+typedef struct th_state {
+    double voltage;
     double I_L;
     double I_Na;
     double I_K;
     double I_T;
-} th_current_t;
-
-typedef struct th_gate {
     double H;
     double R;
-} th_gate_t;
+} th_state_t;
 
-void th_compute_currents(double v, th_current_t*, th_param_t* p);
-void th_compute_gating(double v, th_gate_t*, th_param_t* p);
 
-class THNeuron : public Neuron{
-private:
-    th_param_t* cell_params;
-    th_current_t* currents;
-    th_gate_t* gates;
+void th_compute_next_state(th_state_t* in, th_state_t* out, th_param_t* params, double dt);
+void th_compute_currents(th_state_t* in, th_state_t* out, th_param_t* params);
+void th_compute_gating(th_state_t* in, th_state_t* out, th_param_t* params);
+void th_init_state(th_state_t* in);
 
-protected:
-    void initialize_gating_variables() override;
-
-public:
-    THNeuron(double dt, double duration, double start_voltage, param_t* network_params, int id);
-    int debug() override;
-};
 
 
 #endif //DBS_ON_GPU_THNEURON_H
