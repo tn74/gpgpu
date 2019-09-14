@@ -7,10 +7,12 @@
 #include "THNeuron.h"
 
 
-BGNetwork::BGNetwork(simulation_parameters_t* sim_params){
+BGNetwork::BGNetwork(simulation_parameters_t* sp){
     std::cout << "BGNetwork Constructor" << std::endl;
-    state_array = (th_state_t*) (malloc(sim_params->cells_per_type * sizeof(th_state)));
-    state_array_1 = (th_state_t*) (malloc(sim_params->cells_per_type * sizeof(th_state)));
+    sim_params = sp;
+    dt_index = 0;
+    state_array = (th_state_t*) (malloc(sp->cells_per_type * sizeof(th_state)));
+    state_array_1 = (th_state_t*) (malloc(sp->cells_per_type * sizeof(th_state)));
     build_parameter_map();
     initialize_cells();
 }
@@ -44,8 +46,10 @@ void BGNetwork::advance_time_step() {
         }
     }
     dt_index ++;
+    std::cout << dt_index << std::endl;
 }
 
 int BGNetwork::simulate() {
+    advance_time_step();
     return 0;
 };

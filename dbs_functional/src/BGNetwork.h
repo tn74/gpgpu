@@ -31,7 +31,7 @@ private:
     void advance_time_step();
 
 public:
-    BGNetwork(simulation_parameters_t* sim_params);
+    BGNetwork(simulation_parameters_t* sp);
     int simulate();
 };
 
