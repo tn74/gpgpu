@@ -3,6 +3,10 @@
 //
 
 #include <iostream>
+#include <string>
+#include <sstream>
+#include <fstream>
+
 #include "BGNetwork.h"
 #include "THNeuron.h"
 
@@ -11,8 +15,8 @@ BGNetwork::BGNetwork(simulation_parameters_t* sp){
     std::cout << "BGNetwork Constructor" << std::endl;
     sim_params = sp;
     dt_index = 0;
-    state_array = (th_state_t*) (malloc(sp->cells_per_type * sizeof(th_state)));
-    state_array_1 = (th_state_t*) (malloc(sp->cells_per_type * sizeof(th_state)));
+    state_start = (th_state_t*) (malloc(sp->cells_per_type * sizeof(th_state)));
+    state_end = (th_state_t*) (malloc(sp->cells_per_type * sizeof(th_state)));
     build_parameter_map();
     initialize_cells();
 }
@@ -33,23 +37,36 @@ void BGNetwork::build_parameter_map() {
 
 void BGNetwork::initialize_cells() {
     for (int i = 0; i < sim_params-> cells_per_type; ++i) {
-        th_init_state(&state_array[i]);
+        init_state(&state_start[i]);
     }
 }
 
 void BGNetwork::advance_time_step() {
     for (int i = 0; i < (sim_params-> cells_per_type); ++i) {
-        if (dt_index % 2 == 1) {
-            th_compute_next_state(&state_array[i], &state_array_1[i], th_params, sim_params->dt);
-        } else {
-            th_compute_next_state(&state_array_1[i], &state_array[i], th_params, sim_params->dt);
-        }
+        compute_next_state(&state_start[i], &state_end[i], th_params, sim_params->dt);
     }
     dt_index ++;
+    th_state_t* tmp = state_start;
+    state_start = state_end;
+    state_end = tmp;
     std::cout << dt_index << std::endl;
 }
 
+void BGNetwork::debug(th_state_t* state) {
+    for (int i = 0; i < sim_params->cells_per_type; ++i) {
+        std::ostringstream output_file_name;
+        output_file_name << "output/TH_NEURON_" << i << ".txt";
+        std::ofstream out(output_file_name.str(), std::ios::app);
+        out << "DT=" << dt_index << ", " << get_debug_string(&state[i]) << std::endl;
+        out.close();
+    }
+}
 int BGNetwork::simulate() {
-    advance_time_step();
+    system("exec rm -r output/*");
+    debug(state_start);
+    for (int i = 0; i < sim_params->duration / sim_params->dt; ++i) {
+        advance_time_step();
+        debug(state_start);
+    }
     return 0;
 };

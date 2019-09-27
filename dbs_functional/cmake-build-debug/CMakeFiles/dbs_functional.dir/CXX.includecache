@@ -6,16 +6,14 @@
 
 #IncludeRegexTransform: 
 
-/Users/trishul/Documents/Duke/s6/ece590/gpgpu/dbs_functional/main.cpp
-iostream
--
-src/gating.h
-/Users/trishul/Documents/Duke/s6/ece590/gpgpu/dbs_functional/src/gating.h
-src/BGNetwork.h
-/Users/trishul/Documents/Duke/s6/ece590/gpgpu/dbs_functional/src/BGNetwork.h
-
 /Users/trishul/Documents/Duke/s6/ece590/gpgpu/dbs_functional/src/BGNetwork.cpp
 iostream
+-
+string
+-
+sstream
+-
+fstream
 -
 BGNetwork.h
 /Users/trishul/Documents/Duke/s6/ece590/gpgpu/dbs_functional/src/BGNetwork.h
@@ -33,6 +31,4 @@ THNeuron.h
 /Users/trishul/Documents/Duke/s6/ece590/gpgpu/dbs_functional/src/THNeuron.h
 
 /Users/trishul/Documents/Duke/s6/ece590/gpgpu/dbs_functional/src/THNeuron.h
-
-/Users/trishul/Documents/Duke/s6/ece590/gpgpu/dbs_functional/src/gating.h
 

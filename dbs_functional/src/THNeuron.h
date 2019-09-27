@@ -29,11 +29,10 @@ typedef struct th_state {
 } th_state_t;
 
 
-void th_compute_next_state(th_state_t* in, th_state_t* out, th_param_t* params, double dt);
-void th_compute_currents(th_state_t* in, th_state_t* out, th_param_t* params);
-void th_compute_gating(th_state_t* in, th_state_t* out, th_param_t* params);
-void th_init_state(th_state_t* in);
-
-
+void compute_next_state(th_state_t *in, th_state_t *out, th_param_t *params, double dt);
+void compute_currents(th_state_t *in, th_state_t *out, th_param_t *params);
+void compute_gating(th_state_t *in, th_state_t *out, th_param_t *params, double dt);
+void init_state(th_state_t *in);
+std::string get_debug_string(th_state_t* state);
 
 #endif //DBS_ON_GPU_THNEURON_H

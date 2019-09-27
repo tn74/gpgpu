@@ -23,8 +23,8 @@ private:
     int dt_index;
     simulation_parameters_t* sim_params;
     th_param_t* th_params;
-    th_state_t* state_array;
-    th_state_t* state_array_1;
+    th_state_t* state_start;
+    th_state_t* state_end;
 
     void build_parameter_map();
     void initialize_cells();
@@ -32,6 +32,7 @@ private:
 
 public:
     BGNetwork(simulation_parameters_t* sp);
+    void debug(th_state_t*);
     int simulate();
 };
 
