@@ -7,8 +7,8 @@
 #include <sstream>
 #include <fstream>
 
-#include "BGNetwork.cuh"
-#include "THNeuron.cuh"
+#include "BGNetwork.h"
+#include "THNeuron.h"
 
 
 BGNetwork::BGNetwork(simulation_parameters_t* sp){
@@ -43,7 +43,7 @@ void BGNetwork::initialize_cells() {
 
 void BGNetwork::advance_time_step() {
     for (int i = 0; i < (sim_params-> cells_per_type); ++i) {
-        compute_next_state(&state_start[i], &state_end[i], th_params, sim_params->dt);
+        compute_next_state<<<1, 16>>>(&state_start[i], &state_end[i], th_params, sim_params->dt);
     }
     dt_index ++;
     th_state_t* tmp = state_start;

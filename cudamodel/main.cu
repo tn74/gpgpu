@@ -1,8 +1,8 @@
 #include <iostream>
 
 //#include "src/gating.h"
-#include "src/BGNetwork.cuh"
-#include "dbs.cpp"
+#include "src/BGNetwork.h"
+#include "dbs.cu"
 
 extern "C" int addnum(int a, int b) {
     return a + b;

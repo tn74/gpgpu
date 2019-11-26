@@ -9,15 +9,15 @@
 #include <sstream>
 #include <iomanip>
 #include <math.h>
-#include "THNeuron.cuh"
-#include "gating.cuh"
+#include "THNeuron.h"
+#include "gating.h"
 
 __global__ void trap() {
     int x = 1;
 }
  
-void compute_next_state(th_state_t *in, th_state_t *out, th_param_t *params, double dt) {
-    trap<<<1, 1>>>();
+__global__ void compute_next_state(th_state_t *in, th_state_t *out, th_param_t *params, double dt) {
+    //trap<<<1, 1>>>();
     compute_currents(in, out, params);
     compute_gating(in, out, params, dt);
     double current_sum =
@@ -28,7 +28,7 @@ void compute_next_state(th_state_t *in, th_state_t *out, th_param_t *params, dou
     out -> voltage = in -> voltage + dt * current_sum / params->C_m;
 
 }
-void compute_currents(th_state_t *in, th_state_t *out, th_param_t *p){
+__device__ void compute_currents(th_state_t *in, th_state_t *out, th_param_t *p){
     double v = in->voltage;
     out->I_K = -(p->g_K * pow(0.75 *(1 - in->H), 4) * (v - p->E_K));
     out->I_L = -1 * p->g_L * (v - p->E_L);
@@ -36,7 +36,7 @@ void compute_currents(th_state_t *in, th_state_t *out, th_param_t *p){
     out->I_T = -p->g_T * pow(th_pinf(v), 2) * in->R * (v - p->E_T);
 
 }
-
+__device__ 
 void compute_gating(th_state_t *in, th_state_t *out, th_param_t *params, double dt){
     double v = in->voltage;
     out->H = in->H + dt * (th_hinf(v) - in->H)/th_tauh(v);
