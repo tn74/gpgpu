@@ -43,6 +43,7 @@ void compute_gating(th_state_t *in, th_state_t *out, th_param_t *params, double 
     out->R = in->R + dt * (th_rinf(v) - in->R)/th_taur(v);
 }
 
+__host__ __device__
 void init_state(th_state_t *in){
     in->voltage = -57.0;
     in->H = th_hinf(in->voltage);

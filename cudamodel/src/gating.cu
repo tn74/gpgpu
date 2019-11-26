@@ -2,12 +2,19 @@
 #include <math.h>
 #include "gating.h"
 
-__device__ double gpe_ainf(double V)
+
+#ifdef __CUDACC__
+#define CUDA_HOSTDEV __host__ __device__
+#else
+#define CUDA_HOSTDEV
+#endif
+
+CUDA_HOSTDEV double gpe_ainf(double V)
 {
   return 1/(1+exp(-(V+57)/2));
 }
 
-__device__ double gpe_hinf(double V)
+CUDA_HOSTDEV double gpe_hinf(double V)
 {
   return 1/(1+exp((V+58)/12));
 }
@@ -107,12 +114,12 @@ __device__ double stn_taur(double V)
   return 7.1 + 17.5/(1+exp(-(V-68)/-2.2));
 }
 
-__device__ double th_hinf(double V)
+CUDA_HOSTDEV double th_hinf(double V)
 {
   return 1/(1+exp((V+41)/4));
 }
 
-__device__ double th_minf(double V)
+__host__ __device__ double th_minf(double V)
 {
   return 1/(1+exp(-(V+37)/7));
 }
@@ -122,7 +129,7 @@ __device__ double th_pinf(double V)
   return 1/(1+exp(-(V+60)/6.2));
 }
 
-__device__ double th_rinf(double V)
+CUDA_HOSTDEV double th_rinf(double V)
 {
   return 1/(1+exp((V+84)/4));
 }

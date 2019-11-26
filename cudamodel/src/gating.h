@@ -1,7 +1,13 @@
 #ifndef GATING_FXNS
 #define GATING_FXNS
 
-  __device__ double gpe_ainf(double);
+#ifdef __CUDACC__
+#define CUDA_HOSTDEV __host__ __device__
+#else
+#define CUDA_HOSTDEV
+#endif
+
+__device__ double gpe_ainf(double);
   __device__ double gpe_hinf(double);
   __device__ double gpe_minf(double);
   __device__ double gpe_ninf(double);
@@ -22,10 +28,10 @@
   __device__ double stn_tauh(double);
   __device__ double stn_taun(double);
   __device__ double stn_taur(double);
-  __device__ double th_hinf(double);
+  CUDA_HOSTDEV double th_hinf(double);
   __device__ double th_minf(double);
   __device__ double th_pinf(double);
-  __device__ double th_rinf(double);
+  CUDA_HOSTDEV double th_rinf(double);
   __device__ double ah(double);
   __device__ double bh(double);
   __device__ double th_tauh(double);

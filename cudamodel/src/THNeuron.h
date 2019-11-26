@@ -38,7 +38,7 @@ typedef struct th_state {
 __global__ void compute_next_state(th_state_t *in, th_state_t *out, th_param_t *params, double dt);
 __device__ void compute_currents(th_state_t *in, th_state_t *out, th_param_t *params);
 __device__ void compute_gating(th_state_t *in, th_state_t *out, th_param_t *params, double dt);
-void init_state(th_state_t *in);
+__host__ __device__ void init_state(th_state_t *in);
 std::string get_debug_string(th_state_t* state);
 
 #endif //DBS_ON_GPU_THNEURON_H
