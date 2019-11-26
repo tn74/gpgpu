@@ -49,7 +49,7 @@ void BGNetwork::advance_time_step() {
     th_state_t* tmp = state_start;
     state_start = state_end;
     state_end = tmp;
-    std::cout << dt_index << std::endl;
+    std::cout << "\r"  << "Iteration: " << dt_index << std::endl;
 }
 
 void BGNetwork::debug(th_state_t* state) {
