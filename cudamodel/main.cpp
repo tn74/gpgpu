@@ -1,7 +1,7 @@
 #include <iostream>
 
 //#include "src/gating.h"
-#include "src/BGNetwork.h"
+#include "src/BGNetwork.cuh"
 #include "dbs.cpp"
 
 extern "C" int addnum(int a, int b) {

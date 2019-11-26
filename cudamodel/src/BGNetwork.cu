@@ -7,8 +7,8 @@
 #include <sstream>
 #include <fstream>
 
-#include "BGNetwork.h"
-#include "THNeuron.h"
+#include "BGNetwork.cuh"
+#include "THNeuron.cuh"
 
 
 BGNetwork::BGNetwork(simulation_parameters_t* sp){

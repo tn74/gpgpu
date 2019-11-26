@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <math.h>
-#include "gating.h"
+#include "gating.cuh"
 
 double gpe_ainf(double V)
 {

@@ -8,7 +8,7 @@
 #include <string>
 #include <vector>
 #include <map>
-#include "THNeuron.h"
+#include "THNeuron.cuh"
 
 typedef struct simulation_parameters {
     double dt;

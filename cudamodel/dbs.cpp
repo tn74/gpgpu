@@ -2,7 +2,7 @@
 // Created by Trishul Nagenalli on 2019-11-21.
 //
 
-#include "src/BGNetwork.h"
+#include "src/BGNetwork.cuh"
 
 
 int add(int a, int b) {

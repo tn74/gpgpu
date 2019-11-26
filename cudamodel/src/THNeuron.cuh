@@ -28,7 +28,6 @@ typedef struct th_state {
     double R;
 } th_state_t;
 
-
 void compute_next_state(th_state_t *in, th_state_t *out, th_param_t *params, double dt);
 void compute_currents(th_state_t *in, th_state_t *out, th_param_t *params);
 void compute_gating(th_state_t *in, th_state_t *out, th_param_t *params, double dt);

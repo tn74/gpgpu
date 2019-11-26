@@ -9,12 +9,15 @@
 #include <sstream>
 #include <iomanip>
 #include <math.h>
-#include "THNeuron.h"
-#include "gating.h"
+#include "THNeuron.cuh"
+#include "gating.cuh"
 
-
-
+__global__ void trap() {
+    int x = 1;
+}
+ 
 void compute_next_state(th_state_t *in, th_state_t *out, th_param_t *params, double dt) {
+    trap<<<1, 1>>>();
     compute_currents(in, out, params);
     compute_gating(in, out, params, dt);
     double current_sum =
