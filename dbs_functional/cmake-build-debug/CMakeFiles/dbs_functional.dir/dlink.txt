@@ -1,1 +1,0 @@
-/Developer/NVIDIA/CUDA-10.1/bin/nvcc  -g -Xcompiler=-fPIC -Wno-deprecated-gpu-targets -shared -dlink CMakeFiles/dbs_functional.dir/main.cu.o CMakeFiles/dbs_functional.dir/src/parameter_structs.cpp.o -o CMakeFiles/dbs_functional.dir/cmake_device_link.o  -L/Developer/NVIDIA/CUDA-10.1/lib  -L/usr/local/lib /Developer/NVIDIA/CUDA-10.1/lib/libcudart_static.a -lcudadevrt 

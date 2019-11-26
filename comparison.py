@@ -31,7 +31,7 @@ class Loader():
 
     def load_matlab(self, test_name):
         basepath = os.path.dirname(os.path.abspath(__file__))
-        test_path = os.path.join(basepath, "Model", "BGNetwork", "saved_tests", "{}.mat".format(test_name))
+        test_path = os.path.join(basepath, "matlabmodel", "BGNetwork", "saved_tests", "{}.mat".format(test_name))
 
         parsed = self.parse_mat(loadmat(test_path))
         self.format_dict(parsed)
