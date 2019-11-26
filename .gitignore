@@ -1,2 +1,4 @@
 cudamodel/.idea
-cudamodel/cmake-build-debug/*
+cudamodel/cmake-build-debug/
+cudamodel/build/
+cudamodel/CMakeLists.txt

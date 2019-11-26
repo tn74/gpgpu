@@ -1,6 +1,8 @@
 import ctypes
 
 DBSLIB = ctypes.CDLL("cudamodel/cmake-build-debug/libdbs.so")
+# DBSLIB = ctypes.CDLL("cudamodel/build/libdbs.so")
+
 
 
 def execute_main():

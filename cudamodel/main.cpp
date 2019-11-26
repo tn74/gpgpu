@@ -4,15 +4,15 @@
 #include "src/BGNetwork.h"
 #include "dbs.cpp"
 
-int addnum(int a, int b) {
+extern "C" int addnum(int a, int b) {
     return a + b;
 }
 
-int plain2() {
+extern "C" int plain2() {
     return 2;
 }
 
-int main() {
+extern "C" int main() {
     std::cout << plain() << std::endl;
     plain2();
     auto sim_params = (simulation_parameters_t *) malloc(sizeof(simulation_parameters));

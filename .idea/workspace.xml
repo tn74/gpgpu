@@ -10,446 +10,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ef46d214-47e3-46da-802a-5635e347a271" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/cudamodel/CMakeLists.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cudamodel/compile.sh" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/execute_cuda.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/gpgpu.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gpgpu.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/BGnetwork/BGnetwork.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/BGnetwork/BGnetwork_old.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/BGnetwork/Istim.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/BGnetwork/Readme.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/BGnetwork/all_variables.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/BGnetwork/calculateEI.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/BGnetwork/creatdbs.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/BGnetwork/createSMC.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/BGnetwork/gating/Hinf.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/BGnetwork/gating/gpe_ainf.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/BGnetwork/gating/gpe_hinf.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/BGnetwork/gating/gpe_minf.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/BGnetwork/gating/gpe_ninf.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/BGnetwork/gating/gpe_rinf.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/BGnetwork/gating/gpe_sinf.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/BGnetwork/gating/gpe_tauh.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/BGnetwork/gating/gpe_taun.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/BGnetwork/gating/stn_ainf.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/BGnetwork/gating/stn_binf.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/BGnetwork/gating/stn_cinf.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/BGnetwork/gating/stn_hinf.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/BGnetwork/gating/stn_minf.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/BGnetwork/gating/stn_ninf.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/BGnetwork/gating/stn_rinf.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/BGnetwork/gating/stn_sinf.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/BGnetwork/gating/stn_tauc.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/BGnetwork/gating/stn_tauh.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/BGnetwork/gating/stn_taun.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/BGnetwork/gating/stn_taur.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/BGnetwork/gating/th_hinf.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/BGnetwork/gating/th_minf.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/BGnetwork/gating/th_pinf.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/BGnetwork/gating/th_rinf.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/BGnetwork/gating/th_tauh.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/BGnetwork/gating/th_taur.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/BGnetwork/initial.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/BGnetwork/initial_old.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/BGnetwork/plotpotentials.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/BGnetwork/saved_tests/healthy_isolated_cells.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/BGnetwork/saved_tests/healthy_unmod.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/BGnetwork/screenshot1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/BGnetwork/screenshot2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/BGnetwork/screenshot3.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/Backup 2017-01-16/5stndbs_freq95.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/Backup 2017-01-16/CTX_BG_TH_network.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/Backup 2017-01-16/GPiInpOut.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/Backup 2017-01-16/Ggaba.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/Backup 2017-01-16/IlijaFcns/10sNoParkinsonNoDBSOriginal.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/Backup 2017-01-16/IlijaFcns/10sParkinsonNoDBSOriginal.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/Backup 2017-01-16/IlijaFcns/AddTimers.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/Backup 2017-01-16/IlijaFcns/CleanUpTimers.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/Backup 2017-01-16/IlijaFcns/DirectStriatum.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/Backup 2017-01-16/IlijaFcns/ExcitatoryCTX.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/Backup 2017-01-16/IlijaFcns/GlobusPallidusExterna.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/Backup 2017-01-16/IlijaFcns/GlobusPallidusExternaReduced.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/Backup 2017-01-16/IlijaFcns/GlobusPallidusInterna.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/Backup 2017-01-16/IlijaFcns/GlobusPallidusInternaReduced.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/Backup 2017-01-16/IlijaFcns/IndirectStriatum.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/Backup 2017-01-16/IlijaFcns/InhibitoryCTX.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/Backup 2017-01-16/IlijaFcns/InitializeInpOutRelations.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/Backup 2017-01-16/IlijaFcns/InitializeInpOutRelationsReduced.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/Backup 2017-01-16/IlijaFcns/LookupTableForBackup.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/Backup 2017-01-16/IlijaFcns/ManipulateInpOut.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/Backup 2017-01-16/IlijaFcns/ManipulateInpOutReduced.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/Backup 2017-01-16/IlijaFcns/NeuronThalamus.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/Backup 2017-01-16/IlijaFcns/RatBrainModel.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/Backup 2017-01-16/IlijaFcns/RatBrainModelReduced.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/Backup 2017-01-16/IlijaFcns/Reduced10sNoDBSNoParkinson.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/Backup 2017-01-16/IlijaFcns/SetParameters.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/Backup 2017-01-16/IlijaFcns/SubThalamicNucleus.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/Backup 2017-01-16/IlijaFcns/SubThalamicNucleusReduced.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/Backup 2017-01-16/IlijaFcns/THInputs.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/Backup 2017-01-16/IlijaFcns/THOutputs.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/Backup 2017-01-16/IlijaFcns/THVOutputs.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/Backup 2017-01-16/IlijaFcns/TestFcn.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/Backup 2017-01-16/IlijaFcns/TestFile.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/Backup 2017-01-16/IlijaFcns/TestModel.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/Backup 2017-01-16/IlijaFcns/TestModelBackup.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/Backup 2017-01-16/IlijaFcns/TestModelBackup2.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/Backup 2017-01-16/IlijaFcns/Thalamus.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/Backup 2017-01-16/IlijaFcns/ThalamusReduced.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/Backup 2017-01-16/IlijaFcns/Untitled2.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/Backup 2017-01-16/IlijaFcns/syn_func_cor_d2.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/Backup 2017-01-16/IlijaFcns/syn_func_cor_stn_a.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/Backup 2017-01-16/IlijaFcns/syn_func_cor_stn_n.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/Backup 2017-01-16/IlijaFcns/syn_func_gpe_gpe.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/Backup 2017-01-16/IlijaFcns/syn_func_gpe_gpi.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/Backup 2017-01-16/IlijaFcns/syn_func_gpe_stn.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/Backup 2017-01-16/IlijaFcns/syn_func_gpi_th.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/Backup 2017-01-16/IlijaFcns/syn_func_stn_gpea.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/Backup 2017-01-16/IlijaFcns/syn_func_stn_gpen.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/Backup 2017-01-16/IlijaFcns/syn_func_stn_gpi.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/Backup 2017-01-16/IlijaFcns/syn_func_str_dr.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/Backup 2017-01-16/IlijaFcns/syn_func_str_indr.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/Backup 2017-01-16/IlijaFcns/syn_func_th.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/Backup 2017-01-16/ah.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/Backup 2017-01-16/alphah.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/Backup 2017-01-16/alpham.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/Backup 2017-01-16/alphan.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/Backup 2017-01-16/alphap.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/Backup 2017-01-16/betah.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/Backup 2017-01-16/betam.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/Backup 2017-01-16/betan.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/Backup 2017-01-16/betap.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/Backup 2017-01-16/bh.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/Backup 2017-01-16/change_row_to_column.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/Backup 2017-01-16/creatdbs.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/Backup 2017-01-16/dpsschk.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/Backup 2017-01-16/find_spike_times.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/Backup 2017-01-16/getfgrid.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/Backup 2017-01-16/getparams.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/Backup 2017-01-16/gpe_ainf.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/Backup 2017-01-16/gpe_hinf.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/Backup 2017-01-16/gpe_minf.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/Backup 2017-01-16/gpe_ninf.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/Backup 2017-01-16/gpe_rinf.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/Backup 2017-01-16/gpe_sinf.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/Backup 2017-01-16/gpe_tauh.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/Backup 2017-01-16/gpe_taun.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/Backup 2017-01-16/make_Spectrum.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/Backup 2017-01-16/minmaxsptimes.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/Backup 2017-01-16/mtfftpt.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/Backup 2017-01-16/mtspectrumpt.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/Backup 2017-01-16/specerr.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/Backup 2017-01-16/stn_ainf.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/Backup 2017-01-16/stn_binf.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/Backup 2017-01-16/stn_cinf.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/Backup 2017-01-16/stn_d1inf.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/Backup 2017-01-16/stn_d2inf.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/Backup 2017-01-16/stn_hinf.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/Backup 2017-01-16/stn_minf.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/Backup 2017-01-16/stn_ninf.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/Backup 2017-01-16/stn_pinf.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/Backup 2017-01-16/stn_qinf.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/Backup 2017-01-16/stn_rinf.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/Backup 2017-01-16/stn_taua.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/Backup 2017-01-16/stn_taub.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/Backup 2017-01-16/stn_tauc.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/Backup 2017-01-16/stn_taud1.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/Backup 2017-01-16/stn_tauh.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/Backup 2017-01-16/stn_taum.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/Backup 2017-01-16/stn_taun.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/Backup 2017-01-16/stn_taup.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/Backup 2017-01-16/stn_tauq.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/Backup 2017-01-16/stndbs_tuning_curve.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/Backup 2017-01-16/th_hinf.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/Backup 2017-01-16/th_minf.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/Backup 2017-01-16/th_pinf.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/Backup 2017-01-16/th_rinf.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/Backup 2017-01-16/th_tauh.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/Backup 2017-01-16/th_taur.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/Current/5stndbs_freq95.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/Current/CTX_BG_TH_network.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/Current/GPiInpOut.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/Current/Ggaba.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/Current/IlijaFcns/10sNoParkinsonNoDBSOriginal.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/Current/IlijaFcns/10sParkinsonNoDBSOriginal.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/Current/IlijaFcns/AddTimers.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/Current/IlijaFcns/CleanUpTimers.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/Current/IlijaFcns/DirectStriatum.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/Current/IlijaFcns/ExcitatoryCTX.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/Current/IlijaFcns/GlobusPallidusExterna.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/Current/IlijaFcns/GlobusPallidusExternaReduced.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/Current/IlijaFcns/GlobusPallidusInterna.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/Current/IlijaFcns/GlobusPallidusInternaReduced.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/Current/IlijaFcns/IndirectStriatum.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/Current/IlijaFcns/InhibitoryCTX.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/Current/IlijaFcns/InitializeInpOutRelations.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/Current/IlijaFcns/InitializeInpOutRelationsReduced.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/Current/IlijaFcns/LookupTableForBackup.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/Current/IlijaFcns/ManipulateInpOut.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/Current/IlijaFcns/ManipulateInpOutReduced.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/Current/IlijaFcns/NeuronThalamus.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/Current/IlijaFcns/RatBrainModel.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/Current/IlijaFcns/RatBrainModelReduced.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/Current/IlijaFcns/Reduced10sNoDBSNoParkinson.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/Current/IlijaFcns/SetParameters.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/Current/IlijaFcns/SubThalamicNucleus.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/Current/IlijaFcns/SubThalamicNucleusReduced.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/Current/IlijaFcns/THInputs.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/Current/IlijaFcns/THOutputs.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/Current/IlijaFcns/THVOutputs.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/Current/IlijaFcns/TestFcn.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/Current/IlijaFcns/TestModel.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/Current/IlijaFcns/TestModelBackup.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/Current/IlijaFcns/TestModelBackup2.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/Current/IlijaFcns/Thalamus.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/Current/IlijaFcns/ThalamusReduced.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/Current/IlijaFcns/Untitled2.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/Current/IlijaFcns/syn_func_cor_d2.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/Current/IlijaFcns/syn_func_cor_stn_a.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/Current/IlijaFcns/syn_func_cor_stn_n.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/Current/IlijaFcns/syn_func_gpe_gpe.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/Current/IlijaFcns/syn_func_gpe_gpi.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/Current/IlijaFcns/syn_func_gpe_stn.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/Current/IlijaFcns/syn_func_gpi_th.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/Current/IlijaFcns/syn_func_stn_gpea.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/Current/IlijaFcns/syn_func_stn_gpen.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/Current/IlijaFcns/syn_func_stn_gpi.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/Current/IlijaFcns/syn_func_str_dr.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/Current/IlijaFcns/syn_func_str_indr.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/Current/IlijaFcns/syn_func_th.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/Current/ah.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/Current/alphah.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/Current/alpham.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/Current/alphan.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/Current/alphap.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/Current/betah.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/Current/betam.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/Current/betan.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/Current/betap.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/Current/bh.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/Current/change_row_to_column.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/Current/creatdbs.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/Current/dpsschk.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/Current/find_spike_times.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/Current/getfgrid.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/Current/getparams.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/Current/gpe_ainf.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/Current/gpe_hinf.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/Current/gpe_minf.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/Current/gpe_ninf.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/Current/gpe_rinf.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/Current/gpe_sinf.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/Current/gpe_tauh.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/Current/gpe_taun.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/Current/make_Spectrum.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/Current/minmaxsptimes.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/Current/mtfftpt.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/Current/mtspectrumpt.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/Current/specerr.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/Current/stn_ainf.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/Current/stn_binf.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/Current/stn_cinf.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/Current/stn_d1inf.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/Current/stn_d2inf.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/Current/stn_hinf.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/Current/stn_minf.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/Current/stn_ninf.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/Current/stn_pinf.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/Current/stn_qinf.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/Current/stn_rinf.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/Current/stn_taua.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/Current/stn_taub.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/Current/stn_tauc.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/Current/stn_taud1.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/Current/stn_tauh.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/Current/stn_taum.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/Current/stn_taun.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/Current/stn_taup.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/Current/stn_tauq.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/Current/stndbs_tuning_curve.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/Current/th_hinf.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/Current/th_minf.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/Current/th_pinf.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/Current/th_rinf.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/Current/th_tauh.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/Current/th_taur.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/DBS model LabVIEW/BrainMap.aliases" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/DBS model LabVIEW/BrainMap.lvlps" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/DBS model LabVIEW/BrainMap.lvproj" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/DBS model LabVIEW/GPe neuron.vi" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/DBS model LabVIEW/GPi neuron.vi" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/DBS model LabVIEW/NETWORK.vi" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/DBS model LabVIEW/STN neuron.vi" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/DBS model LabVIEW/TH neuron.vi" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/DBS model LabVIEW/dStr neuron.vi" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/DBS model LabVIEW/iCtx neuron.vi" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/DBS model LabVIEW/idStr neuron.vi" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/DBS model LabVIEW/rCtx neuron.vi" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/References/A biophysical model of the cortex-basal ganglia-thalamus - Appendix_A.docx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/References/A biophysical model of the cortex-basal ganglia-thalamus - draft version.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/References/A biophysical model of the cortex-basal ganglia-thalamus.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/References/BrainMap - New Page.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/References/BrainMapFlow - New Page.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/References/relative contribution of local cell and passing fiber activation and silencing to changes in thalamic fidelity during deep brain stimulation and lesioning a computational modelin.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/comparison.py" beforeDir="false" afterPath="$PROJECT_DIR$/comparison.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dbs_functional/.idea/dbs_functional.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dbs_functional/.idea/encodings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dbs_functional/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dbs_functional/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dbs_functional/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dbs_functional/.idea/workspace.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dbs_functional/CMakeLists.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dbs_functional/cmake-build-debug/CMakeCache.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dbs_functional/cmake-build-debug/CMakeFiles/3.13.2/CMakeCUDACompiler.cmake" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dbs_functional/cmake-build-debug/CMakeFiles/3.13.2/CMakeCXXCompiler.cmake" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dbs_functional/cmake-build-debug/CMakeFiles/3.13.2/CMakeDetermineCompilerABI_CUDA.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dbs_functional/cmake-build-debug/CMakeFiles/3.13.2/CMakeDetermineCompilerABI_CXX.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dbs_functional/cmake-build-debug/CMakeFiles/3.13.2/CMakeSystem.cmake" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dbs_functional/cmake-build-debug/CMakeFiles/3.13.2/CompilerIdCUDA/CMakeCUDACompilerId.cu" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dbs_functional/cmake-build-debug/CMakeFiles/3.13.2/CompilerIdCUDA/a.out" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dbs_functional/cmake-build-debug/CMakeFiles/3.13.2/CompilerIdCUDA/tmp/CMakeCUDACompilerId.cpp1.ii" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dbs_functional/cmake-build-debug/CMakeFiles/3.13.2/CompilerIdCUDA/tmp/CMakeCUDACompilerId.cpp4.ii" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dbs_functional/cmake-build-debug/CMakeFiles/3.13.2/CompilerIdCUDA/tmp/CMakeCUDACompilerId.cudafe1.c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dbs_functional/cmake-build-debug/CMakeFiles/3.13.2/CompilerIdCUDA/tmp/CMakeCUDACompilerId.cudafe1.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dbs_functional/cmake-build-debug/CMakeFiles/3.13.2/CompilerIdCUDA/tmp/CMakeCUDACompilerId.cudafe1.gpu" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dbs_functional/cmake-build-debug/CMakeFiles/3.13.2/CompilerIdCUDA/tmp/CMakeCUDACompilerId.cudafe1.stub.c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dbs_functional/cmake-build-debug/CMakeFiles/3.13.2/CompilerIdCUDA/tmp/CMakeCUDACompilerId.fatbin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dbs_functional/cmake-build-debug/CMakeFiles/3.13.2/CompilerIdCUDA/tmp/CMakeCUDACompilerId.fatbin.c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dbs_functional/cmake-build-debug/CMakeFiles/3.13.2/CompilerIdCUDA/tmp/CMakeCUDACompilerId.module_id" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dbs_functional/cmake-build-debug/CMakeFiles/3.13.2/CompilerIdCUDA/tmp/CMakeCUDACompilerId.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dbs_functional/cmake-build-debug/CMakeFiles/3.13.2/CompilerIdCUDA/tmp/CMakeCUDACompilerId.ptx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dbs_functional/cmake-build-debug/CMakeFiles/3.13.2/CompilerIdCUDA/tmp/CMakeCUDACompilerId.sm_30.cubin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dbs_functional/cmake-build-debug/CMakeFiles/3.13.2/CompilerIdCUDA/tmp/a_dlink.fatbin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dbs_functional/cmake-build-debug/CMakeFiles/3.13.2/CompilerIdCUDA/tmp/a_dlink.fatbin.c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dbs_functional/cmake-build-debug/CMakeFiles/3.13.2/CompilerIdCUDA/tmp/a_dlink.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dbs_functional/cmake-build-debug/CMakeFiles/3.13.2/CompilerIdCUDA/tmp/a_dlink.reg.c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dbs_functional/cmake-build-debug/CMakeFiles/3.13.2/CompilerIdCUDA/tmp/a_dlink.sm_30.cubin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dbs_functional/cmake-build-debug/CMakeFiles/3.13.2/CompilerIdCXX/CMakeCXXCompilerId.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dbs_functional/cmake-build-debug/CMakeFiles/3.13.2/CompilerIdCXX/a.out" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dbs_functional/cmake-build-debug/CMakeFiles/CMakeDirectoryInformation.cmake" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dbs_functional/cmake-build-debug/CMakeFiles/CMakeOutput.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dbs_functional/cmake-build-debug/CMakeFiles/Makefile.cmake" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dbs_functional/cmake-build-debug/CMakeFiles/Makefile2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dbs_functional/cmake-build-debug/CMakeFiles/TargetDirectories.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dbs_functional/cmake-build-debug/CMakeFiles/clion-environment.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dbs_functional/cmake-build-debug/CMakeFiles/clion-log.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dbs_functional/cmake-build-debug/CMakeFiles/cmake.check_cache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dbs_functional/cmake-build-debug/CMakeFiles/dbs_functional.dir/CUDA.includecache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dbs_functional/cmake-build-debug/CMakeFiles/dbs_functional.dir/CXX.includecache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dbs_functional/cmake-build-debug/CMakeFiles/dbs_functional.dir/DependInfo.cmake" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dbs_functional/cmake-build-debug/CMakeFiles/dbs_functional.dir/build.make" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dbs_functional/cmake-build-debug/CMakeFiles/dbs_functional.dir/cmake_clean.cmake" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dbs_functional/cmake-build-debug/CMakeFiles/dbs_functional.dir/cmake_device_link.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dbs_functional/cmake-build-debug/CMakeFiles/dbs_functional.dir/depend.internal" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dbs_functional/cmake-build-debug/CMakeFiles/dbs_functional.dir/depend.make" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dbs_functional/cmake-build-debug/CMakeFiles/dbs_functional.dir/dlink.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dbs_functional/cmake-build-debug/CMakeFiles/dbs_functional.dir/flags.make" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dbs_functional/cmake-build-debug/CMakeFiles/dbs_functional.dir/link.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dbs_functional/cmake-build-debug/CMakeFiles/dbs_functional.dir/main.cpp.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dbs_functional/cmake-build-debug/CMakeFiles/dbs_functional.dir/progress.make" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dbs_functional/cmake-build-debug/CMakeFiles/dbs_functional.dir/src/BGNetwork.cpp.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dbs_functional/cmake-build-debug/CMakeFiles/dbs_functional.dir/src/THNeuron.cpp.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dbs_functional/cmake-build-debug/CMakeFiles/dbs_functional.dir/src/gating.cpp.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dbs_functional/cmake-build-debug/CMakeFiles/feature_tests.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dbs_functional/cmake-build-debug/CMakeFiles/feature_tests.cxx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dbs_functional/cmake-build-debug/CMakeFiles/progress.marks" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dbs_functional/cmake-build-debug/Makefile" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dbs_functional/cmake-build-debug/cmake_install.cmake" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dbs_functional/cmake-build-debug/dbs_functional" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dbs_functional/cmake-build-debug/dbs_functional.cbp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dbs_functional/cmake-build-debug/output/TH_NEURON_0.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dbs_functional/main.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dbs_functional/src/BGNetwork.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dbs_functional/src/BGNetwork.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dbs_functional/src/THNeuron.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dbs_functional/src/THNeuron.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dbs_functional/src/gating.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dbs_functional/src/gating.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/info.txt" beforeDir="false" afterPath="$PROJECT_DIR$/info.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/old/dbs_on_gpu/.idea/GPUImplementation.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/old/dbs_on_gpu/.idea/encodings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/old/dbs_on_gpu/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/old/dbs_on_gpu/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/old/dbs_on_gpu/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/old/dbs_on_gpu/.idea/workspace.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/old/dbs_on_gpu/CMakeCache.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/old/dbs_on_gpu/CMakeFiles/cmake.check_cache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/old/dbs_on_gpu/CMakeLists.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/old/dbs_on_gpu/cmake-build-debug/CMakeCache.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/old/dbs_on_gpu/cmake-build-debug/CMakeFiles/3.13.2/CMakeCCompiler.cmake" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/old/dbs_on_gpu/cmake-build-debug/CMakeFiles/3.13.2/CMakeCXXCompiler.cmake" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/old/dbs_on_gpu/cmake-build-debug/CMakeFiles/3.13.2/CMakeDetermineCompilerABI_C.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/old/dbs_on_gpu/cmake-build-debug/CMakeFiles/3.13.2/CMakeDetermineCompilerABI_CXX.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/old/dbs_on_gpu/cmake-build-debug/CMakeFiles/3.13.2/CMakeSystem.cmake" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/old/dbs_on_gpu/cmake-build-debug/CMakeFiles/3.13.2/CompilerIdC/CMakeCCompilerId.c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/old/dbs_on_gpu/cmake-build-debug/CMakeFiles/3.13.2/CompilerIdC/a.out" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/old/dbs_on_gpu/cmake-build-debug/CMakeFiles/3.13.2/CompilerIdCXX/CMakeCXXCompilerId.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/old/dbs_on_gpu/cmake-build-debug/CMakeFiles/3.13.2/CompilerIdCXX/a.out" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/old/dbs_on_gpu/cmake-build-debug/CMakeFiles/CMakeDirectoryInformation.cmake" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/old/dbs_on_gpu/cmake-build-debug/CMakeFiles/CMakeOutput.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/old/dbs_on_gpu/cmake-build-debug/CMakeFiles/GPUImplementation.dir/CXX.includecache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/old/dbs_on_gpu/cmake-build-debug/CMakeFiles/GPUImplementation.dir/DependInfo.cmake" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/old/dbs_on_gpu/cmake-build-debug/CMakeFiles/GPUImplementation.dir/build.make" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/old/dbs_on_gpu/cmake-build-debug/CMakeFiles/GPUImplementation.dir/cmake_clean.cmake" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/old/dbs_on_gpu/cmake-build-debug/CMakeFiles/GPUImplementation.dir/depend.internal" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/old/dbs_on_gpu/cmake-build-debug/CMakeFiles/GPUImplementation.dir/depend.make" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/old/dbs_on_gpu/cmake-build-debug/CMakeFiles/GPUImplementation.dir/flags.make" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/old/dbs_on_gpu/cmake-build-debug/CMakeFiles/GPUImplementation.dir/link.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/old/dbs_on_gpu/cmake-build-debug/CMakeFiles/GPUImplementation.dir/main.cpp.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/old/dbs_on_gpu/cmake-build-debug/CMakeFiles/GPUImplementation.dir/progress.make" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/old/dbs_on_gpu/cmake-build-debug/CMakeFiles/GPUImplementation.dir/src/BGNetwork.cpp.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/old/dbs_on_gpu/cmake-build-debug/CMakeFiles/GPUImplementation.dir/src/GPeNeuron.cpp.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/old/dbs_on_gpu/cmake-build-debug/CMakeFiles/GPUImplementation.dir/src/GPiNeuron.cpp.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/old/dbs_on_gpu/cmake-build-debug/CMakeFiles/GPUImplementation.dir/src/Neuron.cpp.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/old/dbs_on_gpu/cmake-build-debug/CMakeFiles/GPUImplementation.dir/src/STNNeuron.cpp.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/old/dbs_on_gpu/cmake-build-debug/CMakeFiles/GPUImplementation.dir/src/THNeuron.cpp.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/old/dbs_on_gpu/cmake-build-debug/CMakeFiles/GPUImplementation.dir/src/gating.cpp.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/old/dbs_on_gpu/cmake-build-debug/CMakeFiles/Makefile.cmake" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/old/dbs_on_gpu/cmake-build-debug/CMakeFiles/Makefile2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/old/dbs_on_gpu/cmake-build-debug/CMakeFiles/TargetDirectories.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/old/dbs_on_gpu/cmake-build-debug/CMakeFiles/clion-environment.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/old/dbs_on_gpu/cmake-build-debug/CMakeFiles/clion-log.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/old/dbs_on_gpu/cmake-build-debug/CMakeFiles/cmake.check_cache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/old/dbs_on_gpu/cmake-build-debug/CMakeFiles/dbs_on_gpu.dir/DependInfo.cmake" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/old/dbs_on_gpu/cmake-build-debug/CMakeFiles/dbs_on_gpu.dir/build.make" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/old/dbs_on_gpu/cmake-build-debug/CMakeFiles/dbs_on_gpu.dir/cmake_clean.cmake" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/old/dbs_on_gpu/cmake-build-debug/CMakeFiles/dbs_on_gpu.dir/depend.make" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/old/dbs_on_gpu/cmake-build-debug/CMakeFiles/dbs_on_gpu.dir/flags.make" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/old/dbs_on_gpu/cmake-build-debug/CMakeFiles/dbs_on_gpu.dir/link.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/old/dbs_on_gpu/cmake-build-debug/CMakeFiles/dbs_on_gpu.dir/progress.make" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/old/dbs_on_gpu/cmake-build-debug/CMakeFiles/feature_tests.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/old/dbs_on_gpu/cmake-build-debug/CMakeFiles/feature_tests.c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/old/dbs_on_gpu/cmake-build-debug/CMakeFiles/feature_tests.cxx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/old/dbs_on_gpu/cmake-build-debug/CMakeFiles/progress.marks" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/old/dbs_on_gpu/cmake-build-debug/GPUImplementation" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/old/dbs_on_gpu/cmake-build-debug/GPUImplementation.cbp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/old/dbs_on_gpu/cmake-build-debug/Makefile" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/old/dbs_on_gpu/cmake-build-debug/cmake_install.cmake" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/old/dbs_on_gpu/cmake-build-debug/dbs_on_gpu.cbp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/old/dbs_on_gpu/cmake-build-debug/output/GPE_NEURON_0.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/old/dbs_on_gpu/cmake-build-debug/output/GPI_NEURON_0.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/old/dbs_on_gpu/cmake-build-debug/output/STN_NEURON_0.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/old/dbs_on_gpu/cmake-build-debug/output/TH_NEURON_0.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/old/dbs_on_gpu/main.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/old/dbs_on_gpu/saved_tests/healthy_isolated_cells/output/GPE_NEURON_0.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/old/dbs_on_gpu/saved_tests/healthy_isolated_cells/output/GPI_NEURON_0.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/old/dbs_on_gpu/saved_tests/healthy_isolated_cells/output/STN_NEURON_0.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/old/dbs_on_gpu/saved_tests/healthy_isolated_cells/output/TH_NEURON_0.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/old/dbs_on_gpu/src/BGNetwork.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/old/dbs_on_gpu/src/BGNetwork.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/old/dbs_on_gpu/src/GPeNeuron.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/old/dbs_on_gpu/src/GPeNeuron.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/old/dbs_on_gpu/src/GPiNeuron.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/old/dbs_on_gpu/src/GPiNeuron.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/old/dbs_on_gpu/src/Neuron.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/old/dbs_on_gpu/src/Neuron.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/old/dbs_on_gpu/src/STNNeuron.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/old/dbs_on_gpu/src/STNNeuron.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/old/dbs_on_gpu/src/THNeuron.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/old/dbs_on_gpu/src/THNeuron.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/old/dbs_on_gpu/src/gating.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/old/dbs_on_gpu/src/gating.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/execute_cuda.py" beforeDir="false" afterPath="$PROJECT_DIR$/execute_cuda.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -460,11 +22,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="comparison.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="comparison.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/comparison.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="492">
-              <caret line="122" column="26" selection-start-line="122" selection-start-column="26" selection-end-line="122" selection-end-column="26" />
+            <state relative-caret-position="297">
+              <caret line="109" column="30" selection-start-line="109" selection-start-column="30" selection-end-line="109" selection-end-column="30" />
               <folding>
                 <element signature="e#0#28#0" expanded="true" />
               </folding>
@@ -472,11 +34,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="execute_cuda.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="execute_cuda.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/execute_cuda.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="10" column="18" selection-start-line="10" selection-start-column="18" selection-end-line="10" selection-end-column="18" />
+            <state relative-caret-position="60">
+              <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
             </state>
           </provider>
         </entry>
@@ -493,8 +55,8 @@
       <file leaf-file-name="CMakeLists.txt" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/cudamodel/CMakeLists.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="10" selection-start-line="10" selection-end-line="10" />
+            <state relative-caret-position="150">
+              <caret line="10" selection-start-line="21" selection-start-column="22" selection-end-line="29" selection-end-column="1" />
             </state>
           </provider>
         </entry>
@@ -515,9 +77,9 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/comparison.py" />
-        <option value="$PROJECT_DIR$/execute_cuda.py" />
         <option value="$PROJECT_DIR$/cudamodel/CMakeLists.txt" />
         <option value="$PROJECT_DIR$/info.txt" />
+        <option value="$PROJECT_DIR$/execute_cuda.py" />
       </list>
     </option>
   </component>
@@ -609,10 +171,10 @@
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24930556" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24930556" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.32900944" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32900944" />
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Python Console" order="8" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -690,20 +252,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/cudamodel/CMakeLists.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="10" selection-start-line="10" selection-end-line="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/execute_cuda.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="18" selection-start-line="10" selection-start-column="18" selection-end-line="10" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/info.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15">
@@ -713,11 +261,25 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/comparison.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="492">
-          <caret line="122" column="26" selection-start-line="122" selection-start-column="26" selection-end-line="122" selection-end-column="26" />
+        <state relative-caret-position="297">
+          <caret line="109" column="30" selection-start-line="109" selection-start-column="30" selection-end-line="109" selection-end-column="30" />
           <folding>
             <element signature="e#0#28#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cudamodel/CMakeLists.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" selection-start-line="21" selection-start-column="22" selection-end-line="29" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/execute_cuda.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
         </state>
       </provider>
     </entry>
