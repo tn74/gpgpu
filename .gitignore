@@ -1,3 +1,2 @@
-cudamodel/.idea
-cudamodel/cmake-build-debug/*
-cudamodel/CMakeLists.txt
+dbs_on_gpu/.idea
+dbs_on_gpu/cmake-build-debug/*
