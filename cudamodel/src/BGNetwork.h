@@ -10,6 +10,13 @@
 #include <map>
 #include "THNeuron.h"
 
+#define TH 0
+#define STN 1
+#define GPE 2
+#define GPI 3
+#define CELL_TYPE_COUNT 4
+
+int THREADS_PER_BLOCK = 64;
 typedef struct simulation_parameters {
     double dt;
     double duration;
@@ -23,9 +30,10 @@ class BGNetwork {
 private:
     int dt_index;
     simulation_parameters_t* sim_params;
-    th_param_t* th_params;
-    th_state_t* state_start;
-    th_state_t* state_end;
+    void** start_st;
+    void** end_st;
+    void** params;
+    int* cell_counts;
 
     void build_parameter_map();
     void initialize_cells();
