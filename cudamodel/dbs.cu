@@ -6,6 +6,7 @@
 #include <string>
 #include <sstream>
 #include <fstream>
+#include "src/THNeuron.h"
 #include "src/BGNetwork.h"
 
 __global__

@@ -2,6 +2,8 @@
 // Created by Trishul Nagenalli on 2019-03-28.
 //
 
+#pragma once
+
 typedef struct th_param {
     double C_m;
     double g_L;
@@ -27,7 +29,6 @@ typedef struct th_state {
 __device__ void compute_next_state(th_state_t *in, th_state_t *out, th_param_t *params, double dt);
 __device__ void compute_currents(th_state_t *in, th_state_t *out, th_param_t *params);
 __device__ void compute_gating(th_state_t *in, th_state_t *out, th_param_t *params, double dt);
-__host__   void init_state(th_state_t *in);
+void init_state(th_state_t *in);
 std::string get_debug_string(th_state_t* state);
 
-#endif //DBS_ON_GPU_THNEURON_H

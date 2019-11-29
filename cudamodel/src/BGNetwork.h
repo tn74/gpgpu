@@ -2,21 +2,21 @@
 // Created by Trishul Nagenalli on 2019-04-04.
 //
 
-#ifndef DBS_ON_GPU_BGNETWORK_H
-#define DBS_ON_GPU_BGNETWORK_H
 
 #include <string>
 #include <vector>
 #include <map>
 #include "THNeuron.h"
 
+#pragma once
+
 #define TH 0
 #define STN 1
 #define GPE 2
 #define GPI 3
 #define CELL_TYPE_COUNT 4
+#define THREADS_PER_BLOCK 64
 
-int THREADS_PER_BLOCK = 64;
 typedef struct simulation_parameters {
     double dt;
     double duration;
@@ -46,4 +46,3 @@ public:
 };
 
 
-#endif //DBS_ON_GPU_BGNETWORK_H
