@@ -6,7 +6,6 @@
 #include <string>
 #include <sstream>
 #include <fstream>
-
 #include "BGNetwork.h"
 #include "THNeuron.h"
 
@@ -32,19 +31,15 @@ BGNetwork::BGNetwork(simulation_parameters_t* sp){
     std::cout << "BGNetwork Constructor" << std::endl;
     sim_params = sp;
     dt_index = 0;
-    // params =        (void**) cudaMalloc(CELL_TYPE_COUNT * sizeof(void*));i
     size_t CTC_SIZE = CELL_TYPE_COUNT * sizeof(void*);
     params = (void**) malloc(CTC_SIZE); cudaMallocManaged(&params, CTC_SIZE);
     start_st = (void**) malloc(CTC_SIZE); cudaMallocManaged(&end_st, CTC_SIZE);
     end_st  = (void**) malloc(CTC_SIZE); cudaMallocManaged(&start_st, CTC_SIZE);
-    std::cout << " OG " << cell_counts << std::endl;
     cell_counts  = (int*) malloc(CELL_TYPE_COUNT * sizeof(int*)); cudaMallocManaged(&cell_counts, CELL_TYPE_COUNT * sizeof(int*));
-    std::cout << cell_counts << " " << cell_counts + 1 <<  std::endl;
-    std::cout << *cell_counts << std::endl;
     for (int c = 0; c < CELL_TYPE_COUNT; ++c) {cell_counts[c] = sp->cells_per_type;}
 
-    start_st[TH] = malloc(cell_counts[TH] * sizeof(th_state));
-    end_st[TH] = malloc(cell_counts[TH]  * sizeof(th_state));
+    start_st[TH] = malloc(cell_counts[TH] * sizeof(th_state)); cudaMallocManaged(&start_st[TH], cell_counts[TH] * sizeof(th_state));
+    end_st[TH] = malloc(cell_counts[TH]  * sizeof(th_state)); cudaMallocManaged(&end_st[TH], cell_counts[TH] * sizeof(th_state));
     
     build_parameter_map();
     initialize_cells();
@@ -74,8 +69,13 @@ void BGNetwork::initialize_cells() {
 }
 
 void BGNetwork::advance_time_step() {
-    dim3 grid(1, sim_params -> cells_per_type / 64 + 1);
-    advance_step<<<grid, 64>>>(start_st, end_st, params, cell_counts, sim_params->dt, THREADS_PER_BLOCK);
+    dim3 grid(CELL_TYPE_COUNT, sim_params -> cells_per_type / THREADS_PER_BLOCK + 1);
+    advance_step<<<grid, THREADS_PER_BLOCK>>>(start_st, end_st, params, cell_counts, sim_params->dt, THREADS_PER_BLOCK);
+    
+    for (int cell_ind = 0; cell_ind < cell_counts[TH]; ++cell_ind) {
+        VOLTAGE[TH][cell_ind][dt_index] = ((th_state_t**) start_st)[TH][cell_ind].voltage;
+    }
+
     cudaDeviceSynchronize();
     dt_index ++;
     void** tmp = start_st;
@@ -94,11 +94,8 @@ void BGNetwork::debug(th_state_t* state) {
     }
 }
 int BGNetwork::simulate() {
-    system("exec rm -r output/*");
-    //debug(state_start);
     for (int i = 0; i < sim_params->duration / sim_params->dt; ++i) {
         advance_time_step();
-    //    debug(state_start);
     }
     return 0;
 };

@@ -34,6 +34,7 @@ private:
     void** end_st;
     void** params;
     int* cell_counts;
+    double*** VOLTAGE;
 
     void build_parameter_map();
     void initialize_cells();

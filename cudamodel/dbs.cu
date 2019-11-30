@@ -9,6 +9,14 @@
 #include "src/THNeuron.h"
 #include "src/BGNetwork.h"
 
+
+extern "C"  int execute_simulation(simulation_parameters_t* sim_params) {
+    auto net = BGNetwork(sim_params);
+    net.simulate();
+    return 0;
+}
+
+/*
 __global__
 void compute_preceeding(int* arr, int* sumarr, int maxlen) {
     int maxind = 64 * blockIdx.x + threadIdx.x;
@@ -78,3 +86,4 @@ extern "C"  int execute_simulation(simulation_parameters_t* sim_params) {
     net.simulate();
     return 0;
 }
+*/
