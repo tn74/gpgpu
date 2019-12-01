@@ -14,7 +14,7 @@
 #define STN 1
 #define GPE 2
 #define GPI 3
-#define CELL_TYPE_COUNT 4
+#define CELL_TYPE_COUNT 1
 #define THREADS_PER_BLOCK 64
 
 typedef struct simulation_parameters {
