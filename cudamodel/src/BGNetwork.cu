@@ -80,25 +80,15 @@ void BGNetwork::initialize_cells() {
 
 void BGNetwork::advance_time_step() {
     dim3 grid(CELL_TYPE_COUNT, sim_params -> cells_per_type / THREADS_PER_BLOCK + 1);
-    std::cout<< ((th_state_t**)start_st) << std::endl;  
-    std::cout<< ((th_state_t**)start_st) + 1 << std::endl;  
-    std::cout<< *((th_state_t**)start_st) << std::endl;  
-    std::cout<< ((th_state_t**)start_st)[0] << std::endl;  
-    std::cout << cudaGetLastError() << std::endl;
     advance_step<<<grid, THREADS_PER_BLOCK>>>(start_st, end_st, params, cell_counts, sim_params->dt, THREADS_PER_BLOCK);
     cudaDeviceSynchronize();
-    std::cout << cudaGetErrorString(cudaGetLastError()) << std::endl;
+    // std::cout << cudaGetErrorString(cudaGetLastError()) << std::endl;
     for (int cell_type = 0; cell_type < CELL_TYPE_COUNT; ++cell_type) {
-        for (int cell_ind = 0; cell_ind < sim_params->cells_per_type; ++cell_ind) { // Strangely cell_counts[TH] does not work here?!?!
-            std::cout<< ((th_state_t**)start_st) << std::endl;  
-            std::cout<< ((th_state_t**)start_st) + 1 << std::endl;  
-            std::cout<< *((th_state_t**)start_st) << std::endl;  
-            std::cout<< ((th_state_t**)start_st)[0] << std::endl;  
-            std::cout<< ((th_state_t**)start_st)[cell_type][cell_ind].voltage << std::endl;  
+        for (int cell_ind = 0; cell_ind < sim_params->cells_per_type; ++cell_ind) { // Strangely cell_counts[TH] does not work here?!?! 
             VOLTAGE[cell_type][cell_ind][dt_index] = ((th_state_t**)start_st)[cell_type][cell_ind].voltage;
         }
-    } 
-    // cudaDeviceSynchronize();
+    }
+    std::cout << ((th_start_t) this->start_st) <<  std::endl; 
     dt_index ++;
     void** tmp = start_st;
     start_st = end_st;
