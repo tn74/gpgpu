@@ -13,6 +13,7 @@
 extern "C"  int execute_simulation(simulation_parameters_t* sim_params) {
     auto net = BGNetwork(sim_params);
     net.simulate();
+    std::cout<< "End of Execute Simulation" << std::endl;
     return 0;
 }
 

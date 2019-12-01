@@ -44,6 +44,7 @@ public:
     BGNetwork(simulation_parameters_t* sp);
     void debug(th_state_t*);
     int simulate();
+    double*** get_voltage();
 };
 
 

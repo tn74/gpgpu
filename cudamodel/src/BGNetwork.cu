@@ -37,10 +37,19 @@ BGNetwork::BGNetwork(simulation_parameters_t* sp){
     end_st  = (void**) malloc(CTC_SIZE); cudaMallocManaged(&start_st, CTC_SIZE);
     cell_counts  = (int*) malloc(CELL_TYPE_COUNT * sizeof(int*)); cudaMallocManaged(&cell_counts, CELL_TYPE_COUNT * sizeof(int*));
     for (int c = 0; c < CELL_TYPE_COUNT; ++c) {cell_counts[c] = sp->cells_per_type;}
-
+    std::cout << cell_counts[TH] << std::endl;
     start_st[TH] = malloc(cell_counts[TH] * sizeof(th_state)); cudaMallocManaged(&start_st[TH], cell_counts[TH] * sizeof(th_state));
     end_st[TH] = malloc(cell_counts[TH]  * sizeof(th_state)); cudaMallocManaged(&end_st[TH], cell_counts[TH] * sizeof(th_state));
     
+    VOLTAGE = (double***) malloc(CTC_SIZE);
+    std::cout << "Voltage[TH]: " << VOLTAGE[TH] << std::endl;
+    double total_dt = sp->duration / sp->dt; 
+    for (int k = 0; k < CELL_TYPE_COUNT; ++k) { 
+        VOLTAGE[k] = (double**) malloc(cell_counts[k] * sizeof(double*));
+            for (int i = 0; i < cell_counts[k]; ++i) {
+                VOLTAGE[k][i] = (double*) malloc(total_dt * sizeof(double));
+            } 
+    }
     build_parameter_map();
     initialize_cells();
 
@@ -71,11 +80,11 @@ void BGNetwork::initialize_cells() {
 void BGNetwork::advance_time_step() {
     dim3 grid(CELL_TYPE_COUNT, sim_params -> cells_per_type / THREADS_PER_BLOCK + 1);
     advance_step<<<grid, THREADS_PER_BLOCK>>>(start_st, end_st, params, cell_counts, sim_params->dt, THREADS_PER_BLOCK);
-    
-    for (int cell_ind = 0; cell_ind < cell_counts[TH]; ++cell_ind) {
-        VOLTAGE[TH][cell_ind][dt_index] = ((th_state_t**) start_st)[TH][cell_ind].voltage;
-    }
-
+    for (int cell_type = 0; cell_type < CELL_TYPE_COUNT; ++cell_type) {
+        for (int cell_ind = 0; cell_ind < sim_params->cells_per_type; ++cell_ind) { // Strangely cell_counts[TH] does not work here?!?!
+            VOLTAGE[cell_type][cell_ind][dt_index] = 1.0; ((th_state_t**)start_st)[cell_type][cell_ind].voltage;
+        }
+    } 
     cudaDeviceSynchronize();
     dt_index ++;
     void** tmp = start_st;
@@ -93,9 +102,15 @@ void BGNetwork::debug(th_state_t* state) {
         out.close();
     }
 }
+
 int BGNetwork::simulate() {
     for (int i = 0; i < sim_params->duration / sim_params->dt; ++i) {
         advance_time_step();
     }
+    std::cout<< "End of Simulate" << std::endl;
     return 0;
 };
+
+double*** BGNetwork::get_voltage() {
+    return VOLTAGE;
+}

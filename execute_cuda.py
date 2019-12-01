@@ -13,6 +13,6 @@ def test_array_sum():
 def execute_main():
     print(DBSLIB.addnum(3, 4))
     print(test_array_sum())
-
+    print(DBSLIB.cudatest())
 if __name__ =="__main__":
     execute_main()
