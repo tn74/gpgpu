@@ -17,9 +17,6 @@ __global__
     int cell_type = blockIdx.x;
     if (cell_ind >= cell_counts[cell_type]) {return;}
     
-    *((th_state_t**) start_state);
-    ((th_state_t**)start_state)[TH]; 
-    
     // Execute based on cell type
 //    if (cell_type == TH) {
         auto start = ((th_state_t**)start_state)[TH][cell_ind];
@@ -60,6 +57,7 @@ BGNetwork::BGNetwork(simulation_parameters_t* sp){
 
 void BGNetwork::build_parameter_map() {
     params[TH] = malloc(sizeof(th_param));
+    cudaMallocManaged(&params[TH], sizeof(th_param));
     auto th_params = (th_param_t *) params[TH];
     th_params -> C_m = 1.0;
     th_params -> g_L = 0.05;
@@ -90,7 +88,6 @@ void BGNetwork::advance_time_step() {
     advance_step<<<grid, THREADS_PER_BLOCK>>>(start_st, end_st, params, cell_counts, sim_params->dt, THREADS_PER_BLOCK);
     cudaDeviceSynchronize();
     std::cout << cudaGetErrorString(cudaGetLastError()) << std::endl;
-    //std::this_thread::sleep_for(std::chrono::milliseconds(100));
     for (int cell_type = 0; cell_type < CELL_TYPE_COUNT; ++cell_type) {
         for (int cell_ind = 0; cell_ind < sim_params->cells_per_type; ++cell_ind) { // Strangely cell_counts[TH] does not work here?!?!
             std::cout<< ((th_state_t**)start_st) << std::endl;  

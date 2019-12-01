@@ -19,21 +19,24 @@ void compute_next_state(th_state_t *in, th_state_t *out, th_param_t *params, dou
     auto y = in->voltage;
     out->I_K = 1;
     return;
-    */
+    
     auto p = params;
     auto v = in->voltage;
-    out->I_K = pow(0.75 * (1 -in->H), 4);
-    auto b = -(p -> g_K * pow(0.75 * (1 - in->H), 4)); 
-    out->I_K = -(p -> g_K * pow(0.75 * (1 - in->H), 4)); 
-    //out->I_K = 3;
+    //out->I_K = pow(0.75 * (1 -in->H), 4);
+    //auto b = -(p -> g_K * pow(0.75 * (1 - in->H), 4)); 
+    //out->I_K = -(p -> g_K * pow(0.75 * (1 - in->H), 4)); // Problematic Line
+    //out->I_K = -(p -> g_K); 
+    //double c =(double) -(p -> g_K);
+    out->I_K =  -(p -> g_K);
+    //out->I_K = 3.0;
     //out->I_K = pow(0.75 * (1 -in->H), 4);
     return;
     out->I_K =-(p-> g_K *  pow(0.75 * (1 -in->H), 4));
     return;
     out->I_K = -(p->g_K * pow(0.75 *(1 - in->H), 4) * (v - p->E_K));
     return;
+    */
     compute_currents(in, out, params);
-    return;
     compute_gating(in, out, params, dt);
     
     double current_sum =
