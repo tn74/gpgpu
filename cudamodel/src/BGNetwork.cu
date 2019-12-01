@@ -8,22 +8,25 @@
 #include <fstream>
 #include "BGNetwork.h"
 #include "THNeuron.h"
-
+#include <chrono>
+#include <thread>
 __global__ 
  void advance_step(void** start_state, void** end_state, void** params, int* cell_counts, double dt, int tbp) {   
-    // Determine what start to end this is supposed to compute
+     // Determine what start to end this is supposed to compute
     int cell_ind = blockIdx.y * tbp + threadIdx.x;
     int cell_type = blockIdx.x;
     if (cell_ind >= cell_counts[cell_type]) {return;}
-
+    
+    *((th_state_t**) start_state);
+    ((th_state_t**)start_state)[TH]; 
+    
     // Execute based on cell type
 //    if (cell_type == TH) {
         auto start = ((th_state_t**)start_state)[TH][cell_ind];
         auto end = ((th_state_t**) end_state)[TH][cell_ind];
         auto param = ((th_param_t**) params)[TH];
 //    }
-
-    compute_next_state(&start, &end, param, dt);
+        compute_next_state(&start, &end, param, dt);
 }
 
 
@@ -33,8 +36,8 @@ BGNetwork::BGNetwork(simulation_parameters_t* sp){
     dt_index = 0;
     size_t CTC_SIZE = CELL_TYPE_COUNT * sizeof(void*);
     params = (void**) malloc(CTC_SIZE); cudaMallocManaged(&params, CTC_SIZE);
-    start_st = (void**) malloc(CTC_SIZE); cudaMallocManaged(&end_st, CTC_SIZE);
-    end_st  = (void**) malloc(CTC_SIZE); cudaMallocManaged(&start_st, CTC_SIZE);
+    start_st = (void**) malloc(CTC_SIZE); cudaMallocManaged(&start_st, CTC_SIZE);
+    end_st  = (void**) malloc(CTC_SIZE); cudaMallocManaged(&end_st, CTC_SIZE);
     cell_counts  = (int*) malloc(CELL_TYPE_COUNT * sizeof(int*)); cudaMallocManaged(&cell_counts, CELL_TYPE_COUNT * sizeof(int*));
     for (int c = 0; c < CELL_TYPE_COUNT; ++c) {cell_counts[c] = sp->cells_per_type;}
     std::cout << cell_counts[TH] << std::endl;
@@ -79,13 +82,26 @@ void BGNetwork::initialize_cells() {
 
 void BGNetwork::advance_time_step() {
     dim3 grid(CELL_TYPE_COUNT, sim_params -> cells_per_type / THREADS_PER_BLOCK + 1);
+    std::cout<< ((th_state_t**)start_st) << std::endl;  
+    std::cout<< ((th_state_t**)start_st) + 1 << std::endl;  
+    std::cout<< *((th_state_t**)start_st) << std::endl;  
+    std::cout<< ((th_state_t**)start_st)[0] << std::endl;  
+    std::cout << cudaGetLastError() << std::endl;
     advance_step<<<grid, THREADS_PER_BLOCK>>>(start_st, end_st, params, cell_counts, sim_params->dt, THREADS_PER_BLOCK);
+    cudaDeviceSynchronize();
+    std::cout << cudaGetErrorString(cudaGetLastError()) << std::endl;
+    //std::this_thread::sleep_for(std::chrono::milliseconds(100));
     for (int cell_type = 0; cell_type < CELL_TYPE_COUNT; ++cell_type) {
         for (int cell_ind = 0; cell_ind < sim_params->cells_per_type; ++cell_ind) { // Strangely cell_counts[TH] does not work here?!?!
-            VOLTAGE[cell_type][cell_ind][dt_index] = 1.0; ((th_state_t**)start_st)[cell_type][cell_ind].voltage;
+            std::cout<< ((th_state_t**)start_st) << std::endl;  
+            std::cout<< ((th_state_t**)start_st) + 1 << std::endl;  
+            std::cout<< *((th_state_t**)start_st) << std::endl;  
+            std::cout<< ((th_state_t**)start_st)[0] << std::endl;  
+            std::cout<< ((th_state_t**)start_st)[cell_type][cell_ind].voltage << std::endl;  
+            VOLTAGE[cell_type][cell_ind][dt_index] = ((th_state_t**)start_st)[cell_type][cell_ind].voltage;
         }
     } 
-    cudaDeviceSynchronize();
+    // cudaDeviceSynchronize();
     dt_index ++;
     void** tmp = start_st;
     start_st = end_st;

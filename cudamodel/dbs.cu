@@ -10,11 +10,11 @@
 #include "src/BGNetwork.h"
 
 
-extern "C"  int execute_simulation(simulation_parameters_t* sim_params) {
+extern "C" double***  execute_simulation(simulation_parameters_t* sim_params) {
     auto net = BGNetwork(sim_params);
     net.simulate();
-    std::cout<< "End of Execute Simulation" << std::endl;
-    return 0;
+    std::cout << "Simulation Duration: " << sim_params->duration << std::endl;
+    return net.get_voltage();
 }
 
 /*

@@ -21,7 +21,6 @@ typedef struct simulation_parameters {
     double dt;
     double duration;
     int cells_per_type;
-
 } simulation_parameters_t;
 
 

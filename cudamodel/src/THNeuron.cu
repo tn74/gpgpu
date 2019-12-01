@@ -14,8 +14,28 @@
  
 __device__ 
 void compute_next_state(th_state_t *in, th_state_t *out, th_param_t *params, double dt) {
+    /*
+    auto x = params->g_K;
+    auto y = in->voltage;
+    out->I_K = 1;
+    return;
+    */
+    auto p = params;
+    auto v = in->voltage;
+    out->I_K = pow(0.75 * (1 -in->H), 4);
+    auto b = -(p -> g_K * pow(0.75 * (1 - in->H), 4)); 
+    out->I_K = -(p -> g_K * pow(0.75 * (1 - in->H), 4)); 
+    //out->I_K = 3;
+    //out->I_K = pow(0.75 * (1 -in->H), 4);
+    return;
+    out->I_K =-(p-> g_K *  pow(0.75 * (1 -in->H), 4));
+    return;
+    out->I_K = -(p->g_K * pow(0.75 *(1 - in->H), 4) * (v - p->E_K));
+    return;
     compute_currents(in, out, params);
+    return;
     compute_gating(in, out, params, dt);
+    
     double current_sum =
             out -> I_L +
             out -> I_Na +
