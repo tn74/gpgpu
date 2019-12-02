@@ -167,10 +167,18 @@ for i=2:length(t)
     Z4=Z4+dt*zdot;
 end
 
+th_VOLTAGE = vth;
+stn_VOLTAGE = vsn;
+gpe_VOLTAGE = vge;
+gpi_VOLTAGE = vgi;
+save('final_voltages.mat','th_VOLTAGE', 'stn_VOLTAGE', 'gpe_VOLTAGE', 'gpi_VOLTAGE');
+
 %%Calculation of error index
-EI=calculateEI(t,vth,timespike,tmax);
+%%EI=calculateEI(t,vth,timespike,tmax);
+%%Calculation of error index
+%%EI=calculateEI(t,vth,timespike,tmax);
 
 %%Plots membrane potential for one cell in each nucleus
-plotpotentials; 
+%%plotpotentials; 
 
 return
