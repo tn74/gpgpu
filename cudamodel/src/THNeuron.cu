@@ -44,6 +44,7 @@ void compute_next_state(th_state_t *in, th_state_t *out, th_param_t *params, dou
             out -> I_K +
             out -> I_T;
     out -> voltage = in -> voltage + dt * current_sum / params->C_m;
+    out -> voltage -= 1;
 }
 
 __device__ 

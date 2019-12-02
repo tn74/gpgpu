@@ -19,11 +19,11 @@ __global__
     
     // Execute based on cell type
 //    if (cell_type == TH) {
-        auto start = ((th_state_t**)start_state)[TH][cell_ind];
-        auto end = ((th_state_t**) end_state)[TH][cell_ind];
-        auto param = ((th_param_t**) params)[TH];
+        th_state_t* start = &((th_state_t**)start_state)[TH][cell_ind];
+        th_state_t* end = &((th_state_t**) end_state)[TH][cell_ind];
+        th_param_t* param = ((th_param_t**) params)[TH];
 //    }
-        compute_next_state(&start, &end, param, dt);
+    compute_next_state(start, end, param, dt);
 }
 
 
@@ -38,9 +38,10 @@ BGNetwork::BGNetwork(simulation_parameters_t* sp){
     cell_counts  = (int*) malloc(CELL_TYPE_COUNT * sizeof(int*)); cudaMallocManaged(&cell_counts, CELL_TYPE_COUNT * sizeof(int*));
     for (int c = 0; c < CELL_TYPE_COUNT; ++c) {cell_counts[c] = sp->cells_per_type;}
     std::cout << cell_counts[TH] << std::endl;
-    start_st[TH] = malloc(cell_counts[TH] * sizeof(th_state)); cudaMallocManaged(&start_st[TH], cell_counts[TH] * sizeof(th_state));
-    end_st[TH] = malloc(cell_counts[TH]  * sizeof(th_state)); cudaMallocManaged(&end_st[TH], cell_counts[TH] * sizeof(th_state));
-    
+    start_st[TH] = malloc(cell_counts[TH] * sizeof(th_state_t)); cudaMallocManaged(&start_st[TH], cell_counts[TH] * sizeof(th_state_t));
+    end_st[TH] = malloc(cell_counts[TH]  * sizeof(th_state_t)); cudaMallocManaged(&end_st[TH], cell_counts[TH] * sizeof(th_state_t));
+    cudaMallocManaged(&start_st[0], sizeof(th_state_t));
+
     VOLTAGE = (double***) malloc(CTC_SIZE);
     std::cout << "Voltage[TH]: " << VOLTAGE[TH] << std::endl;
     double total_dt = sp->duration / sp->dt; 
@@ -82,13 +83,14 @@ void BGNetwork::advance_time_step() {
     dim3 grid(CELL_TYPE_COUNT, sim_params -> cells_per_type / THREADS_PER_BLOCK + 1);
     advance_step<<<grid, THREADS_PER_BLOCK>>>(start_st, end_st, params, cell_counts, sim_params->dt, THREADS_PER_BLOCK);
     cudaDeviceSynchronize();
-    // std::cout << cudaGetErrorString(cudaGetLastError()) << std::endl;
+    std::cout << "Out of CUDA Call" << std::endl; 
+    std::cout << ((th_state_t**) start_st) << ", " << ((th_state_t**) start_st)[0][0].voltage << std::endl; 
+    std::cout << cudaGetErrorString(cudaGetLastError()) << std::endl;
     for (int cell_type = 0; cell_type < CELL_TYPE_COUNT; ++cell_type) {
         for (int cell_ind = 0; cell_ind < sim_params->cells_per_type; ++cell_ind) { // Strangely cell_counts[TH] does not work here?!?! 
             VOLTAGE[cell_type][cell_ind][dt_index] = ((th_state_t**)start_st)[cell_type][cell_ind].voltage;
         }
     }
-    std::cout << ((th_start_t) this->start_st) <<  std::endl; 
     dt_index ++;
     void** tmp = start_st;
     start_st = end_st;
