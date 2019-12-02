@@ -14,27 +14,6 @@
  
 __device__ 
 void compute_next_state(th_state_t *in, th_state_t *out, th_param_t *params, double dt) {
-    /*
-    auto x = params->g_K;
-    auto y = in->voltage;
-    out->I_K = 1;
-    return;
-     
-    auto p = params;
-    auto v = in->voltage;
-    //out->I_K = pow(0.75 * (1 -in->H), 4);
-    //auto b = -(p -> g_K * pow(0.75 * (1 - in->H), 4)); 
-    //out->I_K = -(p -> g_K * pow(0.75 * (1 - in->H), 4)); // Problematic Line
-    //out->I_K = -(p -> g_K); 
-    //double c =(double) -(p -> g_K);
-    //out->I_K =  -(p -> g_K);
-    //out->I_K = 3.0;
-    //out->I_K = pow(0.75 * (1 -in->H), 4);
-    //out->I_K =-(p-> g_K *  pow(0.75 * (1 -in->H), 4));
-    return;
-    out->I_K = -(p->g_K * pow(0.75 *(1 - in->H), 4) * (v - p->E_K));
-    return;
-    */
     compute_currents(in, out, params);
     compute_gating(in, out, params, dt);
     
@@ -44,7 +23,6 @@ void compute_next_state(th_state_t *in, th_state_t *out, th_param_t *params, dou
             out -> I_K +
             out -> I_T;
     out -> voltage = in -> voltage + dt * current_sum / params->C_m;
-    out -> voltage -= 1;
 }
 
 __device__ 
