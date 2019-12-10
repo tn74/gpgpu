@@ -6,7 +6,6 @@
 #include <string>
 #include <vector>
 #include <map>
-#include "THNeuron.h"
 
 #pragma once
 
@@ -15,7 +14,8 @@
 #define GPE 2
 #define GPI 3
 #define CELL_TYPE_COUNT 1
-#define THREADS_PER_BLOCK 64
+#define THREADS_PER_BLOCK 256
+#define STATE_COUNT 3
 
 typedef struct simulation_parameters {
     double dt;
@@ -27,17 +27,23 @@ typedef struct simulation_parameters {
 
 class BGNetwork {
 private:
-    int dt_index;
+    int dt;
     simulation_parameters_t* sim_params;
-    void** start_st;
-    void** end_st;
+    void*** states;
     void** params;
-    int* cell_counts;
-    double*** VOLTAGE;
+    void*** debug_states;
+    double*** voltage;
 
-    void build_parameter_map();
+    void init_states(); 
+    void init_parameters();
+    void init_th_param();
     void initialize_cells();
+    void init_result_structures();
+
+    void copy_voltage();
+    void copy_states();
     void advance_time_step();
+    
 
 public:
     BGNetwork(simulation_parameters_t* sp);

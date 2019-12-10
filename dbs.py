@@ -1,11 +1,7 @@
+from scipy.io import loadmat
 import ctypes
-"""
-    double dt;
-    double duration;
-    int cells_per_type;
-"""
-CELL_TYPE_COUNT = 1
 
+CELL_TYPE_COUNT = 1
 DBSC = ctypes.CDLL("cudamodel/cmake-build-debug/libdbs.so")
 TESTC = ctypes.CDLL("cudamodel/cmake-build-debug/libdbstest.so")
 DBSC.execute_simulation.restype = ctypes.POINTER(ctypes.POINTER(ctypes.POINTER(ctypes.c_double)))
@@ -43,6 +39,15 @@ def sim_results_to_py(sim_params, double_pointer_array):
 
 def execute_simulation(sim_params):
     print("Starting Python Execute Sim")
-    ptr = DBSC.execute_simulation(get_pointer(SimulationParameters, sim_params))
+    sp_ptr = get_pointer(SimulationParameters, sim_params)
+    start_time = time.time()
+    ptr = DBSC.execute_simulation(sp_ptr)
+    print("--- %s seconds ---" % (time.time() - start_time))
     return sim_results_to_py(sim_params, ptr)
+
+
+class DBS():
+    def load_initial_conditions(self, path):
+        loadmat(path)
+
 
