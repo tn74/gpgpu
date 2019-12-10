@@ -4,7 +4,7 @@ close all
 %% Set initial conditions
 
 %time variables
-tmax=1000; %maximum time (ms)
+tmax=100; %maximum time (ms)
 dt=0.01; %timestep (ms)
 t=0:dt:tmax;
 n=10; %number of neurons in each nucleus (TH, STN, GPe, GPi)

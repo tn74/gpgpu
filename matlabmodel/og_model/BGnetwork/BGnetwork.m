@@ -19,6 +19,7 @@ function EI = BGnetwork(pd,wstim,freq)
 load('Istim.mat') %loads initial conditions
 addpath('gating')
 
+tic;
 %%Membrane parameters
 %In order of Th,STN,GP or Th,STN,GPe,GPi
 Cm=1;
@@ -167,11 +168,14 @@ for i=2:length(t)
     Z4=Z4+dt*zdot;
 end
 
+time_elapsed = toc;
+fprintf('Time Elapsed: %f', time_elapsed);
 th_VOLTAGE = vth;
 stn_VOLTAGE = vsn;
 gpe_VOLTAGE = vge;
 gpi_VOLTAGE = vgi;
 save('final_voltages.mat','th_VOLTAGE', 'stn_VOLTAGE', 'gpe_VOLTAGE', 'gpi_VOLTAGE');
+
 
 %%Calculation of error index
 %%EI=calculateEI(t,vth,timespike,tmax);
