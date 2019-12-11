@@ -15,7 +15,8 @@
 #define GPI 3
 #define CELL_TYPE_COUNT 1
 #define THREADS_PER_BLOCK 256
-#define STATE_COUNT 3
+#define STATE_COUNT 2
+#define STEPS_PER_THREAD 10
 
 typedef struct simulation_parameters {
     double dt;
@@ -29,7 +30,7 @@ class BGNetwork {
 private:
     int dt;
     simulation_parameters_t* sim_params;
-    void*** states;
+    void**** states; // States Number, Cell Type, Cell Index, DT
     void** params;
     void*** debug_states;
     double*** voltage;
