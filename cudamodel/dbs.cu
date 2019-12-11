@@ -17,6 +17,13 @@ extern "C" double***  execute_simulation(simulation_parameters_t* sim_params) {
     return net.get_voltage();
 }
 
+extern "C" void***  execute_simulation_debug(simulation_parameters_t* sim_params) {
+    auto net = BGNetwork(sim_params);
+    net.simulate_debug();
+    std::cout << "Simulation Duration: " << sim_params->duration << std::endl;
+    return net.get_debug_states();
+}
+
 /*
 __global__
 void compute_preceeding(int* arr, int* sumarr, int maxlen) {

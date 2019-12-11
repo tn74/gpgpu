@@ -6,7 +6,7 @@
 #include <string>
 #include <vector>
 #include <map>
-
+#include "THNeuron.h"
 #pragma once
 
 #define TH 0
@@ -47,9 +47,10 @@ private:
 
 public:
     BGNetwork(simulation_parameters_t* sp);
-    void debug(th_state_t*);
+    int simulate_debug();
     int simulate();
     double*** get_voltage();
+    void*** get_debug_states();
 };
 
 
