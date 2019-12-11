@@ -15,12 +15,16 @@ __global__
     int ctc = 4;
     int cell_ind = (blockIdx.x * tbp + threadIdx.x) / ctc;
     int cell_type = (blockIdx.x * tbp + threadIdx.x) % ctc;
-    
+    //(((th_state_t***)states)[0][0] + 1) -> voltage = 1; 
     // Execute based on cell type
-    if (cell_type == TH) {
-        th_state_t* state_series = (th_state_t*) states[cell_ind][cell_type];
+    if (cell_ind > 3){return;}
+    if (cell_type == 0) {
+        th_state_t* state_series = ((th_state_t***)states)[cell_type][cell_ind];
+        //(state_series + 1) -> voltage = 2;
         th_param_t* param = (th_param_t*) params[0];
+        //(state_series + 1) -> voltage = 3;
         for (int timestep = 0; timestep < timesteps_to_run; ++timestep) {
+            //(&state_series[0]) -> voltage = 100 + timesteps_to_run;
             compute_next_state(state_series + timestep, state_series + timestep + 1, param, dt);
         }
     }
@@ -32,15 +36,14 @@ void BGNetwork::init_states() {
     this -> states = (void****) malloc(STATE_COUNT * sizeof(void***));
     for (int i = 0; i < STATE_COUNT; ++i) {
         this->states[i] = (void***) malloc(CELL_TYPE_COUNT * sizeof(void***));
-        std::cout << "TH = " << TH << std::endl; 
         this->states[i][TH] = (void**) malloc(cell_counts * sizeof(void**));
         cudaMallocManaged(&(this->states[i]), CELL_TYPE_COUNT * sizeof(void**));
         cudaMallocManaged(&(this->states[i][TH]), cell_counts * sizeof(void*));
         std::cout << "Assigned and Cuda Malloc Managed STATE " << i << " TH \n";
         for (int cell_ind = 0; cell_ind < cell_counts; ++cell_ind) {
-            std::cout << "Size of th_state_t " << sizeof(th_state_t) << " bytes\n";    
-            this->states[i][TH][cell_ind] = (th_state_t*) malloc(STEPS_PER_THREAD * sizeof(th_state_t));
-            cudaMallocManaged(&(this->states[i][TH][cell_ind]), STEPS_PER_THREAD * sizeof(th_state_t));
+            std::cout << "Size of th_state_t " << sizeof(th_state_t) << " bytes" << "Size of th_state " << sizeof(th_state) << " bytes\n";    
+            this->states[i][TH][cell_ind] = (th_state_t*) malloc(STEPS_PER_THREAD * sizeof(th_state));
+            cudaMallocManaged(&(this->states[i][TH][cell_ind]), STEPS_PER_THREAD * sizeof(th_state));
         }
     }
 }
@@ -98,9 +101,9 @@ void BGNetwork::init_th_param() {
 }
 
 void BGNetwork::initialize_cells() {
-    auto th_start = (th_state_t*) this->states[0][TH];
+    auto th_start = (th_state_t**) this->states[0][TH];
     for (int i = 0; i < sim_params-> cells_per_type; ++i) {
-        init_state(&th_start[i]);
+        init_state(&th_start[i][0]); //0'th time index of each cell
     }
 }
 
@@ -110,8 +113,11 @@ void BGNetwork::advance_time_step() {
     void*** rest_state = this->states[(executions + 1) % STATE_COUNT];
     int block_count = (sim_params->cells_per_type * CELL_TYPE_COUNT) / THREADS_PER_BLOCK;
     if ((sim_params->cells_per_type * CELL_TYPE_COUNT) % THREADS_PER_BLOCK > 0){block_count ++;}
+    
+    std::cout << "Cuda Error: " << cudaGetErrorString(cudaGetLastError()) << std::endl;
     advance_step<<<block_count, THREADS_PER_BLOCK>>>(sim_state, params, sim_params->cells_per_type, sim_params->dt, THREADS_PER_BLOCK, STEPS_PER_THREAD - 1);
     cudaDeviceSynchronize();
+    std::cout << "Cuda Error: " << cudaGetErrorString(cudaGetLastError()) << std::endl;
     /*
     for (int type = 0; type < CELL_TYPE_COUNT; ++type){
         for (int cell_ind = 0; this->sim_params->cells_per_type; ++cell_ind){ 
