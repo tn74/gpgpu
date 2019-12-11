@@ -15,16 +15,12 @@ __global__
     int ctc = 4;
     int cell_ind = (blockIdx.x * tbp + threadIdx.x) / ctc;
     int cell_type = (blockIdx.x * tbp + threadIdx.x) % ctc;
-    //(((th_state_t***)states)[0][0] + 1) -> voltage = 1; 
     // Execute based on cell type
     if (cell_ind >= number_of_cells){return;}
     if (cell_type == 0) {
         th_state_t* state_series = ((th_state_t***)states)[cell_type][cell_ind];
-        //(state_series + 1) -> voltage = 2;
         th_param_t* param = (th_param_t*) params[0];
-        //(state_series + 1) -> voltage = 3;
         for (int timestep = 0; timestep < timesteps_to_run; ++timestep) {
-            //(&state_series[0]) -> voltage = 100 + timesteps_to_run;
             compute_next_state(state_series + timestep, state_series + timestep + 1, param, dt);
         }
     }
@@ -70,19 +66,6 @@ void BGNetwork::init_result_structures() {
     }
 }
 
-BGNetwork::BGNetwork(simulation_parameters_t* sp){
-    std::cout << "BGNetwork Constructor" << std::endl;
-    this -> sim_params = sp;
-    this -> dt = 0;
-    this -> init_states();
-    std::cout << "Finished Init States" << std::endl;
-    this -> init_parameters();     
-    std::cout << "Initialized Parameters" << std::endl;
-    this -> initialize_cells();
-    std::cout << "Initialized Cells" << std::endl;
-    this -> init_result_structures();
-    std::cout << "Initialized Result Structures" << std::endl;
-}
 
 void BGNetwork::init_th_param() {
     this->params[TH] = malloc(sizeof(th_param_t));
@@ -100,6 +83,7 @@ void BGNetwork::init_th_param() {
     std::cout << "Built Parameter Map" << std::endl;
 }
 
+
 void BGNetwork::initialize_cells() {
     auto th_start = (th_state_t**) this->states[0][TH];
     for (int i = 0; i < sim_params-> cells_per_type; ++i) {
@@ -107,29 +91,63 @@ void BGNetwork::initialize_cells() {
     }
 }
 
-void BGNetwork::advance_time_step() {
-    int executions = this->dt / STEPS_PER_THREAD;
+
+BGNetwork::BGNetwork(simulation_parameters_t* sp){
+    std::cout << "BGNetwork Constructor" << std::endl;
+    this -> sim_params = sp;
+    this -> init_states();
+    std::cout << "Finished Init States" << std::endl;
+    this -> init_parameters();     
+    std::cout << "Initialized Parameters" << std::endl;
+    this -> initialize_cells();
+    std::cout << "Initialized Cells" << std::endl;
+    this -> init_result_structures();
+    std::cout << "Initialized Result Structures" << std::endl;
+}
+
+
+void BGNetwork::transfer_voltage(void*** from_states, void*** to_states, int from_t, int to_t, int number_of_states) {
+    for (int t = 0; t < number_of_states; ++t) {
+        for (int cell_ind = 0; cell_ind < this->sim_params->cells_per_type;++cell_ind) {
+            ((th_state_t***) to_states)[TH][cell_ind][to_t + t].voltage = ((th_state_t***) from_states) [TH][cell_ind][from_t + t].voltage;
+            //((th_state_t***) to_states)[STN][cell_ind][t].voltage = ((th_state_t***) from_states) [STN][cell_ind][t].voltage;
+            //((th_state_t***) to_states)[GPE][cell_ind][t].voltage = ((th_state_t***) from_states) [GPE][cell_ind][t].voltage;
+            //((th_state_t***) to_states)[GPI][cell_ind][t].voltage = ((th_state_t***) from_states) [GPI][cell_ind][t].voltage;
+        }
+    }
+}
+
+
+void BGNetwork::transfer_states(void*** from_states, void*** to_states, int from_t, int to_t, int number_of_states) {
+    for (int t = 0; t < number_of_states; ++t) {
+        for (int cell_ind = 0; cell_ind < this->sim_params->cells_per_type;++cell_ind) {
+            ((th_state_t***) to_states)[TH][cell_ind][to_t + t] = ((th_state_t***) from_states) [TH][cell_ind][from_t + t];
+            //((th_state_t***) to_states)[STN][cell_ind][t].voltage = ((th_state_t***) from_states) [STN][cell_ind][t].voltage;
+            //((th_state_t***) to_states)[GPE][cell_ind][t].voltage = ((th_state_t***) from_states) [GPE][cell_ind][t].voltage;
+            //((th_state_t***) to_states)[GPI][cell_ind][t].voltage = ((th_state_t***) from_states) [GPI][cell_ind][t].voltage;
+        }
+    }
+}
+
+
+void BGNetwork::advance_simulation() {
+    /*
+    int executions = 0;
     void*** sim_state = this->states[executions  % STATE_COUNT];
     void*** rest_state = this->states[(executions + 1) % STATE_COUNT];
     int block_count = (sim_params->cells_per_type * CELL_TYPE_COUNT) / THREADS_PER_BLOCK;
     if ((sim_params->cells_per_type * CELL_TYPE_COUNT) % THREADS_PER_BLOCK > 0){block_count ++;}
     
-    std::cout << "Cuda Error: " << cudaGetErrorString(cudaGetLastError()) << std::endl;
+    //std::cout << "Cuda Error: " << cudaGetErrorString(cudaGetLastError()) << std::endl;
     advance_step<<<block_count, THREADS_PER_BLOCK>>>(sim_state, params, sim_params->cells_per_type, sim_params->dt, THREADS_PER_BLOCK, STEPS_PER_THREAD - 1);
     cudaDeviceSynchronize();
-    std::cout << "Cuda Error: " << cudaGetErrorString(cudaGetLastError()) << std::endl;
-    /*
-    for (int type = 0; type < CELL_TYPE_COUNT; ++type){
-        for (int cell_ind = 0; this->sim_params->cells_per_type; ++cell_ind){ 
-            rest_state[type][cell_ind][0] = ((th_state_t*) sim_state)[type][cell_ind][STEPS_PER_THREAD - 1];
-        }
-    }
-    */
-    dt += STEPS_PER_THREAD;
+    //std::cout << "Cuda Error: " << cudaGetErrorString(cudaGetLastError()) << std::endl;
+   
+
     //std::cout << "Out of CUDA Call" << std::endl; 
     //std::cout << ((th_state_t**) start_st) << ", " << ((th_state_t**) start_st)[0][0].voltage << std::endl; 
     //std::cout << cudaGetErrorString(cudaGetLastError()) << std::endl;
-    /*
+    
     for (int cell_type = 0; cell_type < CELL_TYPE_COUNT; ++cell_type) {
         for (int cell_ind = 0; cell_ind < sim_params->cells_per_type; ++cell_ind) { // Strangely cell_counts[TH] does not work here?!?! 
             VOLTAGE[cell_type][cell_ind][dt_index] = ((th_state_t**)start_st)[cell_type][cell_ind].voltage;
@@ -138,8 +156,9 @@ void BGNetwork::advance_time_step() {
     dt_index ++;
     void** tmp = start_st;
     start_st = end_st;
-    end_st = tmp;*/
-    //std::cout << "\r"  << "Iteration: " << dt_index << std::endl;
+    end_st = tmp;
+    std::cout << "\r"  << "Iteration: " << dt_index << std::endl;
+*/
 }
 /*
 int BGNetwork::debug(th_state_t* state) {
@@ -153,19 +172,35 @@ int BGNetwork::debug(th_state_t* state) {
     return 0;
 }
 */
+
 int BGNetwork::simulate() {
-    for (int i = 0; i < sim_params->duration / sim_params->dt; ++i) {
-        advance_time_step();
-    }
-    std::cout<< "End of Simulate" << std::endl;
     return 0;
 }
 
-
 int BGNetwork::simulate_debug() {
-    for (int i = 0; i < sim_params->duration / sim_params->dt; ++i) {
-        advance_time_step();
+    int total_steps = this->sim_params->duration / this->sim_params->dt;
+    int step = 0;
+    int cycles= 0;
+    std::cout << "Total Steps: " << total_steps << std::endl;
+    while(step < total_steps) {
+        int cycle_steps = total_steps - step;
+        if (cycle_steps >= STEPS_PER_THREAD-1) {cycle_steps = STEPS_PER_THREAD-1;}
+     
+        void*** sim_state = this->states[cycles  % STATE_COUNT];
+        void*** rest_state = this->states[(cycles - 1) % STATE_COUNT];
+        int block_count = (sim_params->cells_per_type * CELL_TYPE_COUNT) / THREADS_PER_BLOCK;
+        if ((sim_params->cells_per_type * CELL_TYPE_COUNT) % THREADS_PER_BLOCK > 0){block_count ++;}
+        
+        std::cout << "Cuda Error: " << cudaGetErrorString(cudaGetLastError()) << std::endl;
+        advance_step<<<block_count, THREADS_PER_BLOCK>>>(sim_state, params, sim_params->cells_per_type, sim_params->dt, THREADS_PER_BLOCK, cycle_steps);
+        if (cycles > 0) {this -> transfer_states(this->debug_states, this->debug_states, step, step, cycle_steps);}        
+        cudaDeviceSynchronize();
+        std::cout << "Cuda Error: " << cudaGetErrorString(cudaGetLastError()) << std::endl;
+        cycles++;
+        step += cycle_steps;
+        if (step == total_steps) {this -> transfer_states(sim_state, this->debug_states, 0, step, cycle_steps);}
     }
+    
     std::cout<< "End of Simulate Debug" << std::endl;
     return 0;
 }

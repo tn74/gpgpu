@@ -11,7 +11,7 @@ int main() {
     sim_params->cells_per_type = 10;
     sim_params->duration = 1;
     sim_params->dt = 0.01;
-    execute_simulation(sim_params);
+    execute_simulation_debug(sim_params);
     std::cout<< "End of main " << std::endl;
     return 0;
 }
