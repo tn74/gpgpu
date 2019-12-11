@@ -17,7 +17,7 @@ __global__
     int cell_type = (blockIdx.x * tbp + threadIdx.x) % ctc;
     //(((th_state_t***)states)[0][0] + 1) -> voltage = 1; 
     // Execute based on cell type
-    if (cell_ind > 3){return;}
+    if (cell_ind >= number_of_cells){return;}
     if (cell_type == 0) {
         th_state_t* state_series = ((th_state_t***)states)[cell_type][cell_ind];
         //(state_series + 1) -> voltage = 2;
