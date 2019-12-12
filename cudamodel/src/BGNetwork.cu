@@ -73,8 +73,8 @@ void BGNetwork::init_result_structures() {
     int cell_counts = this->sim_params->cells_per_type;
     double total_dt = this->sim_params->duration / this->sim_params->dt; 
     
-    this -> voltage = (double***) malloc(sizeof(double**));
-    this -> debug_states = (void***) malloc(sizeof(double**));
+    this -> voltage = (double***) malloc(CELL_TYPE_COUNT * sizeof(double**));
+    this -> debug_states = (void***) malloc(CELL_TYPE_COUNT * sizeof(void**));
     for (int k = 0; k < CELL_TYPE_COUNT; ++k) { 
         (this->voltage)[k]       = (double**) malloc(cell_counts * sizeof(double*));
         (this->debug_states)[k]  = (void**) malloc(cell_counts * sizeof(void*));
