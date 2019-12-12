@@ -26,14 +26,12 @@ class TestBasic(unittest.TestCase):
         for i in range(timesteps):
             assert cudamap["TH"]["VOLTAGE"][0][i] == matarr["TH"]["VOLTAGE"][0][i]
 
-"""
 class GeneratePython(unittest.TestCase):
     def test_health(self):
-        print("Hello")
         cudamap = dbs.execute_simulation_debug( {"dt": 0.01, "duration": 1.0, "cells_per_type": 2})
         with open("test.json", "w") as f:
             json.dump(cudamap, f)
-"""
+
 if __name__ == "__main__":
     unittest.main()
 
