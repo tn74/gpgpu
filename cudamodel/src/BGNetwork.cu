@@ -26,7 +26,7 @@ __global__
     }
     if (cell_type == 1) {
         stn_state_t* state_series = ((stn_state_t***)states)[cell_type][cell_ind];
-        stn_param_t* param = (stn_param_t*) params[0];
+        stn_param_t* param = (stn_param_t*) params[1];
         for (int timestep = 0; timestep < timesteps_to_run; ++timestep) {
             compute_next_state(state_series + timestep, state_series + timestep + 1, param, dt);
         }
