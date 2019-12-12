@@ -8,7 +8,7 @@ CELL_TYPE_COUNT = 1
 DBSC = ctypes.CDLL("cudamodel/cmake-build-debug/libdbs.so")
 TESTC = ctypes.CDLL("cudamodel/cmake-build-debug/libdbstest.so")
 DBSC.execute_simulation.restype = ctypes.POINTER(ctypes.POINTER(ctypes.POINTER(ctypes.c_double)))
-DBSC.execute_simulation_debug.restype = ctypes.POINTER(ctypes.POINTER(ctypes.POINTER(SimulationParameters)))
+DBSC.execute_simulation_debug.restype = ctypes.c_void_p
 
 
 def get_pointer(cls, dictionary):
@@ -39,15 +39,26 @@ def debug_results_to_py(sim_params, states_pointer_array):
     time_steps = (int)(sim_params["duration"]/sim_params["dt"])
     ret = {}
     ret["TH"] = {k.upper(): [[] for ci in range(sim_params["cells_per_type"])] for k, typ in THState._fields_}
-    ret["STN"] = {k.upper(): [[] for ci in range(sim_params["cells_per_type"])] for k, typ in STNState._fields_}
-    TH_PTR = ctypes.cast(states_pointer_array[0], ctypes.POINTER(ctypes.POINTER(THState)))
-    STN_PTR = ctypes.cast(states_pointer_array[0], ctypes.POINTER(ctypes.POINTER(STNState)))
+    #ret["STN"] = {k.upper(): [[] for ci in range(sim_params["cells_per_type"])] for k, typ in STNState._fields_}
+    print("Before Cast")
+    #print(states_pointer_array)
+    print(type(states_pointer_array))
+    print("After Print")
+    print(states_pointer_array)
+    print(states_pointer_array[0])
+    TH_PTR = ctypes.cast(states_pointer_array, ctypes.POINTER(ctypes.POINTER(ctypes.POINTER(THState))))
+    #STN_PTR = ctypes.cast(states_pointer_array[1], ctypes.POINTER(ctypes.POINTER(STNState)))
     for cell_ind in range(sim_params["cells_per_type"]):
         for t in range(time_steps):
+            print("ss")
+            #v = getattr(TH_PTR[cell_ind][t], 'voltage')
+            print(f" {t}:")
             for k, typ in THState._fields_:
                 ret["TH"][k.upper()][cell_ind].append(getattr(TH_PTR[cell_ind][t], k))
-            for k, typ in STNState._fields_:
-                ret["STN"][k.upper()][cell_ind].append(getattr(STN_PTR[cell_ind][t], k))
+
+            #for k, typ in STNState._fields_:
+            #    ret["STN"][k.upper()][cell_ind].append(getattr(STN_PTR[cell_ind][t], k))
+    print("End of debug results to py")
     return ret
 
 
@@ -63,6 +74,7 @@ def execute_simulation_debug(sim_params):
     print("Starting Python Execute Sim Debug")
     sp_ptr = get_pointer(SimulationParameters, sim_params)
     ptr = DBSC.execute_simulation_debug(sp_ptr)
+    print("Finished Exec Sim Debug")
     return debug_results_to_py(sim_params, ptr)
 
 
