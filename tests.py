@@ -30,9 +30,10 @@ class TestBasic(unittest.TestCase):
 #            assert cudamap["STN"]["VOLTAGE"][0][i] == matarr["STN"]["VOLTAGE"][0][i]
 
 
-#class GeneratePython(unittest.TestCase):
-#    def test_health(self):
-#        cudamap = dbs.execute_simulation_debug( {"dt": 0.01, "duration": 10.0, "cells_per_type": 2})
+class GeneratePython(unittest.TestCase):
+    def test_health(self):
+        print("Hello")
+        cudamap = dbs.execute_simulation_debug( {"dt": 0.01, "duration": 1.0, "cells_per_type": 2})
 
 if __name__ == "__main__":
     unittest.main()
