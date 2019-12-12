@@ -128,7 +128,7 @@ void BGNetwork::transfer_states(void*** from_states, void*** to_states, int from
     for (int t = 0; t < number_of_states; ++t) {
         for (int cell_ind = 0; cell_ind < this->sim_params->cells_per_type;++cell_ind) {
             ((th_state_t***) to_states)[TH][cell_ind][to_t + t] = ((th_state_t***) from_states) [TH][cell_ind][from_t + t];
-            ((stn_state_t***) to_states)[STN][cell_ind][t].voltage = ((stn_state_t***) from_states) [STN][cell_ind][t].voltage;
+            ((stn_state_t***) to_states)[STN][cell_ind][to_t + t] = ((stn_state_t***) from_states) [STN][cell_ind][from_t + t];
             //((th_state_t***) to_states)[GPE][cell_ind][t].voltage = ((th_state_t***) from_states) [GPE][cell_ind][t].voltage;
             //((th_state_t***) to_states)[GPI][cell_ind][t].voltage = ((th_state_t***) from_states) [GPI][cell_ind][t].voltage;
         }

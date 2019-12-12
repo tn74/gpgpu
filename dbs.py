@@ -8,7 +8,7 @@ CELL_TYPE_COUNT = 1
 DBSC = ctypes.CDLL("cudamodel/cmake-build-debug/libdbs.so")
 TESTC = ctypes.CDLL("cudamodel/cmake-build-debug/libdbstest.so")
 DBSC.execute_simulation.restype = ctypes.POINTER(ctypes.POINTER(ctypes.POINTER(ctypes.c_double)))
-DBSC.execute_simulation_debug.restype = ctypes.POINTER(ctypes.POINTER(ctypes.POINTER(SimulationParameters)))
+DBSC.execute_simulation_debug.restype = ctypes.POINTER(ctypes.POINTER(ctypes.POINTER(ctypes.c_char)))
 
 
 def get_pointer(cls, dictionary):
@@ -40,14 +40,23 @@ def debug_results_to_py(sim_params, states_pointer_array):
     ret = {}
     ret["TH"] = {k.upper(): [[] for ci in range(sim_params["cells_per_type"])] for k, typ in THState._fields_}
     ret["STN"] = {k.upper(): [[] for ci in range(sim_params["cells_per_type"])] for k, typ in STNState._fields_}
-    TH_PTR = ctypes.cast(states_pointer_array[0], ctypes.POINTER(ctypes.POINTER(THState)))
-    STN_PTR = ctypes.cast(states_pointer_array[1], ctypes.POINTER(ctypes.POINTER(STNState)))
+    print("Before Cast")
+    TH_PTR = ctypes.cast(states_pointer_array, ctypes.POINTER(ctypes.POINTER(ctypes.POINTER(THState))))
+    STN_PTR = ctypes.cast(states_pointer_array, ctypes.POINTER(ctypes.POINTER(ctypes.POINTER(STNState))))
+    print(ctypes.addressof(TH_PTR[0].contents))
+    print(ctypes.addressof(STN_PTR[1].contents))
+    print(ctypes.addressof(STN_PTR[2].contents))
+    print("After Cast")
     for cell_ind in range(sim_params["cells_per_type"]):
         for t in range(time_steps):
             for k, typ in THState._fields_:
-                ret["TH"][k.upper()][cell_ind].append(getattr(TH_PTR[cell_ind][t], k))
+                #if k == "VOLTAGE":
+                #    print(f"TH {cell_ind} {t} {k} {getattr(TH_PTR[cell_ind][t], k)}")
+                ret["TH"][k.upper()][cell_ind].append(getattr(TH_PTR[0][cell_ind][t], k))
             for k, typ in STNState._fields_:
-                ret["STN"][k.upper()][cell_ind].append(getattr(STN_PTR[cell_ind][t], k))
+                #if k == "VOLTAGE":
+                #    print(f"STN {cell_ind} {t} {k} {getattr(STN_PTR[cell_ind][t], k)}")
+                ret["STN"][k.upper()][cell_ind].append(getattr(STN_PTR[1][cell_ind][t], k))
     return ret
 
 

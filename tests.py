@@ -29,6 +29,7 @@ class TestBasic(unittest.TestCase):
 class GeneratePython(unittest.TestCase):
     def test_health(self):
         cudamap = dbs.execute_simulation_debug( {"dt": 0.01, "duration": 1.0, "cells_per_type": 2})
+        print(cudamap["STN"]["VOLTAGE"])
         with open("test.json", "w") as f:
             json.dump(cudamap, f)
 
