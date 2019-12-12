@@ -41,7 +41,7 @@ def debug_results_to_py(sim_params, states_pointer_array):
     ret["TH"] = {k.upper(): [[] for ci in range(sim_params["cells_per_type"])] for k, typ in THState._fields_}
     ret["STN"] = {k.upper(): [[] for ci in range(sim_params["cells_per_type"])] for k, typ in STNState._fields_}
     TH_PTR = ctypes.cast(states_pointer_array[0], ctypes.POINTER(ctypes.POINTER(THState)))
-    STN_PTR = ctypes.cast(states_pointer_array[0], ctypes.POINTER(ctypes.POINTER(STNState)))
+    STN_PTR = ctypes.cast(states_pointer_array[1], ctypes.POINTER(ctypes.POINTER(STNState)))
     for cell_ind in range(sim_params["cells_per_type"]):
         for t in range(time_steps):
             for k, typ in THState._fields_:
