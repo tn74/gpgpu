@@ -42,7 +42,6 @@ private:
 
     void transfer_voltage(void*** from_states, void*** to_states, int from_t, int to_t, int number_of_states);
     void transfer_states (void*** from_states, void*** to_states, int from_t, int to_t, int number_of_states);
-    void advance_simulation();
     
 
 public:
