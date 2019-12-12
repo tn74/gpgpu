@@ -67,3 +67,16 @@ std::string get_debug_string(th_state_t* state) {
     << ", R=" << state -> R;
     return debug_str.str();
 }
+
+void init_th_param(th_param_t *params){
+    params -> C_m = 1.0;
+    params -> g_L = 0.05;
+    params -> E_L = -70;
+    params -> g_Na = 3.0;
+    params -> E_Na = 50.0;
+    params -> g_K = 5.0;
+    params -> E_K = -75.0;
+    params -> g_T = 5.0;
+    params -> E_T = 0.0;
+}
+

@@ -43,3 +43,19 @@ void init_state(stn_state_t *in){
     in->C = stn_cinf(in->voltage);
     in->CA = 0.1;
 }
+
+void init_stn_param(stn_param_t* param) {
+    param->C_m = 1.0;
+    param->g_L = 2.25;
+    param->E_L = -60.0;
+    param->g_Na = 37.0;
+    param->E_Na = 55.0;
+    param->g_K = 45.0;
+    param->E_K = -80.0;
+    param->g_T = 0.5;
+    param->E_T = 0.0;
+    param->g_Ca = 2.0;
+    param->E_Ca = 140.0;
+    param->g_ahp = 20.0;
+    param->E_ahp = -80.0;
+}

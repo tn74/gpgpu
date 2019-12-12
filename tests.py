@@ -19,22 +19,21 @@ class TestBasic(unittest.TestCase):
         dbs.execute_simulation_debug({"dt": 0.1, "duration": 1.0, "cells_per_type": 2})
 
     def test_th_healthy(self):
-        cudamap = dbs.execute_simulation_debug( {"dt": 0.01, "duration": 1.0, "cells_per_type": 2})
+        dt, dur = 0.01, 1.0
+        timesteps = int(dur/dt)
+        cudamap = dbs.execute_simulation_debug( {"dt": dt, "duration": dur, "cells_per_type": 2})
         matarr = comparison.Loader().load_matlab("healthy_isolated_cells")
-#        print(matarr["STN"]["VOLTAGE"])
-#        print(cudamap["STN"]["VOLTAGE"])
-        for i in range(1000):
+        for i in range(timesteps):
             assert cudamap["TH"]["VOLTAGE"][0][i] == matarr["TH"]["VOLTAGE"][0][i]
-            with open("test.json", "w") as f:
-                json.dump(cudamap, f)
-#            assert cudamap["STN"]["VOLTAGE"][0][i] == matarr["STN"]["VOLTAGE"][0][i]
 
-
+"""
 class GeneratePython(unittest.TestCase):
     def test_health(self):
         print("Hello")
         cudamap = dbs.execute_simulation_debug( {"dt": 0.01, "duration": 1.0, "cells_per_type": 2})
-
+        with open("test.json", "w") as f:
+            json.dump(cudamap, f)
+"""
 if __name__ == "__main__":
     unittest.main()
 

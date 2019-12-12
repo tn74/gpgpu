@@ -30,5 +30,6 @@ __device__ void compute_next_state(th_state_t *in, th_state_t *out, th_param_t *
 __device__ void compute_currents(th_state_t *in, th_state_t *out, th_param_t *params);
 __device__ void compute_gating(th_state_t *in, th_state_t *out, th_param_t *params, double dt);
 void init_state(th_state_t *in);
+void init_th_param(th_param_t* param);
 std::string get_debug_string(th_state_t* state);
 

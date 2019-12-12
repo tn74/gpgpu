@@ -42,5 +42,5 @@ __device__ void compute_next_state(stn_state_t *in, stn_state_t *out, stn_param_
 __device__ void compute_currents(stn_state_t *in, stn_state_t *out, stn_param_t *params);
 __device__ void compute_gating(stn_state_t *in, stn_state_t *out, stn_param_t *params, double dt);
 void init_state(stn_state_t *in);
-
+void init_stn_param(stn_param_t *param);
 #endif //DBS_ON_GPU_STNNEURON_H

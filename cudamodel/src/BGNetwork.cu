@@ -57,8 +57,16 @@ void BGNetwork::init_states() {
 void BGNetwork::init_parameters() {
     this->params = (void**) malloc(CELL_TYPE_COUNT * sizeof(void*)); 
     cudaMallocManaged(&(this->params), CELL_TYPE_COUNT * sizeof(void*)); 
-    this -> init_th_param();
-    this -> init_stn_param();
+    
+    this->params[TH] = malloc(sizeof(th_param_t));
+    cudaMallocManaged(&params[TH], sizeof(th_param_t));
+    auto th_param = (th_param_t *) params[TH];
+    init_th_param(th_param);
+    
+    this->params[STN] = malloc(sizeof(stn_param_t));
+    cudaMallocManaged(&params[STN], sizeof(stn_param_t));
+    auto stn_param = (stn_param_t *) params[STN];
+    init_stn_param(stn_param);
 }
 
 void BGNetwork::init_result_structures() {
@@ -79,42 +87,6 @@ void BGNetwork::init_result_structures() {
 }
 
 
-void BGNetwork::init_th_param() {
-    this->params[TH] = malloc(sizeof(th_param_t));
-    cudaMallocManaged(&params[TH], sizeof(th_param_t));
-    auto th_params = (th_param_t *) params[TH];
-    th_params -> C_m = 1.0;
-    th_params -> g_L = 0.05;
-    th_params -> E_L = -70;
-    th_params -> g_Na = 3.0;
-    th_params -> E_Na = 50.0;
-    th_params -> g_K = 5.0;
-    th_params -> E_K = -75.0;
-    th_params -> g_T = 5.0;
-    th_params -> E_T = 0.0;
-    std::cout << "Built Parameter Map" << std::endl;
-}
-
-
-void BGNetwork::init_stn_param() {
-    this->params[STN] = malloc(sizeof(stn_param_t));
-    cudaMallocManaged(&params[STN], sizeof(stn_param_t));
-    auto stn_param = (stn_param_t *) params[STN];
-    stn_param->C_m = 1.0;
-    stn_param->g_L = 2.25;
-    stn_param->E_L = -60.0;
-    stn_param->g_Na = 37.0;
-    stn_param->E_Na = 55.0;
-    stn_param->g_K = 45.0;
-    stn_param->E_K = -80.0;
-    stn_param->g_T = 0.5;
-    stn_param->E_T = 0.0;
-    stn_param->g_Ca = 2.0;
-    stn_param->E_Ca = 140.0;
-    stn_param->g_ahp = 20.0;
-    stn_param->E_ahp = -80.0;
-    std::cout << "Built Parameter Map" << std::endl;
-}
 
 void BGNetwork::initialize_cells() {
     auto th_start = (th_state_t**) this->states[0][TH];
