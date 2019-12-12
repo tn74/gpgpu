@@ -10,6 +10,7 @@ __device__ void compute_next_state(stn_state_t *in, stn_state_t *out, stn_param_
     compute_currents(in, out, params);
     compute_gating(in, out, params, dt);
     
+    out -> voltage = params -> g_L;
     double current_sum =
             out -> I_L +
             out -> I_Na +
