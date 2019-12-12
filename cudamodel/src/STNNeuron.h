@@ -38,7 +38,7 @@ typedef struct stn_state {
     double CA;
 } stn_state_t;
  
-__device__ void compute_next_states(stn_state_t *in, stn_state_t *out, stn_param_t *params, double dt);
+__device__ void compute_next_state(stn_state_t *in, stn_state_t *out, stn_param_t *params, double dt);
 __device__ void compute_currents(stn_state_t *in, stn_state_t *out, stn_param_t *params);
 __device__ void compute_gating(stn_state_t *in, stn_state_t *out, stn_param_t *params, double dt);
 void init_state(stn_state_t *in);

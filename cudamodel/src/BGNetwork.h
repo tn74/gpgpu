@@ -7,6 +7,7 @@
 #include <vector>
 #include <map>
 #include "THNeuron.h"
+#include "STNNeuron.h"
 #pragma once
 
 #define TH 0
@@ -37,6 +38,7 @@ private:
     void init_states(); 
     void init_parameters();
     void init_th_param();
+    void init_stn_param();
     void initialize_cells();
     void init_result_structures();
 

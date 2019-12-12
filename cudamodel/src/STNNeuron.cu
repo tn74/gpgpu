@@ -6,7 +6,7 @@
 #include "gating.h"
 
 
-__device__ void compute_next_states(stn_state_t *in, stn_state_t *out, stn_param_t *params, double dt){
+__device__ void compute_next_state(stn_state_t *in, stn_state_t *out, stn_param_t *params, double dt){
     compute_currents(in, out, params);
     compute_gating(in, out, params, dt);
     
