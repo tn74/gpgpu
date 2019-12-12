@@ -163,6 +163,50 @@ void BGNetwork::transfer_states(void*** from_states, void*** to_states, int from
     }
 }
 
+
+void BGNetwork::advance_simulation() {
+    /*
+    int executions = 0;
+    void*** sim_state = this->states[executions  % STATE_COUNT];
+    void*** rest_state = this->states[(executions + 1) % STATE_COUNT];
+    int block_count = (sim_params->cells_per_type * CELL_TYPE_COUNT) / THREADS_PER_BLOCK;
+    if ((sim_params->cells_per_type * CELL_TYPE_COUNT) % THREADS_PER_BLOCK > 0){block_count ++;}
+    
+    //std::cout << "Cuda Error: " << cudaGetErrorString(cudaGetLastError()) << std::endl;
+    advance_step<<<block_count, THREADS_PER_BLOCK>>>(sim_state, params, sim_params->cells_per_type, sim_params->dt, THREADS_PER_BLOCK, STEPS_PER_THREAD - 1);
+    cudaDeviceSynchronize();
+    //std::cout << "Cuda Error: " << cudaGetErrorString(cudaGetLastError()) << std::endl;
+   
+
+    //std::cout << "Out of CUDA Call" << std::endl; 
+    //std::cout << ((th_state_t**) start_st) << ", " << ((th_state_t**) start_st)[0][0].voltage << std::endl; 
+    //std::cout << cudaGetErrorString(cudaGetLastError()) << std::endl;
+    
+    for (int cell_type = 0; cell_type < CELL_TYPE_COUNT; ++cell_type) {
+        for (int cell_ind = 0; cell_ind < sim_params->cells_per_type; ++cell_ind) { // Strangely cell_counts[TH] does not work here?!?! 
+            VOLTAGE[cell_type][cell_ind][dt_index] = ((th_state_t**)start_st)[cell_type][cell_ind].voltage;
+        }
+    }
+    dt_index ++;
+    void** tmp = start_st;
+    start_st = end_st;
+    end_st = tmp;
+    std::cout << "\r"  << "Iteration: " << dt_index << std::endl;
+*/
+}
+/*
+int BGNetwork::debug(th_state_t* state) {
+    for (int i = 0; i < sim_params->cells_per_type; ++i) {
+        std::ostringstream output_file_name;
+        output_file_name << "output/TH_NEURON_" << i << ".txt";
+        std::ofstream out(output_file_name.str(), std::ios::app);
+        out << "DT=" << dt << ", " << get_debug_string(&state[i]) << std::endl;
+        out.close();
+    }
+    return 0;
+}
+*/
+
 int BGNetwork::simulate() {
     return 0;
 }
@@ -177,17 +221,15 @@ int BGNetwork::simulate_debug() {
         if (cycle_steps >= STEPS_PER_THREAD-1) {cycle_steps = STEPS_PER_THREAD-1;}
      
         void*** sim_state = this->states[cycles  % STATE_COUNT];
-        void*** rest_state = this->states[(cycles + 1) % STATE_COUNT];
+        void*** rest_state = this->states[(cycles - 1) % STATE_COUNT];
         int block_count = (sim_params->cells_per_type * CELL_TYPE_COUNT) / THREADS_PER_BLOCK;
         if ((sim_params->cells_per_type * CELL_TYPE_COUNT) % THREADS_PER_BLOCK > 0){block_count ++;}
         
         std::cout << "Cuda Error: " << cudaGetErrorString(cudaGetLastError()) << std::endl;
         advance_step<<<block_count, THREADS_PER_BLOCK>>>(sim_state, params, sim_params->cells_per_type, sim_params->dt, THREADS_PER_BLOCK, cycle_steps);
+        if (cycles > 0) {this -> transfer_states(this->debug_states, this->debug_states, step, step, cycle_steps);}        
         cudaDeviceSynchronize();
-        this -> transfer_states(sim_state, this->debug_states, 0, step, cycle_steps);        
         std::cout << "Cuda Error: " << cudaGetErrorString(cudaGetLastError()) << std::endl;
-        this -> transfer_states(sim_state, rest_state, cycle_steps, 0, 1);
-        
         cycles++;
         step += cycle_steps;
         if (step == total_steps) {this -> transfer_states(sim_state, this->debug_states, 0, step, cycle_steps);}
