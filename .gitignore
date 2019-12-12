@@ -1,4 +1,5 @@
 cudamodel/.idea
+__pycache__/*
 cudamodel/cmake-build-debug/
 cudamodel/build
 cudamodel/CMakeLists.txt
