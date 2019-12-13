@@ -5,6 +5,7 @@
 #ifndef DBS_ON_GPU_STNNEURON_H
 #define DBS_ON_GPU_STNNEURON_H
 
+#include <string>
 
 typedef struct stn_param {
     double C_m;
@@ -43,4 +44,5 @@ __device__ void compute_currents(stn_state_t *in, stn_state_t *out, stn_param_t 
 __device__ void compute_gating(stn_state_t *in, stn_state_t *out, stn_param_t *params, double dt);
 void init_state(stn_state_t *in);
 void init_stn_param(stn_param_t *param);
+std::string get_debug_string(stn_state_t* state);
 #endif //DBS_ON_GPU_STNNEURON_H

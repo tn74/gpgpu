@@ -163,17 +163,28 @@ int BGNetwork::simulate_debug() {
         step += cycle_steps;
         if (step == total_steps) {this -> transfer_states(sim_state, this->debug_states, 0, step, cycle_steps);}
     }
-   
-    for (int i = 0; i < this->sim_params->cells_per_type; ++i){
-        std::string filename = std::string("output/") + std::to_string(i) + ".txt";
-        std::cout << filename << std::endl;
-        std::ofstream out;
-        out.open(filename);
-        th_state_t* th_st = &(((th_state_t***) this->debug_states)[TH][i][0]); 
-        std::string th_i_debug = get_debug_string(th_st);
-        out << filename;
-        out << th_i_debug;
-        out.close();
+    
+    std::ofstream out;
+    int success1 = system("rm -rf output");
+    int success2 = system("mkdir output");
+    std::cout << "Success to make output dir: " << success1 << " " << success2 << std::endl;
+    for (int type = 0; type < CELL_TYPE_COUNT; ++type){
+        std::string type_name;
+        if (type == 0){type_name = "TH";}
+        if (type == 1){type_name = "STN";}
+        if (type == 2){type_name = "GPE";}
+        if (type == 3){type_name = "GPI";}
+        for (int i = 0; i < this->sim_params->cells_per_type; ++i){
+            std::string filename = std::string("output/") + type_name + "_NEURON_" + std::to_string(i) + ".txt";
+            out.open(filename);
+            std::string debug_line;
+            for (int t = 0; t < total_steps; ++t) {
+                if(type == TH){debug_line = get_debug_string(&(((th_state_t***) this->debug_states)[TH][i][t]));} 
+                if(type == STN){debug_line = get_debug_string(&(((stn_state_t***) this->debug_states)[STN][i][t]));} 
+                out << debug_line << std::endl;
+            }
+            out.close();
+        }
     }
 
     std::cout<< "End of Simulate Debug" << std::endl;

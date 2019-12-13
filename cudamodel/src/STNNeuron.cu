@@ -2,6 +2,10 @@
 // Created by Jasmine Lu on 2019-04-27.
 //
 
+#include <string>
+#include <iostream>
+#include <sstream>
+#include <iomanip>
 #include "STNNeuron.h"
 #include "gating.h"
 
@@ -59,4 +63,25 @@ void init_stn_param(stn_param_t* param) {
     param->E_Ca = 140.0;
     param->g_ahp = 20.0;
     param->E_ahp = -80.0;
+}
+
+
+std::string get_debug_string(stn_state_t* state) {
+    std::ostringstream debug_str;
+    debug_str.setf(std::ios::fixed, std::ios::floatfield);
+    debug_str << std::setprecision(15);
+    debug_str
+        << "VOLTAGE=" << state->voltage
+        << ", I_NA=" << state->I_Na
+        << ", I_L=" << state->I_L
+        << ", I_K=" << state->I_K
+        << ", I_T=" << state->I_T
+        << ", I_CA=" << state->I_Ca
+        << ", I_AHP=" << state->I_ahp
+        << ", H=" << state->H
+        << ", R=" << state->R
+        << ", N=" << state->N
+        << ", C=" << state->C
+        << ", CA=" << state->CA;
+    return debug_str.str();
 }
