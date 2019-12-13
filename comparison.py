@@ -53,9 +53,7 @@ class Loader():
         self.format_dict(data)
         return data
 
-    def load_cpp(self, test_name):
-        test_directory = os.path.join(os.path.dirname(os.path.abspath(__file__)), "dbs_on_gpu", "saved_tests", test_name)
-        output_dir = os.path.join(test_directory, "output")
+    def load_cpp(self, output_dir):
         data = {}
         for item in os.scandir(output_dir):
             with open(item.path, "r") as file:

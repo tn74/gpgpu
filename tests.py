@@ -4,6 +4,7 @@ import dbs
 import comparison
 import time
 import json
+import os
 
 DBSC = ctypes.CDLL("cudamodel/cmake-build-debug/libdbs.so")
 TESTC = ctypes.CDLL("cudamodel/cmake-build-debug/libdbstest.so")
@@ -28,14 +29,10 @@ class TestBasic(unittest.TestCase):
         for i in range(timesteps):
             assert (cudamap["TH"]["VOLTAGE"][0][i] - matarr["TH"]["VOLTAGE"][0][i]) < thresh
             assert (cudamap["STN"]["VOLTAGE"][0][i] -  matarr["STN"]["VOLTAGE"][0][i]) < thresh
-"""
 class GeneratePython(unittest.TestCase):
-    def test_health(self):
-        cudamap = dbs.execute_simulation_debug( {"dt": 0.01, "duration": 1.0, "cells_per_type": 2})
-        print(cudamap["STN"]["VOLTAGE"])
-        with open("test.json", "w") as f:
-            json.dump(cudamap, f)
-"""
+    def test_healthy(self):
+        dbs.execute_simulation_debug( {"dt": 0.01, "duration": 1.0, "cells_per_type": 2})
+        #os.system("mv cudamodel/cmake-build-debug/output cudamodel/saved_tests/hey")
 if __name__ == "__main__":
     unittest.main()
 
