@@ -72,7 +72,6 @@ void BGNetwork::init_parameters() {
 void BGNetwork::init_result_structures() {
     int cell_counts = this->sim_params->cells_per_type;
     double total_dt = this->sim_params->duration / this->sim_params->dt; 
-    
     this -> voltage = (double***) malloc(CELL_TYPE_COUNT * sizeof(double**));
     this -> debug_states = (void***) malloc(CELL_TYPE_COUNT * sizeof(void**));
     for (int k = 0; k < CELL_TYPE_COUNT; ++k) { 
@@ -164,7 +163,19 @@ int BGNetwork::simulate_debug() {
         step += cycle_steps;
         if (step == total_steps) {this -> transfer_states(sim_state, this->debug_states, 0, step, cycle_steps);}
     }
-    
+   
+    for (int i = 0; i < this->sim_params->cells_per_type; ++i){
+        std::string filename = std::string("output/") + std::to_string(i) + ".txt";
+        std::cout << filename << std::endl;
+        std::ofstream out;
+        out.open(filename);
+        th_state_t* th_st = &(((th_state_t***) this->debug_states)[TH][i][0]); 
+        std::string th_i_debug = get_debug_string(th_st);
+        out << filename;
+        out << th_i_debug;
+        out.close();
+    }
+
     std::cout<< "End of Simulate Debug" << std::endl;
     return 0;
 }

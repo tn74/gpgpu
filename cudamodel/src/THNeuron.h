@@ -2,6 +2,8 @@
 // Created by Trishul Nagenalli on 2019-03-28.
 //
 
+#include<string>
+
 #pragma once
 
 typedef struct th_param {

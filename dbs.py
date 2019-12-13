@@ -40,12 +40,13 @@ def debug_results_to_py(sim_params, states_pointer_array):
     ret = {}
     ret["TH"] = {k.upper(): [[] for ci in range(sim_params["cells_per_type"])] for k, typ in THState._fields_}
     ret["STN"] = {k.upper(): [[] for ci in range(sim_params["cells_per_type"])] for k, typ in STNState._fields_}
+    print(states_pointer_array)
+    print(states_pointer_array.contents)
+    print(ctypes.addressof(states_pointer_array.contents))
     print("Before Cast")
     TH_PTR = ctypes.cast(states_pointer_array, ctypes.POINTER(ctypes.POINTER(ctypes.POINTER(THState))))
+    print("Casted TH")
     STN_PTR = ctypes.cast(states_pointer_array, ctypes.POINTER(ctypes.POINTER(ctypes.POINTER(STNState))))
-    print(ctypes.addressof(TH_PTR[0].contents))
-    print(ctypes.addressof(STN_PTR[1].contents))
-    print(ctypes.addressof(STN_PTR[2].contents))
     print("After Cast")
     for cell_ind in range(sim_params["cells_per_type"]):
         for t in range(time_steps):
