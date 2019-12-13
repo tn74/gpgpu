@@ -10,6 +10,7 @@
 #include "THNeuron.h"
 #include "STNNeuron.h"
 #include "GPeNeuron.h"
+#include "GPiNeuron.h"
 
 __global__ 
  void advance_step(void*** states, void** params, int number_of_cells,  double dt, int tbp, int timesteps_to_run) {   
@@ -51,10 +52,12 @@ void BGNetwork::init_states() {
         this->states[i][TH] = (void**) malloc(cell_counts * sizeof(void**));
         this->states[i][STN] = (void**) malloc(cell_counts * sizeof(void**));
         this->states[i][GPE] = (void**) malloc(cell_counts * sizeof(void**));
+        this->states[i][GPI] = (void**) malloc(cell_counts * sizeof(void**));
         cudaMallocManaged(&(this->states[i]), CELL_TYPE_COUNT * sizeof(void**));
         cudaMallocManaged(&(this->states[i][TH]), cell_counts * sizeof(void*));
         cudaMallocManaged(&(this->states[i][STN]), cell_counts * sizeof(void*));
         cudaMallocManaged(&(this->states[i][GPE]), cell_counts * sizeof(void*));
+        cudaMallocManaged(&(this->states[i][GPI]), cell_counts * sizeof(void*));
         for (int cell_ind = 0; cell_ind < cell_counts; ++cell_ind) {
             this->states[i][TH][cell_ind] = (th_state_t*) malloc(STEPS_PER_THREAD * sizeof(th_state));
             cudaMallocManaged(&(this->states[i][TH][cell_ind]), STEPS_PER_THREAD * sizeof(th_state));
@@ -62,6 +65,8 @@ void BGNetwork::init_states() {
             cudaMallocManaged(&(this->states[i][STN][cell_ind]), STEPS_PER_THREAD * sizeof(stn_state));
             this->states[i][GPE][cell_ind] = (gpe_state_t*) malloc(STEPS_PER_THREAD * sizeof(gpe_state));
             cudaMallocManaged(&(this->states[i][GPE][cell_ind]), STEPS_PER_THREAD * sizeof(gpe_state));
+            this->states[i][GPI][cell_ind] = (gpi_state_t*) malloc(STEPS_PER_THREAD * sizeof(gpi_state));
+            cudaMallocManaged(&(this->states[i][GPI][cell_ind]), STEPS_PER_THREAD * sizeof(gpi_state));
         }
     }
 }
@@ -84,6 +89,11 @@ void BGNetwork::init_parameters() {
     cudaMallocManaged(&params[GPE], sizeof(gpe_param_t));
     auto gpe_param = (gpe_param_t *) params[GPE];
     init_gpe_param(gpe_param);
+    
+    this->params[GPI] = malloc(sizeof(gpi_param_t));
+    cudaMallocManaged(&params[GPI], sizeof(gpi_param_t));
+    auto gpi_param = (gpi_param_t *) params[GPI];
+    init_gpi_param(gpi_param);
 }
 
 void BGNetwork::init_result_structures() {
@@ -99,6 +109,7 @@ void BGNetwork::init_result_structures() {
             if (k == TH){(this->debug_states)[k][cell_ind] = (th_state_t*) malloc(total_dt * sizeof(th_state_t));}
             if (k == STN){(this->debug_states)[k][cell_ind] = (stn_state_t*) malloc(total_dt * sizeof(stn_state_t));}
             if (k == GPE){(this->debug_states)[k][cell_ind] = (gpe_state_t*) malloc(total_dt * sizeof(gpe_state_t));}
+            if (k == GPI){(this->debug_states)[k][cell_ind] = (gpi_state_t*) malloc(total_dt * sizeof(gpi_state_t));}
         }
     }
 }
@@ -109,10 +120,12 @@ void BGNetwork::initialize_cells() {
     auto th_start = (th_state_t**) this->states[0][TH];
     auto stn_start = (stn_state_t**) this->states[0][STN];
     auto gpe_start = (gpe_state_t**) this->states[0][GPE];
+    auto gpi_start = (gpi_state_t**) this->states[0][GPI];
     for (int i = 0; i < sim_params-> cells_per_type; ++i) {
         init_state(&th_start[i][0]); //0'th time index of each cell
         init_state(&stn_start[i][0]);
         init_state(&gpe_start[i][0]);
+        init_state(&gpi_start[i][0]);
     }
 }
 
@@ -137,7 +150,7 @@ void BGNetwork::transfer_voltage(void*** from_states, void*** to_states, int fro
             ((th_state_t***) to_states)[TH][cell_ind][to_t + t].voltage = ((th_state_t***) from_states) [TH][cell_ind][from_t + t].voltage;
             ((stn_state_t***) to_states)[STN][cell_ind][t].voltage = ((stn_state_t***) from_states) [STN][cell_ind][t].voltage;
             ((gpe_state_t***) to_states)[GPE][cell_ind][t].voltage = ((gpe_state_t***) from_states) [GPE][cell_ind][t].voltage;
-            //((th_state_t***) to_states)[GPI][cell_ind][t].voltage = ((th_state_t***) from_states) [GPI][cell_ind][t].voltage;
+            ((gpi_state_t***) to_states)[GPI][cell_ind][t].voltage = ((gpi_state_t***) from_states) [GPI][cell_ind][t].voltage;
         }
     }
 }
@@ -149,7 +162,7 @@ void BGNetwork::transfer_states(void*** from_states, void*** to_states, int from
             ((th_state_t***) to_states)[TH][cell_ind][to_t + t] = ((th_state_t***) from_states) [TH][cell_ind][from_t + t];
             ((stn_state_t***) to_states)[STN][cell_ind][to_t + t] = ((stn_state_t***) from_states) [STN][cell_ind][from_t + t];
             ((gpe_state_t***) to_states)[GPE][cell_ind][to_t + t] = ((gpe_state_t***) from_states) [GPE][cell_ind][from_t + t];
-            //((stn_state_t***) to_states)[STN][cell_ind][to_t + t] = ((stn_state_t***) from_states) [STN][cell_ind][from_t + t];
+            ((gpi_state_t***) to_states)[GPI][cell_ind][to_t + t] = ((gpi_state_t***) from_states) [GPI][cell_ind][from_t + t];
         }
     }
 }
@@ -202,6 +215,7 @@ int BGNetwork::simulate_debug() {
                 if(type == TH){debug_line = get_debug_string(&(((th_state_t***) this->debug_states)[TH][i][t]));} 
                 if(type == STN){debug_line = get_debug_string(&(((stn_state_t***) this->debug_states)[STN][i][t]));} 
                 if(type == GPE){debug_line = get_debug_string(&(((gpe_state_t***) this->debug_states)[GPE][i][t]));} 
+                if(type == GPI){debug_line = get_debug_string(&(((gpi_state_t***) this->debug_states)[GPI][i][t]));} 
                 out << debug_line << std::endl;
             }
             out.close();

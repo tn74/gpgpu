@@ -9,6 +9,7 @@
 #include "THNeuron.h"
 #include "STNNeuron.h"
 #include "GPeNeuron.h"
+#include "GPiNeuron.h"
 #pragma once
 
 #define TH 0
