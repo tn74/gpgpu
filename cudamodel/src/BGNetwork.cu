@@ -41,6 +41,13 @@ __global__
             compute_next_state(state_series + timestep, state_series + timestep + 1, param, dt);
         }
     }
+    if (cell_type == 3) {
+        gpi_state_t* state_series = ((gpi_state_t***)states)[cell_type][cell_ind];
+        gpi_param_t* param = (gpi_param_t*) params[3];
+        for (int timestep = 0; timestep < timesteps_to_run; ++timestep) {
+            compute_next_state(state_series + timestep, state_series + timestep + 1, param, dt);
+        }
+    }
  }
 
 
