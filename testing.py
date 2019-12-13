@@ -29,6 +29,13 @@ class TestBasic(unittest.TestCase):
         thresh = 1e-5
         for i in range(1, len(cuda["TH"]["VOLTAGE"])):
             assert abs(cuda["GPE"]["VOLTAGE"][0][i] - matlab["GPE"]["VOLTAGE"][0][i]) < thresh
+
+    def test_GPI(self):
+        matlab = LOADER.load_matlab("healthy_isolated_cells")
+        cuda = LOADER.load_cpp("cudamodel/saved_tests/basic2")
+        thresh = 1e-5
+        for i in range(1, len(cuda["TH"]["VOLTAGE"])):
+            assert abs(cuda["GPI"]["VOLTAGE"][0][i] - matlab["GPI"]["VOLTAGE"][0][i]) < thresh
 if __name__ == "__main__":
     unittest.main()
 
