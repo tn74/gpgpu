@@ -8,6 +8,7 @@
 #include <map>
 #include "THNeuron.h"
 #include "STNNeuron.h"
+#include "GPeNeuron.h"
 #pragma once
 
 #define TH 0
