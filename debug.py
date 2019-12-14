@@ -24,16 +24,18 @@ class StateViewer:
                 oth_val = "missing"
             print(f"{k}: {v[0][index]}  {oth_val}")
 
-with open('test.json', 'r') as f:
-    healthy_cells = json.load(f)
 
-matarr = comparison.Loader().load_matlab('healthy_isolated_cells')
-matState = StateViewer(matarr)
-cudaState = StateViewer(healthy_cells)
-matState.print_index("STN", 1)
-print('')
-cudaState.print_index("STN", 1)
-print("")
-matState.compare_states(cudaState, "STN", 0)
-print("")
-matState.compare_states(cudaState, "STN", 1)
+
+LOADER = comparison.Loader()
+COMPARATOR = comparison.Comparator()
+
+
+matlab = LOADER.load_matlab("healthy_isolated_cells")
+cuda = LOADER.load_cpp("cudamodel/saved_tests/basic2")
+thresh = 1e-5
+for i in range(1, len(cuda["TH"]["VOLTAGE"])):
+    assert abs(cuda["TH"]["VOLTAGE"][0][i] - matlab["TH"]["VOLTAGE"][0][i]) < thresh
+
+COMPARATOR.plot_voltage_differential(matlab, cuda)
+
+

@@ -87,6 +87,7 @@ class Comparator:
                 voltage = c[cell_type]['VOLTAGE'][0]
                 x = np.linspace(0, 0.01 * len(voltage), len(voltage))
                 axes[i, 1].plot(x, voltage)
+        plt.savefig('voltages.png')
         plt.show()
 
     def see_differences(self, mc, cc, print_range=(0, 5)):
@@ -103,13 +104,14 @@ class Comparator:
         fig, axes = plt.subplots(4,1)
         for type_index, cell_type in enumerate(m.keys()):
             m_voltage = m[cell_type]["VOLTAGE"]
-            c_voltage = c[cell_type]["VOLTAGE"]
+            c_voltage = c[cell_type]["VOLTAGE"][0:1]
             for cell_index in range(min(len(m_voltage), len(c_voltage))):
-                x = np.linspace(0, 0.01 * len(m_voltage[0]), len(m_voltage[0]))
-                difference = m_voltage[cell_index] - c_voltage[cell_index]
+                x = np.linspace(0, 0.01 * len(m_voltage[0]), len(m_voltage[0]))[1:10000]
+                difference = m_voltage[cell_index][1:10000] - c_voltage[cell_index][1:10000]
                 axes[type_index].plot(x, difference, label="Cell {}".format(cell_index))
                 axes[type_index].set_title(cell_type)
         fig.legend()
+        plt.savefig('differentials.png')
         plt.show()
 
 
