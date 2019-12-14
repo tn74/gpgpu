@@ -24,8 +24,6 @@ class StateViewer:
                 oth_val = "missing"
             print(f"{k}: {v[0][index]}  {oth_val}")
 
-with open('test.json', 'r') as f:
-    healthy_cells = json.load(f)
 
 matarr = comparison.Loader().load_matlab('healthy_isolated_cells')
 matState = StateViewer(matarr)
