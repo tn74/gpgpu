@@ -101,18 +101,18 @@ class Comparator:
                 print()
 
     def plot_voltage_differential(self, m, c):
-        fig, axes = plt.subplots(4,1)
+        fig, axes = plt.subplots(4,1, figsize=(6,12))
+        fig.suptitle("Voltage Differentials")
         for type_index, cell_type in enumerate(m.keys()):
             m_voltage = m[cell_type]["VOLTAGE"]
-            c_voltage = c[cell_type]["VOLTAGE"][0:1]
+            c_voltage = c[cell_type]["VOLTAGE"][1:2]
             for cell_index in range(min(len(m_voltage), len(c_voltage))):
-                x = np.linspace(0, 0.01 * len(m_voltage[0]), len(m_voltage[0]))[1:10000]
-                difference = m_voltage[cell_index][1:10000] - c_voltage[cell_index][1:10000]
+                display_length = len(c_voltage[cell_index])
+                x = np.linspace(0, 0.01 * len(m_voltage[0]), len(m_voltage[0]))[:display_length]
+                difference = m_voltage[cell_index][:display_length] - c_voltage[cell_index]
                 axes[type_index].plot(x, difference, label="Cell {}".format(cell_index))
                 axes[type_index].set_title(cell_type)
-        fig.legend()
-        plt.savefig('differentials.png')
-        plt.show()
+        plt.savefig("differentials.png")
 
 
 if __name__ == "__main__":

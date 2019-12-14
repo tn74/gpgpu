@@ -41,6 +41,13 @@ __global__
             compute_next_state(state_series + timestep, state_series + timestep + 1, param, dt);
         }
     }
+    if (cell_type == 3) {
+        gpi_state_t* state_series = ((gpi_state_t***)states)[cell_type][cell_ind];
+        gpi_param_t* param = (gpi_param_t*) params[3];
+        for (int timestep = 0; timestep < timesteps_to_run; ++timestep) {
+            compute_next_state(state_series + timestep, state_series + timestep + 1, param, dt);
+        }
+    }
  }
 
 
@@ -168,6 +175,30 @@ void BGNetwork::transfer_states(void*** from_states, void*** to_states, int from
 }
 
 int BGNetwork::simulate() {
+    int total_steps = this->sim_params->duration / this->sim_params->dt;
+    int step = 0;
+    int cycles= 0;
+    std::cout << "Total Steps: " << total_steps << std::endl;
+    while(step < total_steps) {
+        int cycle_steps = total_steps - step;
+        if (cycle_steps >= STEPS_PER_THREAD-1) {cycle_steps = STEPS_PER_THREAD-1;}
+     
+        void*** sim_state = this->states[cycles  % STATE_COUNT];
+        void*** rest_state = this->states[(cycles + 1) % STATE_COUNT];
+        int block_count = (sim_params->cells_per_type * CELL_TYPE_COUNT) / THREADS_PER_BLOCK;
+        if ((sim_params->cells_per_type * CELL_TYPE_COUNT) % THREADS_PER_BLOCK > 0){block_count ++;}
+        
+        std::cout << "Cuda Error: " << cudaGetErrorString(cudaGetLastError()) << std::endl;
+        advance_step<<<block_count, THREADS_PER_BLOCK>>>(sim_state, params, sim_params->cells_per_type, sim_params->dt, THREADS_PER_BLOCK, cycle_steps);
+        cudaDeviceSynchronize();
+        this -> transfer_states(sim_state, this->debug_states, 0, step, cycle_steps);        
+        std::cout << "Cuda Error: " << cudaGetErrorString(cudaGetLastError()) << std::endl;
+        this -> transfer_voltage(sim_state, rest_state, cycle_steps, 0, 1);
+        
+        cycles++;
+        step += cycle_steps;
+        if (step == total_steps) {this -> transfer_states(sim_state, this->debug_states, 0, step, cycle_steps);}
+    }
     return 0;
 }
 

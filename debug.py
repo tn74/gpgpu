@@ -37,5 +37,3 @@ for i in range(1, len(cuda["TH"]["VOLTAGE"])):
     assert abs(cuda["TH"]["VOLTAGE"][0][i] - matlab["TH"]["VOLTAGE"][0][i]) < thresh
 
 COMPARATOR.plot_voltage_differential(matlab, cuda)
-
-
