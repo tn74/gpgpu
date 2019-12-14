@@ -1,3 +1,0 @@
-/home/nvidia/Documents/dbs/gpgpu/cudamodel/CMakeFiles/rebuild_cache.dir
-/home/nvidia/Documents/dbs/gpgpu/cudamodel/CMakeFiles/dbsmain.dir
-/home/nvidia/Documents/dbs/gpgpu/cudamodel/CMakeFiles/edit_cache.dir
